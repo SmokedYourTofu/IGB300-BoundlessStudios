@@ -18,4 +18,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         }
     }
+
+    public void Interact() {
+        Debug.Log("Interacted");
+    }
 }
