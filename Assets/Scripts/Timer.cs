@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
 
     public float TimeLeft;
-    private bool TimerOn = false;
+    public bool TimerOn = false;
 
     private TMP_Text timerText;
 
