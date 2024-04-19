@@ -1515,6 +1515,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1278326610}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &808457715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808457716}
+  m_Layer: 0
+  m_Name: MG Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808457716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808457715}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1142130735}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862948078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,6 +2427,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1929987167}
+  - {fileID: 808457716}
   m_Father: {fileID: 1475139282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1142130736
@@ -2784,6 +2816,37 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!1 &1230819740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230819741}
+  m_Layer: 0
+  m_Name: MG Spawnpoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230819741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230819740}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.405, y: 0.5, z: -6.4449997}
+  m_LocalScale: {x: 3, y: 1, z: 0.33333334}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2103255007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231237227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3359,6 +3422,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   microGameSOList:
   - {fileID: 11400000, guid: 8e2c25374385bb84aaa58bc135bacd0a, type: 2}
+  - {fileID: 11400000, guid: a1913d1462dee314b80ea46fc5e23c8c, type: 2}
+  - {fileID: 11400000, guid: 742bab2c5650b2344991d14563ca9e2f, type: 2}
+  - {fileID: 11400000, guid: 96967704ad5d07141831320028a63d95, type: 2}
+  - {fileID: 11400000, guid: d7ed323884fd70348bd433b261eb2792, type: 2}
+  - {fileID: 11400000, guid: 994cd11cd6db99b4da3737b24967d9cd, type: 2}
+  spawnPoints:
+  - {fileID: 808457716}
+  - {fileID: 1230819741}
+  spawnTimer: 5
+  timerGameObject: {fileID: 1268064661}
+  timerOn: 0
 --- !u!4 &1508928113
 Transform:
   m_ObjectHideFlags: 0
@@ -4363,6 +4437,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 876319242}
+  - {fileID: 1230819741}
   m_Father: {fileID: 1475139282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2103255008

@@ -45,6 +45,7 @@ public class SpawnMicrogame : MonoBehaviour
     {
         while (timerScript.TimeLeft > 0)
         {
+            // eventually turn this into a forloop? - alex
             microChoice = Random.Range(1, 6);
             if (microChoice == 1)
             {
