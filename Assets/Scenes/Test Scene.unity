@@ -1286,11 +1286,11 @@ MonoBehaviour:
   currentSpeed: 15
   rotationSpeed: 700
   dashForce: 7
-  dashCooldown: 1.5
+  dashCooldown: 2
   dashCooldownTimer: 0
   speedPenalty: 7
   speedPenaltyTimer: 0
-  speedPenaltyDuration: 2
+  speedPenaltyDuration: 1.5
 --- !u!54 &862948081
 Rigidbody:
   m_ObjectHideFlags: 0
