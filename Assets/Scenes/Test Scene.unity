@@ -2510,14 +2510,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1162075916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68d5db186a5ede41a0b751e0dac121f, type: 3}
+  m_Script: {fileID: 11500000, guid: c63f74352e7ed1b40b1552c51fb7b452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeWait: 15
-  rotateTimer: 15
-  timerGameObject: {fileID: 1268064661}
-  timerOn: 0
-  isOpen: 1
+  rotationSpeed: 40
+  shouldRotate: 0
+  rotateBack: 0
+  timer: 0
+  rotateInterval: 5
 --- !u!1 &1170322518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,14 +3748,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1618520057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68d5db186a5ede41a0b751e0dac121f, type: 3}
+  m_Script: {fileID: 11500000, guid: c63f74352e7ed1b40b1552c51fb7b452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeWait: 5
-  rotateTimer: 5
-  timerGameObject: {fileID: 1268064661}
-  timerOn: 0
-  isOpen: 1
+  rotationSpeed: 40
+  shouldRotate: 0
+  rotateBack: 0
+  timer: 0
+  rotateInterval: 10
 --- !u!1 &1627398915
 GameObject:
   m_ObjectHideFlags: 0
