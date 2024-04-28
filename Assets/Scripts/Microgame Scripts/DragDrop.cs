@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DragDrop : MonoBehaviour
 {
+    [SerializeField] private GameObject Microgame;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Canvas Controlcanvas;
     private Vector2 currentPos;
@@ -34,7 +35,7 @@ public class DragDrop : MonoBehaviour
         {
             //do score/points or tally completed part of task
 
-            Destroy(canvas);
+            Destroy(Microgame);
             Controlcanvas.enabled = true;
         }
     }

@@ -269,7 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc3ee958ab2757479704097683135cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  Microgame: {fileID: 4873305171675956512}
+  canvas: {fileID: 5555487461967669807}
   Controlcanvas: {fileID: 0}
 --- !u!114 &2731130167869777946
 MonoBehaviour:

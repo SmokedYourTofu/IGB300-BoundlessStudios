@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18cd2adb6271f3e4e952af83a42ddb05, type: 3}
-  m_Name: Example SO 4
+  m_Name: 4 Unplug Printer
   m_EditorClassIdentifier: 
-  ID: 5
-  microGameName: Game Name
-  microGameObject: {fileID: 4095893944600578132, guid: deace5d7b97ed7d4ea9d8f495a1ca9da,
+  ID: 4
+  microGameName: Unplug Printer
+  microGameObject: {fileID: 4873305171675956512, guid: 28a31931d38223b498b3d992d2aaa568,
     type: 3}
-  prefabTransform: {fileID: 6433459220813174114, guid: deace5d7b97ed7d4ea9d8f495a1ca9da,
+  prefabTransform: {fileID: 6433459220813174114, guid: 2e791b907fa9e1947a466be63988b3c4,
     type: 3}

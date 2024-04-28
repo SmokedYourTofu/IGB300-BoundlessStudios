@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     public void Interact() {
         Debug.Log("Interacted");
+        //if (Physics.SphereCast())
     }
 
     public void Dash() {

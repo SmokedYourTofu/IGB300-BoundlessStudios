@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DriveSmashCollision : MonoBehaviour
-{
+public class DriveSmashCollision : MonoBehaviour 
+    {
+    [SerializeField] private GameObject microgame;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Canvas Controlcanvas;
     [SerializeField] private GameObject drive;
@@ -32,7 +33,7 @@ public class DriveSmashCollision : MonoBehaviour
             {
                 //do score/points/animation or tally completed part of task
 
-                Destroy(canvas);
+                Destroy(microgame);
                 Controlcanvas.enabled = true;
             }
         }

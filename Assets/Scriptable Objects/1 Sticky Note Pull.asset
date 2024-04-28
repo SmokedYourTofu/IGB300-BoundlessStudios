@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18cd2adb6271f3e4e952af83a42ddb05, type: 3}
-  m_Name: Example SO 3
+  m_Name: 1 Sticky Note Pull
   m_EditorClassIdentifier: 
-  ID: 4
-  microGameName: Game Name
-  microGameObject: {fileID: 4095893944600578132, guid: 2e791b907fa9e1947a466be63988b3c4,
+  ID: 1
+  microGameName: Sticky Note Pull
+  microGameObject: {fileID: 202798891596275768, guid: 8a1107fc288238848a82b03ce06a2015,
     type: 3}
-  prefabTransform: {fileID: 6433459220813174114, guid: 2e791b907fa9e1947a466be63988b3c4,
+  prefabTransform: {fileID: 6433459220813174114, guid: eff6afa0d38248c42bde7143c8727279,
     type: 3}

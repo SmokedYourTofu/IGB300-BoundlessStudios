@@ -539,9 +539,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec2a0a4c3fa10f46b7cd2f2ec998e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  microgame: {fileID: 1083491167356959698}
   canvas: {fileID: 0}
   Controlcanvas: {fileID: 0}
-  drive: {fileID: 0}
+  drive: {fileID: 1083491167356959698}
 --- !u!1 &8736599586345740368
 GameObject:
   m_ObjectHideFlags: 0
