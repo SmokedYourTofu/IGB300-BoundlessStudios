@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour
     public float speedPenaltyTimer;
     public float speedPenaltyDuration;
 
+    public Camera camera_1;
+    public Camera camera_2;
+    public GameObject environment;
+    public GameObject microgame1;
+    public GameObject controls;
+
     private void Update() {
         if(dashCooldownTimer > 0) {
             dashCooldownTimer -= Time.deltaTime;
@@ -48,6 +54,12 @@ public class PlayerController : MonoBehaviour
     public void Interact() {
         Debug.Log("Interacted");
         //if (Physics.SphereCast())
+        camera_2.gameObject.SetActive(true);
+        microgame1.gameObject.SetActive(true);
+        camera_1.gameObject.SetActive(false);
+        environment.SetActive(false);
+        controls.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     public void Dash() {
