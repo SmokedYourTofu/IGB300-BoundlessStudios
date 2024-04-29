@@ -32,7 +32,7 @@ public class DoorOpen2 : MonoBehaviour
             // Rotate smoothly by 160 degrees over 5 seconds
             transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
 
-            if (transform.rotation.eulerAngles.y <= 0.2f)
+            if (transform.rotation.eulerAngles.y <= 0.3f)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 shouldRotate = false;
