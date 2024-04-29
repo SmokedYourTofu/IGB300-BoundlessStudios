@@ -1388,6 +1388,10 @@ MonoBehaviour:
   environment: {fileID: 1278326609}
   microgame1: {fileID: 979118496}
   controls: {fileID: 299791602}
+  isDashing: 0
+  isRecovering: 0
+  hasDashed: 0
+  state: 0
 --- !u!54 &862948081
 Rigidbody:
   m_ObjectHideFlags: 0
