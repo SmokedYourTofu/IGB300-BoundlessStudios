@@ -29,6 +29,19 @@ public class PlayerController : MonoBehaviour
     public GameObject microgame1;
     public GameObject controls;
 
+    public bool isDashing;
+    public bool isRecovering;
+    public bool hasDashed;
+
+    public MovementState state;
+
+    public enum MovementState {
+        moving,
+        dashing,
+        recovering,
+    }
+
+
     private void Update() {
         if(dashCooldownTimer > 0) {
             dashCooldownTimer -= Time.deltaTime;
@@ -36,9 +49,30 @@ public class PlayerController : MonoBehaviour
 
         if(speedPenaltyTimer > 0) {
             speedPenaltyTimer -= Time.deltaTime;
+            isRecovering = true;
+            currentSpeed = speedPenalty;
         } else {
             currentSpeed = baseSpeed;
+            isRecovering = false;
         }
+
+        StateHandler();
+    }
+
+    private void StateHandler() {
+        if (isRecovering && hasDashed) {
+            state = MovementState.recovering;
+            hasDashed = false;
+            isDashing = false;
+            Debug.Log(state);
+        } else if (isDashing) {
+            state = MovementState.dashing;
+            hasDashed = true;
+            Debug.Log(state);
+        } else if (!isDashing && !hasDashed) {
+            state = MovementState.moving;
+        }
+        
     }
 
     private void FixedUpdate() {
@@ -51,6 +85,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // might move interaction to its own script later since this script will start to get long
     public void Interact() {
         Debug.Log("Interacted");
         //if (Physics.SphereCast())
@@ -71,7 +106,9 @@ public class PlayerController : MonoBehaviour
         Vector3 dash = orientation.forward * dashForce;
         rb.AddForce(dash, ForceMode.VelocityChange);
 
-        speedPenaltyTimer = speedPenaltyDuration;
+        isDashing = true;
+
         currentSpeed = speedPenalty;
+        speedPenaltyTimer = speedPenaltyDuration;
     }
 }
