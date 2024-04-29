@@ -1290,7 +1290,7 @@ MonoBehaviour:
   dashCooldownTimer: 0
   speedPenalty: 7
   speedPenaltyTimer: 0
-  speedPenaltyDuration: 1.5
+  speedPenaltyDuration: 1
 --- !u!54 &862948081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4670,6 +4670,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Variable Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230,
+        type: 3}
+      propertyPath: moveThreshold
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115470, guid: ec536a7718376554185e4a856d5ae230,
         type: 3}
