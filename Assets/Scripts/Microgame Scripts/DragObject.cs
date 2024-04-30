@@ -56,23 +56,28 @@ public class DragObject3D : MonoBehaviour
                     // If the object is being dragged, move it according to touch position
                     if (isDragging)
                     {
-                        Ray newRay = camera_2.ScreenPointToRay(touch.position);
-                        float distance;
-                        Plane plane = new Plane(Vector3.up, transform.position);
-                        if (plane.Raycast(newRay, out distance))
-                        {
-                            Vector3 newPosition = newRay.GetPoint(distance) - touchOffset;
-                            //Vector3 newPosition = touch.position;
-                            newPosition.z = startPos.z;
-                            transform.position = newPosition;
-                        }
+                        //Ray newRay = camera_2.ScreenPointToRay(touch.position);
+                        //float distance;
+                        //Plane plane = new Plane(Vector3.up, transform.position);
+                        //if (plane.Raycast(newRay, out distance))
+                        //{
+                        //    Vector3 newPosition = newRay.GetPoint(distance) - touchOffset;
+                        //    //Vector3 newPosition = touch.position;
+                        //    newPosition.z = startPos.z;
+                        //    transform.position = newPosition;
+                        //}
+
+                        Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, startPos.z);
+                        newPosition = camera_2.ScreenToWorldPoint(newPosition);
+                        //newPosition.z = startPos.z;
+                        transform.position = newPosition;
                     }
                     break;
 
                 case TouchPhase.Ended:
                     // End dragging
                     isDragging = false;
-                    if (Vector3.Distance(startPos, transform.position) > 30f)
+                    if (Vector3.Distance(startPos, transform.position) > 10f)
                     {
                         this.transform.position = startPos;
                         //do points and stuff
