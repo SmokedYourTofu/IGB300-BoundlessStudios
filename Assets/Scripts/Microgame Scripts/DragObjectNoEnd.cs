@@ -1,24 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class DragObject3D : MonoBehaviour
+public class DragObjectNoEnd : MonoBehaviour
 {
     private bool isDragging = false;
-    private Vector3 touchOffset;
-    private Vector3 startPos;
-    private GameObject myParent;
     public Camera camera_2;
-    public Camera camera_1;
-    public GameObject environment;
-    public GameObject controls;
-    public GameObject player;
     public float holdDistance;
 
     private void Start()
     {
-        startPos = transform.position;
         transform.parent.gameObject.SetActive(false);
     }
 
@@ -47,7 +38,6 @@ public class DragObject3D : MonoBehaviour
                         if (hit.collider.gameObject == gameObject)
                         {
                             // Calculate the offset between touch point and object position
-                            touchOffset = hit.point - transform.position;
                             isDragging = true;
                         }
                     }
@@ -67,22 +57,8 @@ public class DragObject3D : MonoBehaviour
                 case TouchPhase.Ended:
                     // End dragging
                     isDragging = false;
-                    if (Vector3.Distance(startPos, transform.position) > 10f)
-                    {
-                        this.transform.position = startPos;
-                        //do points and stuff
-
-                        transform.parent.gameObject.SetActive(false);
-                        camera_1.gameObject.SetActive(true);
-                        camera_2.gameObject.SetActive(false);
-                        environment.SetActive(true);
-                        controls.SetActive(true);
-                        player.SetActive(true);
-                    }
                     break;
             }
         }
     }
 }
-
-
