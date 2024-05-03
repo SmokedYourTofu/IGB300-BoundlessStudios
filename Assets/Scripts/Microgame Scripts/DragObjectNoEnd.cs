@@ -6,11 +6,12 @@ public class DragObjectNoEnd : MonoBehaviour
 {
     private bool isDragging = false;
     public Camera camera_2;
-    public float holdDistance;
+    private float holdDistance;
 
     private void Start()
     {
         transform.parent.gameObject.SetActive(false);
+        holdDistance = Vector3.Distance(transform.position, camera_2.transform.position);
     }
 
     private void Update()
