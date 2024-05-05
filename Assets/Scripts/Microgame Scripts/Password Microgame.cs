@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class PasswordMicrogame : MonoBehaviour
 {
@@ -17,14 +18,21 @@ public class PasswordMicrogame : MonoBehaviour
     public TMP_Text passwordText;
     private GameObject[] buttons = new GameObject[6];
 
+    public GameObject environment;
+    public GameObject controls;
+    public GameObject player;
+    public Camera camera_2;
+    public Camera camera_1;
+
     private void Awake()
     {
         buttons = GameObject.FindGameObjectsWithTag("passwordButton");
-        int length = Random.Range(8, 12);
-        requiredChar = characters[Random.Range(0, 53)];
+        int length = UnityEngine.Random.Range(8, 12);
+        Debug.Log(length);
+        requiredChar = characters[UnityEngine.Random.Range(0, 53)];
 
-        generateTruePassword();
-        generateFalsePasswords();
+        generateTruePassword(length);
+        generateFalsePasswords(length);
 
         var rng = new System.Random();
         rng.Shuffle(passwords);
@@ -41,41 +49,35 @@ public class PasswordMicrogame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.parent.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void generateTruePassword(int length)
     {
-        
-    }
-
-    private void generateTruePassword()
-    {
-        int requiredLoc = Random.Range(0, length);
+        int requiredLoc = UnityEngine.Random.Range(0, length);
         for (int i = 0; i < length; i++) 
         {
             if (i == requiredLoc)
             {
-                realPassword = realPassword + requiredChar;
+                realPassword += requiredChar.ToString();
             }
-            else
+            else if (i != requiredLoc)
             {
-                int a = Random.Range(0, 53);
-                realPassword = realPassword + characters[a];
+                int a = UnityEngine.Random.Range(0, 53);
+                realPassword += characters[a].ToString();
             }
         }
         passwords[0] = realPassword;
     }
 
-    private void generateFalsePasswords()
+    private void generateFalsePasswords(int length)
     {
         //create password of incorrect length
 
-        int lengthLess = Random.Range(0, 2);
+        int lengthLess = UnityEngine.Random.Range(0, 2);
         int newLength = length - lengthLess;
-        int requiredLoc = Random.Range(0, lengthLess);
-        for (int i = 0; i < lengthLess; i++)
+        int requiredLoc = UnityEngine.Random.Range(0, newLength);
+        for (int i = 0; i < newLength; i++)
         {
             if (i == requiredLoc)
             {
@@ -83,7 +85,7 @@ public class PasswordMicrogame : MonoBehaviour
             }
             else
             {
-                int a = Random.Range(0, 53);
+                int a = UnityEngine.Random.Range(0, 53);
                 badPassword = badPassword + characters[a];
             }
         }
@@ -94,7 +96,7 @@ public class PasswordMicrogame : MonoBehaviour
 
         for (int i = 0; i < length; i++)
         {
-            int a = Random.Range(0, 53);
+            int a = UnityEngine.Random.Range(0, 53);
             badPassword = badPassword + characters[a];
         }
         passwords[2] = badPassword;
@@ -102,9 +104,9 @@ public class PasswordMicrogame : MonoBehaviour
 
         //create password with recognisable word in it
 
-        int randWord = Random.Range(0, 7);
+        int randWord = UnityEngine.Random.Range(0, 7);
         badPassword += words[randWord];
-        requiredLoc = Random.Range(3, length);
+        requiredLoc = UnityEngine.Random.Range(3, length);
         for (int i = 3; i < length; i++)
         {
             if (i == requiredLoc)
@@ -113,7 +115,7 @@ public class PasswordMicrogame : MonoBehaviour
             }
             else
             {
-                int a = Random.Range(0, 53);
+                int a = UnityEngine.Random.Range(0, 53);
                 badPassword = badPassword + characters[a];
             }
         }
@@ -122,12 +124,12 @@ public class PasswordMicrogame : MonoBehaviour
 
         //generate two more passwords with multiple issues
 
-        randWord = Random.Range(0, 7);
+        randWord = UnityEngine.Random.Range(0, 7);
         badPassword += words[randWord];
-        requiredLoc = Random.Range(3, length);
+        requiredLoc = UnityEngine.Random.Range(3, length);
         for (int i = 3; i < length; i++)
         {
-            int a = Random.Range(0, 53);
+            int a = UnityEngine.Random.Range(0, 53);
             badPassword = badPassword + characters[a];
         }
         passwords[4] = badPassword;
@@ -135,11 +137,21 @@ public class PasswordMicrogame : MonoBehaviour
 
         for (int i = 0; i < length - 1; i++)
         {
-            int a = Random.Range(0, 53);
+            int a = UnityEngine.Random.Range(0, 53);
             badPassword = badPassword + characters[a];
         }
         passwords[5] = badPassword;
         badPassword = null;
+    }
+
+    public void resetGame()
+    {
+        transform.parent.gameObject.SetActive(false);
+        camera_1.gameObject.SetActive(true);
+        camera_2.gameObject.SetActive(false);
+        environment.SetActive(true);
+        controls.SetActive(true);
+        player.SetActive(true);
     }
 }
 

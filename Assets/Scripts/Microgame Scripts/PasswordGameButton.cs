@@ -16,15 +16,16 @@ public class PasswordGameButton : MonoBehaviour
     {
         buttonText = this.transform.GetChild(0).gameObject;
         psMicrogame = passwordController.GetComponent<PasswordMicrogame>();
-        truePassword = psMicrogame.realPassword;
         passwordText = buttonText.GetComponent<TMP_Text>();
     }
 
     public void onButtonHit()
     {
+        truePassword = psMicrogame.realPassword;
         if (passwordText.text == truePassword)
         {
             //do score and other stuff
+            psMicrogame.resetGame();
         }
         else
         {
