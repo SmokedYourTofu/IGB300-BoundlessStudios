@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public int gameScene;
-    public int mainMenu;
+    public int mainMenu = 0;
+    public int levelsScene = 1;
+    public int gameScene = 2;
     public bool isPaused;
+    
 
     public GameObject pauseMenu;
     public GameObject UI;
@@ -32,10 +34,13 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(gameScene);
+        Time.timeScale = 1.0f;
+        isPaused = false;
     }
 
     public void MainMenu()
     {
+        Time.timeScale = 0.0f;
         SceneManager.LoadScene(mainMenu);
     }
 
@@ -65,6 +70,11 @@ public class MenuManager : MonoBehaviour
         UI.SetActive(true);
         Time.timeScale = 1.0f;
         isPaused = false;
+    }
+
+    public void Levels()
+    {
+        SceneManager.LoadScene(levelsScene);
     }
 
 }
