@@ -9,6 +9,13 @@ public class Interact : MonoBehaviour
 
     private Ray ray;
     private RaycastHit raycastHit;
+
+
+    public Camera camera_1;
+    public Camera camera_2;
+    public GameObject environment;
+    public GameObject microgame1;
+    public GameObject controls;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,4 +39,15 @@ public class Interact : MonoBehaviour
 #endif
 
     // Where all interactions functions will be
+
+    //made a simple method just to access microgames so I can test them in editor (THIS IS NOT FINAL)
+    public void accessMicrogame()
+    {
+        camera_2.gameObject.SetActive(true);
+        microgame1.gameObject.SetActive(true);
+        camera_1.gameObject.SetActive(false);
+        environment.SetActive(false);
+        controls.SetActive(false);
+        this.gameObject.SetActive(false);
+    }
 }
