@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed;
+    public float currentSpeed;
     public float rotationSpeed;
     public float drag;
 
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         StateHandler();
+        currentSpeed = rb.velocity.magnitude;
     }
 
     private void FixedUpdate() {
@@ -49,7 +51,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void StateHandler() {
-        // handles states
+        // if dash is pressed change to dashing
+        // if drag is = to 10 change to recovering
+        // else change to moving
     }
 
     public void Dashing() {
