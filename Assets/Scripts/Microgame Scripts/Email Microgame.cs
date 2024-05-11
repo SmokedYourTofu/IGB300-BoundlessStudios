@@ -168,6 +168,11 @@ public class EmailMicrogame : MonoBehaviour
 
     private void endGame()
     {
+        //reset game for next time
+        choice = UnityEngine.Random.Range(0, 3);
+        issues = UnityEngine.Random.Range(0, 3);
+        ChooseEmail(choice);
+        makeIssues(choice, issues);
         //points and such
 
         transform.parent.gameObject.SetActive(false);
