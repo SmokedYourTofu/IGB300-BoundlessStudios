@@ -1746,7 +1746,6 @@ GameObject:
   m_Component:
   - component: {fileID: 788510538}
   - component: {fileID: 788510540}
-  - component: {fileID: 788510539}
   m_Layer: 0
   m_Name: MicroGame Cam
   m_TagString: Untagged
@@ -1769,14 +1768,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &788510539
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788510537}
-  m_Enabled: 1
 --- !u!20 &788510540
 Camera:
   m_ObjectHideFlags: 0
@@ -1873,7 +1864,7 @@ GameObject:
   - component: {fileID: 862948080}
   m_Layer: 0
   m_Name: Player Old
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1909,9 +1900,10 @@ MonoBehaviour:
   variableJoystick: {fileID: 1966022008}
   rb: {fileID: 862948081}
   orientation: {fileID: 862948079}
-  baseSpeed: 7
+  baseSpeed: 20
   currentSpeed: 15
   rotationSpeed: 700
+  speed: 0
   dashForce: 7
   dashCooldown: 2
   dashCooldownTimer: 0
@@ -3725,7 +3717,7 @@ GameObject:
   - component: {fileID: 1172019606}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3746,9 +3738,12 @@ MonoBehaviour:
   rb: {fileID: 1172019607}
   orientation: {fileID: 1172019609}
   moveSpeed: 7
+  currentSpeed: 0
   rotationSpeed: 700
   drag: 5
-  dashForce: 25
+  dashForce: 20
+  dashCooldown: 2
+  dashCooldownTimer: 0
   state: 0
 --- !u!54 &1172019607
 Rigidbody:

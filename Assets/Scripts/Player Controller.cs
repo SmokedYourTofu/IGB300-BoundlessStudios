@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Dashing")]
     public float dashForce;
+    public float dashCooldown;
+    public float dashCooldownTimer;
 
     public MovementState state;
 
@@ -38,6 +40,11 @@ public class PlayerController : MonoBehaviour
     {
         StateHandler();
         currentSpeed = rb.velocity.magnitude;
+
+        // Timer for dash cooldown
+        if (dashCooldownTimer > 0) {
+            dashCooldownTimer -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate() {
@@ -46,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
         if (direction != Vector3.zero) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -57,6 +64,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Dashing() {
+        if (dashCooldownTimer > 0) return;
+        else dashCooldownTimer = dashCooldown;
+
         Vector3 dash = orientation.forward * dashForce;
         rb.AddForce(dash, ForceMode.Impulse);
     }

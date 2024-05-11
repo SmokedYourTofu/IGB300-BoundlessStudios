@@ -14,6 +14,7 @@ public class PlayerControllerOld : MonoBehaviour
     public float baseSpeed;
     public float currentSpeed;
     public float rotationSpeed;
+    public float speed;
 
     [Header("Dashing")]
     public float dashForce;
@@ -57,6 +58,8 @@ public class PlayerControllerOld : MonoBehaviour
         }
 
         StateHandler();
+
+        speed = rb.velocity.magnitude;
     }
 
     private void StateHandler() {
@@ -81,7 +84,8 @@ public class PlayerControllerOld : MonoBehaviour
 
         if(direction != Vector3.zero) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.fixedDeltaTime);
+
         }
     }
 
