@@ -21,13 +21,10 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public float dashCooldownTimer;
 
-    public MovementState state;
-
-    public enum MovementState {
-        moving,
-        dashing,
-        recovering,
-    }
+    [Header("Recovering")]
+    public float recoverCooldown;
+    public float recoverCooldownTimer;
+    public bool recovering;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +35,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StateHandler();
         currentSpeed = rb.velocity.magnitude;
+
+        if (currentSpeed > moveSpeed) {
+            currentSpeed = moveSpeed;
+        }
 
         // Timer for dash cooldown
         if (dashCooldownTimer > 0) {
             dashCooldownTimer -= Time.deltaTime;
+        }
+
+        // Timer for dash cooldown
+        if (recoverCooldownTimer > 0 && recovering) {
+            recoverCooldownTimer -= Time.deltaTime;
+        } else if (recoverCooldownTimer <= 0 && recovering) {
+            rb.drag = drag;
+            recovering = false;
         }
     }
 
@@ -57,21 +65,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void StateHandler() {
-        // if dash is pressed change to dashing
-        // if drag is = to 10 change to recovering
-        // else change to moving
-    }
-
     public void Dashing() {
         if (dashCooldownTimer > 0) return;
         else dashCooldownTimer = dashCooldown;
 
         Vector3 dash = orientation.forward * dashForce;
         rb.AddForce(dash, ForceMode.Impulse);
-    }
 
-    public void Recovering(float newDrag) {
-
+        recoverCooldownTimer = recoverCooldown;
+        rb.drag = 15f;
+        recovering = true;
     }
 }

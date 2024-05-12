@@ -36,7 +36,6 @@ public class Interact : MonoBehaviour
             Debug.Log("interacted");
         }
     }
-#endif
 
     // Where all interactions functions will be
 
@@ -50,4 +49,5 @@ public class Interact : MonoBehaviour
         controls.SetActive(false);
         this.gameObject.SetActive(false);
     }
+#endif
 }
