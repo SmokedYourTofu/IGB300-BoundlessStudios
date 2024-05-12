@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static MiniGameSpawner;
 
 [RequireComponent(typeof(Outline))] // This ensures that the Outline component is added to the object
 public class NewInteract : MonoBehaviour
 {
-    public float interactionRange = 3f; // Set your interaction range here
+    public float interactionRange = 3f; // Set the interaction range here
     private PlayerController playerController;
     private Outline outline; // Reference to the Outline component
     public GameObject minigame;
     public GameObject minigameScene;
+
+    public MiniGameTypes.MiniGameType miniGameType;
 
     private void Start()
     {
