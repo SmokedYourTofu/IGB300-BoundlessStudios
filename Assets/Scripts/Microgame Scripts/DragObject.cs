@@ -16,8 +16,11 @@ public class DragObject3D : MonoBehaviour
     public GameObject player;
     private float holdDistance;
 
+    private AudioSource mySource;
+
     private void Start()
     {
+        mySource = this.GetComponent<AudioSource>();
         startPos = transform.position;
         transform.parent.gameObject.SetActive(false);
         holdDistance = Vector3.Distance(transform.position, camera_2.transform.position);
@@ -70,6 +73,7 @@ public class DragObject3D : MonoBehaviour
                     isDragging = false;
                     if (Vector3.Distance(startPos, transform.position) > 10f)
                     {
+                        mySource.Play();
                         this.transform.position = startPos;
                         //do points and stuff
 

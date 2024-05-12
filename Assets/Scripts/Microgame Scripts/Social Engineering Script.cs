@@ -24,9 +24,12 @@ public class SocialEngineeringScript : MonoBehaviour
     public GameObject controls;
     public GameObject player;
 
+    private AudioSource[] audioSources;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSources = GetComponents<AudioSource>();
         fillText();
         foreach (Button button in buttons)
         {
@@ -78,6 +81,7 @@ public class SocialEngineeringScript : MonoBehaviour
         {
             if (lastPressedButton == buttons[i].gameObject && goodQuestion == lastPressedButton.transform.name)
             {
+                audioSources[0].Play();
                 questionCounter++;
                 fillText();
             }
@@ -86,6 +90,7 @@ public class SocialEngineeringScript : MonoBehaviour
 
     private void endGame()
     {
+        audioSources[1].Play();
         //points and such
 
         transform.parent.gameObject.SetActive(false);

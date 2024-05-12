@@ -38,9 +38,12 @@ public class EmailMicrogame : MonoBehaviour
     public GameObject controls;
     public GameObject player;
 
+    private AudioSource[] audioSources;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSources = GetComponents<AudioSource>();
         choice = UnityEngine.Random.Range(0, 3);
         issues = UnityEngine.Random.Range(0, 3);
         foreach (Button button in buttons)
@@ -159,6 +162,7 @@ public class EmailMicrogame : MonoBehaviour
         {
             if (lastPressedButton == buttons[i].gameObject && badSpots[i] == false)
             {
+                audioSources[0].Play();
                 counter++;
                 Debug.Log(counter + ", " + issues);
                 buttons[i].GetComponent<Image>().color = Color.red;
@@ -168,6 +172,7 @@ public class EmailMicrogame : MonoBehaviour
 
     private void endGame()
     {
+        audioSources[1].Play();
         //reset game for next time
         choice = UnityEngine.Random.Range(0, 3);
         issues = UnityEngine.Random.Range(0, 3);

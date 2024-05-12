@@ -12,8 +12,11 @@ public class DriveSmash3D : MonoBehaviour
     public GameObject player;
     private Vector3 startPos;
 
+    private AudioSource source;
+
     private void Start()
     {
+        source = this.GetComponent<AudioSource>();
         startPos = transform.parent.position;
     }
 
@@ -21,6 +24,7 @@ public class DriveSmash3D : MonoBehaviour
     {
         if (collision.gameObject.tag == "Drive")
         {
+            source.Play();
             //do points and such
 
             transform.parent.position = startPos;
