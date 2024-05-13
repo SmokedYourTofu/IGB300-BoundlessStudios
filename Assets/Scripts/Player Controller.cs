@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float dashForce;
     public float dashCooldown;
     public float dashCooldownTimer;
+    public bool dashing;
 
     [Header("Recovering")]
     public float recoverCooldown;
@@ -37,9 +38,13 @@ public class PlayerController : MonoBehaviour
     {
         currentSpeed = rb.velocity.magnitude;
 
-        if (currentSpeed > moveSpeed) {
-            currentSpeed = moveSpeed;
+        if (!dashing) {
+            if (currentSpeed > moveSpeed)
+            {
+                currentSpeed = moveSpeed;
+            }
         }
+        
 
         // Timer for dash cooldown
         if (dashCooldownTimer > 0) {
@@ -52,6 +57,7 @@ public class PlayerController : MonoBehaviour
         } else if (recoverCooldownTimer <= 0 && recovering) {
             rb.drag = drag;
             recovering = false;
+            dashing = false;
         }
     }
 
@@ -68,6 +74,8 @@ public class PlayerController : MonoBehaviour
     public void Dashing() {
         if (dashCooldownTimer > 0) return;
         else dashCooldownTimer = dashCooldown;
+
+        dashing = true;
 
         Vector3 dash = orientation.forward * dashForce;
         rb.AddForce(dash, ForceMode.Impulse);
