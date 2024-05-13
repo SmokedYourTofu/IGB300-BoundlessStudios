@@ -30,6 +30,7 @@ public class Interact : MonoBehaviour
             Debug.Log("interacted");
         }
 
+
 #if UNITY_EDITOR 
         if (Input.GetMouseButtonDown(0)) {
             //do a raycast to check for anything
