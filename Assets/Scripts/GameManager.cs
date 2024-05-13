@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     public GameObject player;
+    public GameObject camera;
+    public GameObject environment;
+    public GameObject controls;
 
     void Awake() {
         if (instance != null && instance != this) {

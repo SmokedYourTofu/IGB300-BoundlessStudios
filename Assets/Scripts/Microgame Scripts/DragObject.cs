@@ -22,7 +22,7 @@ public class DragObject3D : MonoBehaviour
     {
         mySource = this.GetComponent<AudioSource>();
         startPos = transform.position;
-        transform.parent.gameObject.SetActive(false);
+        //transform.parent.gameObject.SetActive(false);
         holdDistance = Vector3.Distance(transform.position, camera_2.transform.position);
     }
 

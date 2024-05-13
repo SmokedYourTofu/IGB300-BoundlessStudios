@@ -7,6 +7,7 @@ TagManager:
   - Controller
   - Drive
   - passwordButton
+  - Bin
   layers:
   - Default
   - TransparentFX

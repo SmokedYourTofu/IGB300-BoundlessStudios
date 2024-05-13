@@ -9,7 +9,6 @@ public class NewInteract : MonoBehaviour
     private PlayerController playerController;
     private Outline outline; // Reference to the Outline component
     public GameObject minigame;
-    public GameObject minigameScene;
 
     public MiniGameTypes.MiniGameType miniGameType;
 
@@ -81,7 +80,15 @@ public class NewInteract : MonoBehaviour
     {
         // Implement your interaction logic here
         Debug.Log("Interacting with object!");
-        //minigame.SetActive(true);
-        //SceneManager.LoadScene("minigameScene", LoadSceneMode.Additive);
+
+        // Activate the minigame
+        minigame.SetActive(true);
+
+        // Deactivate player, camera, environment, and controls
+        GameManager.instance.player.SetActive(false);
+        GameManager.instance.camera.SetActive(false);
+        GameManager.instance.environment.SetActive(false);
+        GameManager.instance.controls.SetActive(false);
     }
+
 }

@@ -74,7 +74,8 @@ public class MenuManager : MonoBehaviour
 
     public void Levels()
     {
-        SceneManager.LoadScene(levelsScene);
+        Time.timeScale = 0.0f;
+        SceneManager.LoadScene("Levels", LoadSceneMode.Additive);
     }
 
 }
