@@ -18,12 +18,6 @@ public class SocialEngineeringScript : MonoBehaviour
     public Button[] buttons = new Button[2];
     private GameObject lastPressedButton;
 
-    public Camera camera_2;
-    public Camera camera_1;
-    public GameObject environment;
-    public GameObject controls;
-    public GameObject player;
-
     private AudioSource[] audioSources;
 
     // Start is called before the first frame update
@@ -85,19 +79,17 @@ public class SocialEngineeringScript : MonoBehaviour
                 questionCounter++;
                 fillText();
             }
+            else
+            {
+                //do punishment
+            }
         }
     }
 
     private void endGame()
     {
         audioSources[1].Play();
+        Debug.Log("Game Over");
         //points and such
-
-        transform.parent.gameObject.SetActive(false);
-        camera_1.gameObject.SetActive(true);
-        camera_2.gameObject.SetActive(false);
-        environment.SetActive(true);
-        controls.SetActive(true);
-        player.SetActive(true);
     }
 }

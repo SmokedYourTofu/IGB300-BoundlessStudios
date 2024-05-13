@@ -32,12 +32,6 @@ public class EmailMicrogame : MonoBehaviour
     private int newSpot;
     private int counter;
 
-    public Camera camera_2;
-    public Camera camera_1;
-    public GameObject environment;
-    public GameObject controls;
-    public GameObject player;
-
     private AudioSource[] audioSources;
 
     // Start is called before the first frame update
@@ -167,6 +161,10 @@ public class EmailMicrogame : MonoBehaviour
                 Debug.Log(counter + ", " + issues);
                 buttons[i].GetComponent<Image>().color = Color.red;
             }
+            else
+            {
+                //do some sort of punishment
+            }
         }
     }
 
@@ -174,17 +172,8 @@ public class EmailMicrogame : MonoBehaviour
     {
         audioSources[1].Play();
         //reset game for next time
-        choice = UnityEngine.Random.Range(0, 3);
-        issues = UnityEngine.Random.Range(0, 3);
-        ChooseEmail(choice);
-        makeIssues(choice, issues);
         //points and such
 
-        transform.parent.gameObject.SetActive(false);
-        camera_1.gameObject.SetActive(true);
-        camera_2.gameObject.SetActive(false);
-        environment.SetActive(true);
-        controls.SetActive(true);
-        player.SetActive(true);
+        Debug.Log("Game Ended");
     }
 }

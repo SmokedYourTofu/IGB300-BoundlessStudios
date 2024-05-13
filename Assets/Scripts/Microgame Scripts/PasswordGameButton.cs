@@ -32,7 +32,8 @@ public class PasswordGameButton : MonoBehaviour
         else
         {
             Debug.Log("wrong passwword");
-            passwordAudio[0].Play();
+            //do some sort of punishment
+            passwordAudio[1].Play();
         }
     }
 

@@ -18,12 +18,6 @@ public class PasswordMicrogame : MonoBehaviour
     public TMP_Text passwordText;
     private GameObject[] buttons = new GameObject[6];
 
-    public GameObject environment;
-    public GameObject controls;
-    public GameObject player;
-    public Camera camera_2;
-    public Camera camera_1;
-
     private void Awake()
     {
         buttons = GameObject.FindGameObjectsWithTag("passwordButton");
@@ -45,11 +39,6 @@ public class PasswordMicrogame : MonoBehaviour
             TMP_Text buttonText = buttons[i].GetComponent<TMP_Text>();
             buttonText.text = passwords[i];
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        transform.parent.gameObject.SetActive(false);
     }
 
     private void generateTruePassword(int length)
@@ -146,12 +135,7 @@ public class PasswordMicrogame : MonoBehaviour
 
     public void resetGame()
     {
-        transform.parent.gameObject.SetActive(false);
-        camera_1.gameObject.SetActive(true);
-        camera_2.gameObject.SetActive(false);
-        environment.SetActive(true);
-        controls.SetActive(true);
-        player.SetActive(true);
+        Debug.Log("Minigame Ended");
     }
 }
 
