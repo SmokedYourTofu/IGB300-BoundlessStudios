@@ -5,13 +5,11 @@ using UnityEngine;
 public class DragObjectNoEnd : MonoBehaviour
 {
     private bool isDragging = false;
-    public Camera camera_2;
     private float holdDistance;
 
     private void Start()
     {
-        transform.parent.gameObject.SetActive(false);
-        holdDistance = Vector3.Distance(transform.position, camera_2.transform.position);
+        holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
     }
 
     private void Update()
@@ -30,7 +28,7 @@ public class DragObjectNoEnd : MonoBehaviour
             {
                 case TouchPhase.Began:
                     // Cast a ray from the touch position to detect objects
-                    Ray ray = camera_2.ScreenPointToRay(touch.position);
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     RaycastHit hit;
 
                     // If the ray hits an object, check if it's this object
@@ -49,7 +47,7 @@ public class DragObjectNoEnd : MonoBehaviour
                     if (isDragging)
                     {
                         Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, holdDistance);
-                        newPosition = camera_2.ScreenToWorldPoint(newPosition);
+                        newPosition = Camera.main.ScreenToWorldPoint(newPosition);
                         //newPosition.z = holdDistance;
                         transform.position = newPosition;
                     }

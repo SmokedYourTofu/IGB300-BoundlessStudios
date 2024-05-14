@@ -6,9 +6,11 @@ public class StickyNoteController : MonoBehaviour
     public Camera specificCamera;
     public List<GameObject> stickyNotePool;
     public List<GameObject> activeStickyNotes = new List<GameObject>();
+    private AudioSource sound;
 
     public void Start()
     {
+        sound = this.GetComponent<AudioSource>();
         specificCamera = Camera.main;
 
         // Get a random number of sticky notes to activate (2-4)
@@ -70,6 +72,7 @@ public class StickyNoteController : MonoBehaviour
 
     public void EndMinigame()
     {
+        sound.Play();
         // End the minigame logic here
         Debug.Log("Minigame ended");
     }

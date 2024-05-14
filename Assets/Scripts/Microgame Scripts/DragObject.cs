@@ -9,21 +9,14 @@ public class DragObject3D : MonoBehaviour
     private Vector3 touchOffset;
     private Vector3 startPos;
     private GameObject myParent;
-    public Camera camera_2;
-    public Camera camera_1;
-    public GameObject environment;
-    public GameObject controls;
-    public GameObject player;
     private float holdDistance;
 
-    private AudioSource mySource;
+    public DragController dragControl;
 
     private void Start()
     {
-        mySource = this.GetComponent<AudioSource>();
         startPos = transform.position;
-        //transform.parent.gameObject.SetActive(false);
-        holdDistance = Vector3.Distance(transform.position, camera_2.transform.position);
+        holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
     }
 
     private void Update()
@@ -42,7 +35,7 @@ public class DragObject3D : MonoBehaviour
             {
                 case TouchPhase.Began:
                     // Cast a ray from the touch position to detect objects
-                    Ray ray = camera_2.ScreenPointToRay(touch.position);
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
                     RaycastHit hit;
 
                     // If the ray hits an object, check if it's this object
@@ -62,7 +55,7 @@ public class DragObject3D : MonoBehaviour
                     if (isDragging)
                     {
                         Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, holdDistance);
-                        newPosition = camera_2.ScreenToWorldPoint(newPosition);
+                        newPosition = Camera.main.ScreenToWorldPoint(newPosition);
                         //newPosition.z = holdDistance;
                         transform.position = newPosition;
                     }
@@ -71,18 +64,9 @@ public class DragObject3D : MonoBehaviour
                 case TouchPhase.Ended:
                     // End dragging
                     isDragging = false;
-                    if (Vector3.Distance(startPos, transform.position) > 10f)
+                    if (Vector3.Distance(startPos, transform.position) > 3f)
                     {
-                        mySource.Play();
-                        this.transform.position = startPos;
-                        //do points and stuff
-
-                        transform.parent.gameObject.SetActive(false);
-                        camera_1.gameObject.SetActive(true);
-                        camera_2.gameObject.SetActive(false);
-                        environment.SetActive(true);
-                        controls.SetActive(true);
-                        player.SetActive(true);
+                        dragControl.Endgame();
                     }
                     break;
             }
