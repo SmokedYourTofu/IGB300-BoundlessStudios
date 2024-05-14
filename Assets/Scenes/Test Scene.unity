@@ -3567,6 +3567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162075917}
+  - component: {fileID: 1162075919}
   - component: {fileID: 1162075918}
   m_Layer: 0
   m_Name: Door (1)
@@ -3591,7 +3592,28 @@ Transform:
   - {fileID: 2032440019}
   m_Father: {fileID: 1033308967}
   m_LocalEulerAnglesHint: {x: 0, y: 160, z: 0}
---- !u!114 &1162075918
+--- !u!95 &1162075918
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162075916}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d8e3605f66c9854290fd5253b2c7688, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1162075919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3600,14 +3622,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1162075916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63f74352e7ed1b40b1552c51fb7b452, type: 3}
+  m_Script: {fileID: 11500000, guid: 75931c52744f62b4b99954877d8e6a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 30
-  shouldRotate: 0
-  rotateBack: 0
+  mydoor: {fileID: 0}
   timer: 0
-  rotateInterval: 5
+  rotateInterval: 10
+  animationNames:
+  - doorOpen2
+  - doorClose2
 --- !u!1 &1170322518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5651,7 +5674,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1618520058}
-  - component: {fileID: 1618520059}
+  - component: {fileID: 1618520060}
+  - component: {fileID: 1618520061}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -5675,7 +5699,28 @@ Transform:
   - {fileID: 1463942798}
   m_Father: {fileID: 1033308967}
   m_LocalEulerAnglesHint: {x: 0, y: 160, z: 0}
---- !u!114 &1618520059
+--- !u!95 &1618520060
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618520057}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 81001e266f7a2b742b7cdfb1402a19e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1618520061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5684,14 +5729,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1618520057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63f74352e7ed1b40b1552c51fb7b452, type: 3}
+  m_Script: {fileID: 11500000, guid: 75931c52744f62b4b99954877d8e6a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 30
-  shouldRotate: 0
-  rotateBack: 0
+  mydoor: {fileID: 0}
   timer: 0
-  rotateInterval: 10
+  rotateInterval: 5
+  animationNames:
+  - doorOpen
+  - doorClose
 --- !u!1 &1627398915
 GameObject:
   m_ObjectHideFlags: 0
