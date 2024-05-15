@@ -33,6 +33,8 @@ public class PasswordGameButton : MonoBehaviour
         {
             Debug.Log("wrong passwword");
             //do some sort of punishment
+            int length = UnityEngine.Random.Range(8, 12);
+            psMicrogame.setupGame(length);
             passwordAudio[1].Play();
         }
     }

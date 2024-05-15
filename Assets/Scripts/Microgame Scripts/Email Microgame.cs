@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class EmailMicrogame : MonoBehaviour
 {
@@ -161,9 +162,14 @@ public class EmailMicrogame : MonoBehaviour
                 Debug.Log(counter + ", " + issues);
                 buttons[i].GetComponent<Image>().color = Color.red;
             }
-            else
+            else if (lastPressedButton == buttons[i].gameObject && badSpots[i] == true)
             {
-                //do some sort of punishment
+                //resets tha game if they amke the wrong choice, costing them time
+                Debug.Log("Wrong Choice");
+                choice = UnityEngine.Random.Range(0, 3);
+                issues = UnityEngine.Random.Range(0, 3);
+                ChooseEmail(choice);
+                makeIssues(choice, issues);
             }
         }
     }
@@ -175,5 +181,6 @@ public class EmailMicrogame : MonoBehaviour
         //points and such
 
         Debug.Log("Game Ended");
+        SceneManager.UnloadSceneAsync("Email Microgame");
     }
 }

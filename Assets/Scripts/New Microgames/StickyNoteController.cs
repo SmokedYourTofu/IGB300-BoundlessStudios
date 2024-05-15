@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class StickyNoteController : MonoBehaviour
 {
@@ -75,5 +76,6 @@ public class StickyNoteController : MonoBehaviour
         sound.Play();
         // End the minigame logic here
         Debug.Log("Minigame ended");
+        SceneManager.UnloadSceneAsync("Sticky Note");
     }
 }

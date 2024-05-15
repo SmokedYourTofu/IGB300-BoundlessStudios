@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PasswordMicrogame : MonoBehaviour
 {
@@ -25,20 +26,22 @@ public class PasswordMicrogame : MonoBehaviour
         Debug.Log(length);
         requiredChar = characters[UnityEngine.Random.Range(0, 53)];
 
-        generateTruePassword(length);
-        generateFalsePasswords(length);
+        //generateTruePassword(length);
+        //generateFalsePasswords(length);
 
-        var rng = new System.Random();
-        rng.Shuffle(passwords);
-        rng.Shuffle(passwords);
+        //var rng = new System.Random();
+        //rng.Shuffle(passwords);
+        //rng.Shuffle(passwords);
 
-        passwordText.text = "Password must be at least " + length + " characters long, contain the character " + requiredChar + " and must not contain any recognisable words";
+        //passwordText.text = "Password must be at least " + length + " characters long, contain the character " + requiredChar + " and must not contain any recognisable words";
 
-        for (int i = 0; i < 6; i++)
-        {
-            TMP_Text buttonText = buttons[i].GetComponent<TMP_Text>();
-            buttonText.text = passwords[i];
-        }
+        //for (int i = 0; i < 6; i++)
+        //{
+        //    TMP_Text buttonText = buttons[i].GetComponent<TMP_Text>();
+        //    buttonText.text = passwords[i];
+        //}
+
+        setupGame(length);
     }
 
     private void generateTruePassword(int length)
@@ -136,6 +139,27 @@ public class PasswordMicrogame : MonoBehaviour
     public void resetGame()
     {
         Debug.Log("Minigame Ended");
+        SceneManager.UnloadSceneAsync("Password Game");
+    }
+
+    public void setupGame(int length)
+    {
+        realPassword = null;
+
+        generateTruePassword(length);
+        generateFalsePasswords(length);
+
+        var rng = new System.Random();
+        rng.Shuffle(passwords);
+        rng.Shuffle(passwords);
+
+        passwordText.text = "Password must be at least " + length + " characters long, contain the character " + requiredChar + " and must not contain any recognisable words";
+
+        for (int i = 0; i < 6; i++)
+        {
+            TMP_Text buttonText = buttons[i].GetComponent<TMP_Text>();
+            buttonText.text = passwords[i];
+        }
     }
 }
 

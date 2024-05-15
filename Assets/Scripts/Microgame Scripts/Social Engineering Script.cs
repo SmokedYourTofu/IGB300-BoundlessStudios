@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using UnityEngine.SceneManagement;
 
 public class SocialEngineeringScript : MonoBehaviour
 {
@@ -79,9 +80,12 @@ public class SocialEngineeringScript : MonoBehaviour
                 questionCounter++;
                 fillText();
             }
-            else
+            else if (lastPressedButton == buttons[i].gameObject && goodQuestion != lastPressedButton.transform.name)
             {
-                //do punishment
+                //make players do another task if they get the wrong task
+                Debug.Log("Wrong Choice");
+                questionCounter--;
+                fillText();
             }
         }
     }
@@ -91,5 +95,6 @@ public class SocialEngineeringScript : MonoBehaviour
         audioSources[1].Play();
         Debug.Log("Game Over");
         //points and such
+        SceneManager.UnloadSceneAsync("Social Engineering");
     }
 }
