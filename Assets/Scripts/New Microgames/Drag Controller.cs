@@ -9,9 +9,11 @@ public class DragController : MonoBehaviour
 
     private AudioSource mySource;
     private string SceneName;
+
+    private MiniGameSpawner mySpawner;
     void Start()
     {
-        SceneName = SceneManager.GetActiveScene().name;
+        mySpawner = FindObjectOfType<MiniGameSpawner>();
         mySource = this.GetComponent<AudioSource>();
     }
 
@@ -20,6 +22,13 @@ public class DragController : MonoBehaviour
         mySource.Play();
         //do score and such
         Debug.Log("Game Over");
-        SceneManager.UnloadSceneAsync(SceneName);
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+
+        GameManager.instance.player.SetActive(true);
+        GameManager.instance.camera.SetActive(true);
+        GameManager.instance.environment.SetActive(true);
+        GameManager.instance.controls.SetActive(true);
+        Debug.Log(SceneName);
+        SceneManager.UnloadSceneAsync("Printer");
     }
 }

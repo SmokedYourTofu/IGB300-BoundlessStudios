@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09011099, g: 0.157654, b: 0.32866335, a: 1}
+  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1871,6 +1871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 4
   minigame: {fileID: 0}
+  minigameName: Printer
   miniGameType: 0
 --- !u!1001 &331351887
 PrefabInstance:
@@ -2630,7 +2631,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 4
   minigame: {fileID: 0}
-  miniGameType: 0
+  minigameName: Password Microgame
+  miniGameType: 1
 --- !u!1001 &464872195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2991,9 +2993,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniGames:
   - {fileID: 1352678409}
+  - {fileID: 1142130734}
+  - {fileID: 437219811}
+  - {fileID: 1769785053}
+  - {fileID: 327400000}
+  - {fileID: 1352678409}
   activeMiniGames: []
   maxActiveMiniGames: 3
   spawnOnStart: 1
+  lastInteracted: {fileID: 0}
 --- !u!1001 &513803256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6720,7 +6728,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 4
   minigame: {fileID: 0}
-  miniGameType: 0
+  minigameName: Email Microgaame
+  miniGameType: 1
 --- !u!1 &1160238051
 GameObject:
   m_ObjectHideFlags: 0
@@ -8488,6 +8497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 4
   minigame: {fileID: 1266444365}
+  minigameName: Drive Unplug
   miniGameType: 0
 --- !u!114 &1352678415
 MonoBehaviour:
@@ -8582,6 +8592,8 @@ GameObject:
   - component: {fileID: 1369820321}
   - component: {fileID: 1369820320}
   - component: {fileID: 1369820319}
+  - component: {fileID: 1369820323}
+  - component: {fileID: 1369820322}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -8675,6 +8687,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369820317}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1369820322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369820317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e5c2aa863bf7446959e8396e222af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 3
+  minigame: {fileID: 0}
+  minigameName: Sticky Note
+  miniGameType: 0
+--- !u!114 &1369820323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369820317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1401406595
 GameObject:
   m_ObjectHideFlags: 0
@@ -10228,6 +10274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionRange: 4
   minigame: {fileID: 0}
+  minigameName: Social Engineering
   miniGameType: 0
 --- !u!114 &1769785060
 MonoBehaviour:
@@ -10242,7 +10289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []

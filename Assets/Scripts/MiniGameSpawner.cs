@@ -8,6 +8,7 @@ public class MiniGameSpawner : MonoBehaviour
     public List<GameObject> activeMiniGames; // List of active mini-games
     public int maxActiveMiniGames = 3; // Maximum number of active mini-games
     public bool spawnOnStart = true; // Whether to spawn mini-games on start
+    public GameObject lastInteracted;
 
     private void Start()
     {
@@ -114,6 +115,7 @@ public class MiniGameSpawner : MonoBehaviour
     {
         // Deactivate the completed mini-game
         miniGame.GetComponent<NewInteract>().enabled = false;
+        miniGame.GetComponent<Outline>().enabled = false;
         activeMiniGames.Remove(miniGame);
         // Optionally, reintroduce the completed mini-game back into the pool
     }

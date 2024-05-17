@@ -21,9 +21,12 @@ public class SocialEngineeringScript : MonoBehaviour
 
     private AudioSource[] audioSources;
 
+    private MiniGameSpawner mySpawner;
+
     // Start is called before the first frame update
     void Start()
     {
+        mySpawner = FindObjectOfType<MiniGameSpawner>();
         audioSources = GetComponents<AudioSource>();
         fillText();
         foreach (Button button in buttons)
@@ -95,6 +98,13 @@ public class SocialEngineeringScript : MonoBehaviour
         audioSources[1].Play();
         Debug.Log("Game Over");
         //points and such
+
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+
+        GameManager.instance.player.SetActive(true);
+        GameManager.instance.camera.SetActive(true);
+        GameManager.instance.environment.SetActive(true);
+        GameManager.instance.controls.SetActive(true);
         SceneManager.UnloadSceneAsync("Social Engineering");
     }
 }

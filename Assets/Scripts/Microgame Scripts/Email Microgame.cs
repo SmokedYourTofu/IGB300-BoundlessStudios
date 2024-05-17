@@ -35,9 +35,12 @@ public class EmailMicrogame : MonoBehaviour
 
     private AudioSource[] audioSources;
 
+    private MiniGameSpawner mySpawner;
+
     // Start is called before the first frame update
     void Start()
     {
+        mySpawner = FindObjectOfType<MiniGameSpawner>();
         audioSources = GetComponents<AudioSource>();
         choice = UnityEngine.Random.Range(0, 3);
         issues = UnityEngine.Random.Range(0, 3);
@@ -181,6 +184,12 @@ public class EmailMicrogame : MonoBehaviour
         //points and such
 
         Debug.Log("Game Ended");
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+
+        GameManager.instance.player.SetActive(true);
+        GameManager.instance.camera.SetActive(true);
+        GameManager.instance.environment.SetActive(true);
+        GameManager.instance.controls.SetActive(true);
         SceneManager.UnloadSceneAsync("Email Microgame");
     }
 }

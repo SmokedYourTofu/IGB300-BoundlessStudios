@@ -9,11 +9,14 @@ public class NewInteract : MonoBehaviour
     private PlayerController playerController;
     private Outline outline; // Reference to the Outline component
     public GameObject minigame;
+    public string minigameName;
+    private MiniGameSpawner miniGameSpawner;
 
     public MiniGameTypes.MiniGameType miniGameType;
 
     private void Start()
     {
+        miniGameSpawner = FindObjectOfType<MiniGameSpawner>();
         playerController = FindObjectOfType<PlayerController>();
         if (playerController == null)
         {
@@ -82,7 +85,9 @@ public class NewInteract : MonoBehaviour
         Debug.Log("Interacting with object!");
 
         // Activate the minigame
-        minigame.SetActive(true);
+        // minigame.SetActive(true);
+        SceneManager.LoadScene(minigameName, LoadSceneMode.Additive);
+        miniGameSpawner.lastInteracted = this.gameObject;
 
         // Deactivate player, camera, environment, and controls
         GameManager.instance.player.SetActive(false);

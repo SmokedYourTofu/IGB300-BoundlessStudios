@@ -9,8 +9,11 @@ public class StickyNoteController : MonoBehaviour
     public List<GameObject> activeStickyNotes = new List<GameObject>();
     private AudioSource sound;
 
+    private MiniGameSpawner mySpawner;
+
     public void Start()
     {
+        mySpawner = FindObjectOfType<MiniGameSpawner>();
         sound = this.GetComponent<AudioSource>();
         specificCamera = Camera.main;
 
@@ -76,6 +79,12 @@ public class StickyNoteController : MonoBehaviour
         sound.Play();
         // End the minigame logic here
         Debug.Log("Minigame ended");
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+
+        GameManager.instance.player.SetActive(true);
+        GameManager.instance.camera.SetActive(true);
+        GameManager.instance.environment.SetActive(true);
+        GameManager.instance.controls.SetActive(true);
         SceneManager.UnloadSceneAsync("Sticky Note");
     }
 }
