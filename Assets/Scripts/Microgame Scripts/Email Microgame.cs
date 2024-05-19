@@ -9,16 +9,20 @@ using UnityEngine.SceneManagement;
 public class EmailMicrogame : MonoBehaviour
 {
     private string[] goodSenders = { "John Smith", "David Lee", "Emily Rodriguez" };
-    private string[] goodAdress = { "john.smith@company.com", "david.lee@company.com", "emily.rodriguez@company.com" };
-    private string[] goodEmail = { "Dear Player,\r\n\r\nI hope this email finds you well. I would like to schedule a meeting to discuss the progress of Project X and address any challenges we may be facing. Could we arrange a convenient time for you to meet sometime this week?\r\n\r\nPlease let me know your availability, and I will coordinate the meeting accordingly.\r\n\r\nBest regards,\r\nJohn Smith",
+    private string[] goodAddress = { "john.smith@company.com", "david.lee@company.com", "emily.rodriguez@company.com" };
+    private string[] goodEmail = {
+        "Dear Player,\r\n\r\nI hope this email finds you well. I would like to schedule a meeting to discuss the progress of Project X and address any challenges we may be facing. Could we arrange a convenient time for you to meet sometime this week?\r\n\r\nPlease let me know your availability, and I will coordinate the meeting accordingly.\r\n\r\nBest regards,\r\nJohn Smith",
         "Dear Player,\r\n\r\nI hope this email finds you well. Attached is the proposal document for Project 2 as discussed. Please review the document at your earliest convenience, and let me know if you have any questions or require further clarification.\r\n\r\nWe are excited about the opportunity to work with you and are looking forward to your feedback.\r\n\r\nBest regards,\r\nDavid Lee\r\n",
-        "Dear Player,\r\n\r\nI hope you're doing well. I am writing to inquire about the service offered by your company. Could you please provide me with more information regarding its features, pricing, and any ongoing promotions?\r\n\r\nYour prompt response would be greatly appreciated.\r\n\r\nThank you and best regards,\r\nEmily Rodriguez\r\n" };
+        "Dear Player,\r\n\r\nI hope you're doing well. I am writing to inquire about the service offered by your company. Could you please provide me with more information regarding its features, pricing, and any ongoing promotions?\r\n\r\nYour prompt response would be greatly appreciated.\r\n\r\nThank you and best regards,\r\nEmily Rodriguez\r\n"
+    };
     private string[] goodSubject = { "Meeting Request for Project X Discussion", "Submission of Proposal for Project 2", "Inquiry Regarding the Service" };
 
-    private string[] badAdress = { "john.smith@opendomain.com", "david.lee@opendomain.com", "emily.rodriguez@opendomain.com" };
-    private string[] badEmail = { "Dear Player,\r\n\r\nI hope this email finds you well. I would like to schedule a meeting to discuss the progress of Project X and address any challenges we may be facing. Could you provide me with your full schedule for this week so I can organise a time that works for both of us?\r\n\r\nPlease let me know soon, and I will coordinate the meeting accordingly.\r\n\r\nBest regards,\r\nJohn Smith",
+    private string[] badAddress = { "john.smith@opendomain.com", "david.lee@opendomain.com", "emily.rodriguez@opendomain.com" };
+    private string[] badEmail = {
+        "Dear Player,\r\n\r\nI hope this email finds you well. I would like to schedule a meeting to discuss the progress of Project X and address any challenges we may be facing. Could you provide me with your full schedule for this week so I can organise a time that works for both of us?\r\n\r\nPlease let me know soon, and I will coordinate the meeting accordingly.\r\n\r\nBest regards,\r\nJohn Smith",
         "Dear Player,\r\n\r\nI hope this email finds you well. Attached is the proposal document for Project 2 as discussed. Please open the program and follow all steps to download the proposal document.\r\n\r\nWe are excited about the opportunity to work with you and are looking forward to your feedback.\r\n\r\nBest regards,\r\nDavid Lee",
-        "Dear Player,\r\n\r\nI hope you're doing well. I am writing to inquire about the service offered by your company. Could you please provide me with more information regarding its features, pricing, and any ongoing promotions? Additionally, if you could provide a username and password to access the service for us to test before we make a decision we would be incredibly grateful.\r\n\r\nYour prompt response would be greatly appreciated.\r\n\r\nThank you and best regards,\r\nEmily Rodriguez" };
+        "Dear Player,\r\n\r\nI hope you're doing well. I am writing to inquire about the service offered by your company. Could you please provide me with more information regarding its features, pricing, and any ongoing promotions? Additionally, if you could provide a username and password to access the service for us to test before we make a decision we would be incredibly grateful.\r\n\r\nYour prompt response would be greatly appreciated.\r\n\r\nThank you and best regards,\r\nEmily Rodriguez"
+    };
     private string[] badSubject = { "Meting Request for Progect X Diskusion", "Sabmision of Propsal for Projekt 2", "Incuiry Regrdin the Serfice" };
 
     public TMP_Text[] mainEmail = new TMP_Text[4];
@@ -37,6 +41,16 @@ public class EmailMicrogame : MonoBehaviour
 
     private MiniGameSpawner mySpawner;
 
+    // Score parameters
+    public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
+    public float totalTime = 30f; // Total time for the game (example value)
+    public float basePoints = 100f; // Base number of points (example value)
+    public float progressiveMultiplierMin = 0.1f; // Minimum progressive multiplier
+    public float progressiveMultiplierMax = 2f; // Maximum progressive multiplier
+    public float gameMultiplier = 0.15f; // Game-specific multiplier
+    private float timeRemaining; // Time remaining for this game
+    private bool isGameCompleted = true; // Indicates if the game was completed
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +65,10 @@ public class EmailMicrogame : MonoBehaviour
 
         ChooseEmail(choice);
         makeIssues(choice, issues);
+
+        // Initialize the timer
+        timeRemaining = totalTime;
+        StartCoroutine(GameTimer());
     }
 
     private void Update()
@@ -61,16 +79,28 @@ public class EmailMicrogame : MonoBehaviour
         }
     }
 
+    private IEnumerator GameTimer()
+    {
+        while (timeRemaining > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            timeRemaining--;
+        }
+
+        isGameCompleted = false;
+        endGame(); // End the game when time runs out
+    }
+
     private void ChooseEmail(int choice)
     {
         mainEmail[0].text = goodSubject[choice];
         mainEmail[1].text = goodSenders[choice];
-        mainEmail[2].text = goodAdress[choice];
+        mainEmail[2].text = goodAddress[choice];
         mainEmail[3].text = goodEmail[choice];
 
         fakeEmail[0].text = goodSubject[choice];
         fakeEmail[1].text = goodSenders[choice];
-        fakeEmail[2].text = goodAdress[choice];
+        fakeEmail[2].text = goodAddress[choice];
         fakeEmail[3].text = goodEmail[choice];
     }
 
@@ -82,12 +112,12 @@ public class EmailMicrogame : MonoBehaviour
         {
             fakeEmail[0].text = badSubject[choice];
             badSpots[0] = false;
-            fakeEmail[2].text = badAdress[choice];
+            fakeEmail[2].text = badAddress[choice];
             badSpots[2] = false;
             fakeEmail[3].text = badEmail[choice];
             badSpots[3] = false;
         }
-        else if (issues == 1) 
+        else if (issues == 1)
         {
             int spot = UnityEngine.Random.Range(0, 3);
             if (spot == 2)
@@ -97,7 +127,7 @@ public class EmailMicrogame : MonoBehaviour
             }
             else if (spot == 1)
             {
-                fakeEmail[2].text = badAdress[choice];
+                fakeEmail[2].text = badAddress[choice];
                 badSpots[2] = false;
             }
             else
@@ -118,7 +148,7 @@ public class EmailMicrogame : MonoBehaviour
             }
             else if (newSpot == 1)
             {
-                fakeEmail[2].text = badAdress[choice];
+                fakeEmail[2].text = badAddress[choice];
                 badSpots[2] = false;
             }
             else
@@ -127,7 +157,6 @@ public class EmailMicrogame : MonoBehaviour
                 badSpots[0] = false;
             }
         }
-
         else if (issues == 0)
         {
             int spot = UnityEngine.Random.Range(0, 3);
@@ -138,7 +167,7 @@ public class EmailMicrogame : MonoBehaviour
             }
             else if (spot == 1)
             {
-                fakeEmail[2].text = badAdress[choice];
+                fakeEmail[2].text = badAddress[choice];
                 badSpots[2] = false;
             }
             else
@@ -154,8 +183,6 @@ public class EmailMicrogame : MonoBehaviour
         // Store the GameObject of the pressed button
         lastPressedButton = buttonGameObject;
 
-        // You can add any additional logic here when a button is pressed
-
         for (int i = 0; i < 4; i++)
         {
             if (lastPressedButton == buttons[i].gameObject && badSpots[i] == false)
@@ -167,7 +194,7 @@ public class EmailMicrogame : MonoBehaviour
             }
             else if (lastPressedButton == buttons[i].gameObject && badSpots[i] == true)
             {
-                //resets tha game if they amke the wrong choice, costing them time
+                // Resets the game if they make the wrong choice, costing them time
                 Debug.Log("Wrong Choice");
                 choice = UnityEngine.Random.Range(0, 3);
                 issues = UnityEngine.Random.Range(0, 3);
@@ -180,9 +207,11 @@ public class EmailMicrogame : MonoBehaviour
     private void endGame()
     {
         audioSources[1].Play();
-        //reset game for next time
-        //points and such
 
+        // Calculate and update the score
+        CalculateScore();
+
+        // Reset game for next time
         Debug.Log("Game Ended");
         mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
 
@@ -190,6 +219,28 @@ public class EmailMicrogame : MonoBehaviour
         GameManager.instance.camera.SetActive(true);
         GameManager.instance.environment.SetActive(true);
         GameManager.instance.controls.SetActive(true);
-        SceneManager.UnloadSceneAsync("Email Microgame");
+        SceneManager.UnloadSceneAsync("Email");
+    }
+
+    private void CalculateScore()
+    {
+        float t = (timeRemaining / totalTime) * 2f;
+        float p = Mathf.Clamp(1f + gameMultiplier, progressiveMultiplierMin, progressiveMultiplierMax);
+        float score = t * basePoints * p;
+
+        if (!isGameCompleted || float.IsNaN(score) || float.IsInfinity(score))
+        {
+            score = 0f;
+        }
+
+        // Update the TMP Text component with the score
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score.ToString("F1"); // "F1" formats the score to one decimal place
+            DiscordWebhooks.SendMessage("Player Score: " + score.ToString());
+        }
+
+        // Add the calculated score to the ScoreManager
+        ScoreManager.Instance.AddScore(score);
     }
 }

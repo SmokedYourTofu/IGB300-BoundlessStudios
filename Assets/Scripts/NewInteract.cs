@@ -82,10 +82,10 @@ public class NewInteract : MonoBehaviour
     private void Interact()
     {
         // Implement your interaction logic here
+        DiscordWebhooks.SendMessage("Minigame: " + minigameName + ", has been loaded");
         Debug.Log("Interacting with object!");
 
-        // Activate the minigame
-        // minigame.SetActive(true);
+        
         SceneManager.LoadScene(minigameName, LoadSceneMode.Additive);
         miniGameSpawner.lastInteracted = this.gameObject;
 

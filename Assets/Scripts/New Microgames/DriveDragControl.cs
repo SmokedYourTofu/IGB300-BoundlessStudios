@@ -34,6 +34,7 @@ public class DriveDragControl : MonoBehaviour
             Destroy(gameObject);
             // Remove the destroyed sticky note from the active list using the instance of StickyNoteController
             Endgame();
+            SceneManager.UnloadSceneAsync("Drive Smash");
         }
     }
 }

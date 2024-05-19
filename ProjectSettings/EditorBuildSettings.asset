@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels.unity
     guid: a86c5c7c337a4a1438b686ae4b7ccf1a
   - enabled: 1
-    path: Assets/Scenes/Test Scene.unity
-    guid: c850ee8c3b14cc8459e7e186857cf567
+    path: Assets/Scenes/Level 1.unity
+    guid: 8c69fd5d035bef1469e368f954c248a7
   - enabled: 1
     path: Assets/Scenes/Sticky Note.unity
     guid: d6a29f0aa04c6c94dbd96f01354cce3c
@@ -24,10 +24,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Printer.unity
     guid: 6121fd5d9c946e848bd7c9b59b02f049
   - enabled: 1
-    path: Assets/Scenes/Password Game.unity
+    path: Assets/Scenes/Password.unity
     guid: 4c43f371c62232a46baa849573e00ce0
   - enabled: 1
-    path: Assets/Scenes/Email Microgame.unity
+    path: Assets/Scenes/Email.unity
     guid: e794fbc4141a8d7478a4de95f9eab2f1
   - enabled: 1
     path: Assets/Scenes/Drive Unplug.unity
