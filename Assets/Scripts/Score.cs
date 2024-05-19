@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Score : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Score : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score.ToString("F1"); // "F1" formats the score to one decimal place
+            DiscordWebhooks.SendMessage("Player Score: "+score.ToString());
         }
     }
 
