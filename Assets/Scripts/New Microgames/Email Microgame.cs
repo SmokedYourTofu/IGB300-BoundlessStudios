@@ -11,17 +11,17 @@ public class EmailMicrogame : MonoBehaviour
     private string[] goodSenders = { "John Smith", "David Lee", "Emily Rodriguez" };
     private string[] goodAddress = { "john.smith@company.com", "david.lee@company.com", "emily.rodriguez@company.com" };
     private string[] goodEmail = {
-        "Dear Player,\r\n\r\nI hope this email finds you well. I would like to schedule a meeting to discuss the progress of Project X and address any challenges we may be facing. Could we arrange a convenient time for you to meet sometime this week?\r\n\r\nPlease let me know your availability, and I will coordinate the meeting accordingly.\r\n\r\nBest regards,\r\nJohn Smith",
-        "Dear Player,\r\n\r\nI hope this email finds you well. Attached is the proposal document for Project 2 as discussed. Please review the document at your earliest convenience, and let me know if you have any questions or require further clarification.\r\n\r\nWe are excited about the opportunity to work with you and are looking forward to your feedback.\r\n\r\nBest regards,\r\nDavid Lee\r\n",
-        "Dear Player,\r\n\r\nI hope you're doing well. I am writing to inquire about the service offered by your company. Could you please provide me with more information regarding its features, pricing, and any ongoing promotions?\r\n\r\nYour prompt response would be greatly appreciated.\r\n\r\nThank you and best regards,\r\nEmily Rodriguez\r\n"
+        "Dear Player,\r\n\r\nI would like to schedule a meeting to discuss the progress of Project X and address any challenges we may be facing. Could we arrange a convenient time for you to meet sometime this week?\r\n\r\nBest regards,\r\nJohn Smith",
+        "Dear Player,\r\n\r\nAttached is the proposal document for Project 2 as discussed. Please review the document at your earliest convenience, and let me know if you have any questions or require further clarification.\r\n\r\nBest regards,\r\nDavid Lee\r\n",
+        "Dear Player,\r\n\r\nI am writing to inquire about the service offered by your company. Could you please provide me with more information regarding its features, pricing, and any ongoing promotions?\r\n\r\nThank you and best regards,\r\nEmily Rodriguez\r\n"
     };
     private string[] goodSubject = { "Meeting Request for Project X Discussion", "Submission of Proposal for Project 2", "Inquiry Regarding the Service" };
 
-    private string[] badAddress = { "john.smith@opendomain.com", "david.lee@opendomain.com", "emily.rodriguez@opendomain.com" };
+    private string[] badAddress = { "john.smith@hackemail.com", "david.lee@hackemail.com", "emily.rodriguez@hackemail.com" };
     private string[] badEmail = {
-        "Dear Player,\r\n\r\nI hope this email finds you well. I would like to schedule a meeting to discuss the progress of Project X and address any challenges we may be facing. Could you provide me with your full schedule for this week so I can organise a time that works for both of us?\r\n\r\nPlease let me know soon, and I will coordinate the meeting accordingly.\r\n\r\nBest regards,\r\nJohn Smith",
-        "Dear Player,\r\n\r\nI hope this email finds you well. Attached is the proposal document for Project 2 as discussed. Please open the program and follow all steps to download the proposal document.\r\n\r\nWe are excited about the opportunity to work with you and are looking forward to your feedback.\r\n\r\nBest regards,\r\nDavid Lee",
-        "Dear Player,\r\n\r\nI hope you're doing well. I am writing to inquire about the service offered by your company. Could you please provide me with more information regarding its features, pricing, and any ongoing promotions? Additionally, if you could provide a username and password to access the service for us to test before we make a decision we would be incredibly grateful.\r\n\r\nYour prompt response would be greatly appreciated.\r\n\r\nThank you and best regards,\r\nEmily Rodriguez"
+        "Dear Player,\r\n\r\nI need your schedule for the week NOW!\r\n\r\nPlease send it soon otherwise your data will be GONE.",
+        "Dear Player,\r\n\r\nDownload and run the program attached to this email.\r\n\r\nIt will install more ram on your computer and make it much safer (It's not bad at all, trust me).",
+        "Dear Player,\r\n\r\nYour account is being hacked. I need you to give me your compaany username and password NOW!\r\n\r\nYour prompt response would be greatly appreciated (I promise I won't steal your account)."
     };
     private string[] badSubject = { "Meting Request for Progect X Diskusion", "Sabmision of Propsal for Projekt 2", "Incuiry Regrdin the Serfice" };
 
@@ -191,6 +191,7 @@ public class EmailMicrogame : MonoBehaviour
                 counter++;
                 Debug.Log(counter + ", " + issues);
                 buttons[i].GetComponent<Image>().color = Color.red;
+                buttons[i].interactable = false;
             }
             else if (lastPressedButton == buttons[i].gameObject && badSpots[i] == true)
             {
@@ -200,6 +201,11 @@ public class EmailMicrogame : MonoBehaviour
                 issues = UnityEngine.Random.Range(0, 3);
                 ChooseEmail(choice);
                 makeIssues(choice, issues);
+                foreach (Button buttonObject in buttons)
+                {
+                    buttonObject.GetComponent<Image>().color = Color.white;
+                    buttonObject.interactable = true;
+                }
             }
         }
     }

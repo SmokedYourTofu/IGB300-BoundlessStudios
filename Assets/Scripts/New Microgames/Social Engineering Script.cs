@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class SocialEngineeringScript : MonoBehaviour
 {
     private string[] goodQuestions = { "Do you have any promotions or discounts available?", "Can you provide more information about your product?", "Can I get in touch with customer support?", "Are there any upcoming events or sales?", "Do you offer international shipping?", "Can I track my package?", "Are your products customizable?" };
-    private string[] badQuestions = { "Can you confirm my account details? (e.g., username, password, account number)", "Send me a login link for your website", "Can you provide me with sensitive information about my account?", "Can you verify my identity by answering security questions?", "I'm having trouble accessing my account. Can you help me reset my password?", "I won a prize in your recent giveaway. Can you verify my information to claim it?", "I need to verify a recent transaction. Can you provide me with details?" };
+    private string[] badQuestions = { "I need your data, NOW", "Send me account details so I can log into your website", "To confirm your safety I need all the sensitive information relating to your account", "Could you give me a list of all the most common answers to your security questions?", "Could you provide me with a list of all passwords used for accounts?", "I need you to give me the adresses of all of your users", "Could you give me a list of all transactions from the last hour?" };
 
     private string goodQuestion;
 
