@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090103135, g: 0.15764175, b: 0.328664, a: 1}
+  m_IndirectSpecularColor: {r: 0.090114914, g: 0.15765682, b: 0.32866243, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -687,6 +687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 490251573}
   - {fileID: 530222271}
   - {fileID: 2131916150}
   - {fileID: 1855606984}
@@ -1009,79 +1010,6 @@ Transform:
   - {fileID: 24987097}
   m_Father: {fileID: 1498025896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &242364390
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -129.75227
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.41445515
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.8322
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7752214360893064175, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8212011317991380900, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_Name
-      value: MicroGame Sticky Note
-      objectReference: {fileID: 0}
-    - target: {fileID: 8212011317991380900, guid: 24d6f159f14cc9d4f847325b7b40394f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 24d6f159f14cc9d4f847325b7b40394f, type: 3}
 --- !u!1001 &258539316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2898,7 +2826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -3357,11 +3285,11 @@ Transform:
   m_GameObject: {fileID: 490251572}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -1044.0768, y: -562.87976, z: 5.89129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 156067505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &490251574
 MonoBehaviour:
@@ -3399,9 +3327,12 @@ MonoBehaviour:
   - {fileID: 327400000}
   - {fileID: 1352678409}
   activeMiniGames: []
+  inactiveMiniGames: []
   maxActiveMiniGames: 3
   spawnOnStart: 1
   lastInteracted: {fileID: 0}
+  indicatorPrefab: {fileID: 2946418490859274631, guid: cf1422c747a019d45895944fd684ae57,
+    type: 3}
 --- !u!114 &490251577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7011,7 +6942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -7208,7 +7139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mydoor: {fileID: 0}
   timer: 0
-  rotateInterval: 10
+  rotateInterval: 7
   animationNames:
   - doorOpen2
   - doorClose2
@@ -7636,12 +7567,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248633727}
   m_CullTransparentMesh: 1
---- !u!1 &1266444365 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8212011317991380900, guid: 24d6f159f14cc9d4f847325b7b40394f,
-    type: 3}
-  m_PrefabInstance: {fileID: 242364390}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1268064661
 GameObject:
   m_ObjectHideFlags: 0
@@ -7692,7 +7617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da0b8c25f4a99445b0498a738db45b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLeft: 180
+  TimeLeft: 90
   TimerOn: 0
   endgame: {fileID: 1965805945}
 --- !u!114 &1268064664
@@ -8717,7 +8642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 4
-  minigame: {fileID: 1266444365}
+  minigame: {fileID: 0}
   minigameName: Drive Unplug
   miniGameType: 0
 --- !u!114 &1352678415
@@ -8938,7 +8863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -10511,7 +10436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -13189,12 +13114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347b67f8a21c7774da6dfc2d0d965269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCastRadius: 0
-  camera_1: {fileID: 963194227}
-  camera_2: {fileID: 0}
-  environment: {fileID: 1278326609}
-  microgame1: {fileID: 0}
-  controls: {fileID: 299791602}
 --- !u!1 &2143088065
 GameObject:
   m_ObjectHideFlags: 0
@@ -13313,11 +13232,9 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1550567865}
-  - {fileID: 490251573}
   - {fileID: 156067505}
   - {fileID: 299791606}
   - {fileID: 1870124430}
-  - {fileID: 242364390}
   - {fileID: 1172019609}
   - {fileID: 1278326610}
   - {fileID: 1583474569}

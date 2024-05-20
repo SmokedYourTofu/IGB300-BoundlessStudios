@@ -2,9 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using System.Web;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -16,8 +13,8 @@ using UnityEngine.Networking;
 /// </summary>
 public class WebhookExamples : MonoBehaviour
 {
-    // YOU MUST ASSIGN A VALID VALID WEBHOOK URL IN THE INSPECTOR FOR THESE EXAMPLES TO WORK.
-    //public string webhookURL;
+    // YOU MUST ASSIGN A VALID WEBHOOK URL IN THE INSPECTOR FOR THESE EXAMPLES TO WORK.
+    public string webhookURL;
 
     /// <summary>
     /// Example 1: Write some text (max 2000 characters).
@@ -36,14 +33,10 @@ public class WebhookExamples : MonoBehaviour
             $"Player Feedback: Game seems cool. I would play it again. The ranged enemy is way too strong. Level 3 is repetitive." +
             "```";
 
-        //DiscordWebhooks.SendMessage($"Hello! This is a some basic text.");
         DiscordWebhooks.SendMessage(message);
-
-        
     }
 
-
-    public void ExampleMethod ()
+    public void ExampleMethod()
     {
         DiscordWebhooks.SendMessage("This is an example message");
     }
@@ -64,9 +57,9 @@ public class WebhookExamples : MonoBehaviour
     {
         if (!WebhookAssigned()) return;
         WWWForm form = new WWWForm();
-        form.AddField("content", $"Hello! This is a some basic text with a custom bot name.");
+        form.AddField("content", $"Hello! This is some basic text with a custom bot name.");
         form.AddField("username", $"Botty McBottson");
-        UnityEngine.Networking.UnityWebRequest.Post(DiscordWebhooks.instance.WEBHOOK_URL, form).SendWebRequest();
+        UnityWebRequest.Post(webhookURL, form).SendWebRequest();
     }
 
     /// <summary>
@@ -76,10 +69,10 @@ public class WebhookExamples : MonoBehaviour
     {
         if (!WebhookAssigned()) return;
         WWWForm form = new WWWForm();
-        form.AddField("content", $"Hello! This is a some basic text with a custom bot name and avatar.");
+        form.AddField("content", $"Hello! This is some basic text with a custom bot name and avatar.");
         form.AddField("username", $"Botty McBottson");
         form.AddField("avatar_url", "https://preview.redd.it/8n6x4gk2pnr71.png?auto=webp&s=c2e0b2084c4046ce9091c585e0f85752f767c2ed"); // TODO
-        UnityEngine.Networking.UnityWebRequest.Post(DiscordWebhooks.instance.WEBHOOK_URL, form).SendWebRequest();
+        UnityWebRequest.Post(webhookURL, form).SendWebRequest();
     }
 
     /// <summary>
@@ -101,7 +94,7 @@ public class WebhookExamples : MonoBehaviour
         form.AddField("username", $"Admin");
         form.AddField("content", $"This is a text to speech message.");
         form.AddField("tts", "true");
-        UnityEngine.Networking.UnityWebRequest.Post(DiscordWebhooks.instance.WEBHOOK_URL, form).SendWebRequest();
+        UnityWebRequest.Post(webhookURL, form).SendWebRequest();
     }
 
     /// <summary>
@@ -123,7 +116,7 @@ public class WebhookExamples : MonoBehaviour
         WWWForm form = new WWWForm();
         form.headers["Content-Type"] = "multipart/form-data";
         form.AddBinaryData("file1", File.ReadAllBytes(path), "Image.jpg");
-        UnityEngine.Networking.UnityWebRequest.Post(DiscordWebhooks.instance.WEBHOOK_URL, form).SendWebRequest();
+        UnityWebRequest.Post(webhookURL, form).SendWebRequest();
     }
 
     /// <summary>
@@ -147,8 +140,11 @@ public class WebhookExamples : MonoBehaviour
     // Check that a Webhook has been assigned in the inspector, otherwise tell the user.
     public bool WebhookAssigned()
     {
-        if (DiscordWebhooks.instance.WEBHOOK_URL == string.Empty)
+        if (string.IsNullOrEmpty(webhookURL))
+        {
             Debug.LogError("No Webhook URL Assigned! Assign one to the DiscordWebhookExample object.");
-        return (DiscordWebhooks.instance.WEBHOOK_URL != string.Empty);
+            return false;
+        }
+        return true;
     }
 }

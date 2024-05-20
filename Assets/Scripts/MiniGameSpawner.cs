@@ -6,12 +6,17 @@ public class MiniGameSpawner : MonoBehaviour
 {
     public GameObject[] miniGames; // Array of mini-game prefabs
     public List<GameObject> activeMiniGames; // List of active mini-games
+    public List<GameObject> inactiveMiniGames; // List of inactive mini-games
     public int maxActiveMiniGames = 3; // Maximum number of active mini-games
     public bool spawnOnStart = true; // Whether to spawn mini-games on start
     public GameObject lastInteracted;
+    public GameObject indicatorPrefab; // Reference to the indicator prefab
 
     private void Start()
     {
+        // Initialize the inactive mini-games list with all mini-games
+        inactiveMiniGames = new List<GameObject>(miniGames);
+
         if (spawnOnStart)
         {
             StartCoroutine(SpawnInitialMiniGame());
@@ -30,12 +35,15 @@ public class MiniGameSpawner : MonoBehaviour
 
     private IEnumerator SpawnAdditionalMiniGames()
     {
-        while (activeMiniGames.Count < maxActiveMiniGames)
+        while (true)
         {
-            float spawnDelay = Random.Range(2f, 6f);
-            yield return new WaitForSeconds(spawnDelay);
-            SpawnMiniGame();
-            Debug.Log("Minigame Spawned");
+            if (activeMiniGames.Count < maxActiveMiniGames && inactiveMiniGames.Count > 0)
+            {
+                float spawnDelay = Random.Range(2f, 6f);
+                yield return new WaitForSeconds(spawnDelay);
+                SpawnMiniGame();
+                Debug.Log("Minigame Spawned");
+            }
 
             // Check if any active mini-game has its NewInteract component disabled
             List<GameObject> toRemove = new List<GameObject>();
@@ -48,23 +56,26 @@ public class MiniGameSpawner : MonoBehaviour
                 }
             }
 
-            // Remove the inactive mini-games from the active pool
+            // Remove the inactive mini-games from the active pool and add them back to the inactive pool
             foreach (GameObject miniGame in toRemove)
             {
                 activeMiniGames.Remove(miniGame);
+                inactiveMiniGames.Add(miniGame);
             }
+
+            yield return null;
         }
     }
 
     public void SpawnMiniGame()
     {
-        if (activeMiniGames.Count >= maxActiveMiniGames)
+        if (activeMiniGames.Count >= maxActiveMiniGames || inactiveMiniGames.Count == 0)
         {
             return;
         }
 
-        // Randomly select a mini-game prefab
-        GameObject miniGamePrefab = miniGames[Random.Range(0, miniGames.Length)];
+        // Randomly select a mini-game prefab from the inactive list
+        GameObject miniGamePrefab = inactiveMiniGames[Random.Range(0, inactiveMiniGames.Count)];
         MiniGameTypes.MiniGameType type = GetMiniGameType(miniGamePrefab);
 
         // Check if the selected mini-game type violates any rules
@@ -73,16 +84,14 @@ public class MiniGameSpawner : MonoBehaviour
             return;
         }
 
-        // Check if the selected mini-game is already active
-        if (activeMiniGames.Contains(miniGamePrefab))
-        {
-            return;
-        }
-
-        // Instantiate and activate the mini-game
-        //GameObject miniGame = Instantiate(miniGamePrefab, transform.position, transform.rotation);
+        // Activate the mini-game
         miniGamePrefab.GetComponent<NewInteract>().enabled = true;
         activeMiniGames.Add(miniGamePrefab);
+        inactiveMiniGames.Remove(miniGamePrefab);
+
+        // Instantiate and position the indicator above the mini-game
+        GameObject indicator = Instantiate(indicatorPrefab, miniGamePrefab.transform);
+        indicator.transform.localPosition = new Vector3(0, 2, 0); // Adjust the position as needed
     }
 
     private MiniGameTypes.MiniGameType GetMiniGameType(GameObject miniGamePrefab)
@@ -116,8 +125,15 @@ public class MiniGameSpawner : MonoBehaviour
         // Deactivate the completed mini-game
         miniGame.GetComponent<NewInteract>().enabled = false;
         miniGame.GetComponent<Outline>().enabled = false;
-        activeMiniGames.Remove(miniGame);
-        // Optionally, reintroduce the completed mini-game back into the pool
-    }
 
+        // Remove the indicator
+        Transform indicator = miniGame.transform.Find(indicatorPrefab.name);
+        if (indicator != null)
+        {
+            Destroy(indicator.gameObject);
+        }
+
+        activeMiniGames.Remove(miniGame);
+        inactiveMiniGames.Add(miniGame);
+    }
 }
