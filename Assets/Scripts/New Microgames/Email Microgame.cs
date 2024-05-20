@@ -222,7 +222,7 @@ public class EmailMicrogame : MonoBehaviour
         mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
 
         GameManager.instance.player.SetActive(true);
-        GameManager.instance.gameCamera.SetActive(true);
+        GameManager.instance.camera.SetActive(true);
         GameManager.instance.environment.SetActive(true);
         GameManager.instance.controls.SetActive(true);
         SceneManager.UnloadSceneAsync("Email");

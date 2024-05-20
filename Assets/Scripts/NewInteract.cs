@@ -91,7 +91,7 @@ public class NewInteract : MonoBehaviour
 
         // Deactivate player, camera, environment, and controls
         GameManager.instance.player.SetActive(false);
-        GameManager.instance.gameCamera.SetActive(false);
+        GameManager.instance.camera.SetActive(false);
         GameManager.instance.environment.SetActive(false);
         GameManager.instance.controls.SetActive(false);
     }

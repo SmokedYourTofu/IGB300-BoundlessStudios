@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     public GameObject player;
-    public GameObject gameCamera;
+    public new GameObject camera;
     public GameObject environment;
     public GameObject controls;
 
