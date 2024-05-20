@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+// using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using UnityEngine.SceneManagement;
 
 public class SocialEngineeringScript : MonoBehaviour
@@ -102,7 +102,7 @@ public class SocialEngineeringScript : MonoBehaviour
         mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
 
         GameManager.instance.player.SetActive(true);
-        GameManager.instance.camera.SetActive(true);
+        GameManager.instance.gameCamera.SetActive(true);
         GameManager.instance.environment.SetActive(true);
         GameManager.instance.controls.SetActive(true);
         SceneManager.UnloadSceneAsync("Social Engineering");
