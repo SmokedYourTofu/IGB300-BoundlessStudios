@@ -7,6 +7,10 @@ public class DragObjectNoEnd : MonoBehaviour
     private bool isDragging = false;
     private float holdDistance;
 
+    public float rotationSpeed = 1f; // Speed of rotation
+    private Vector2 startTouchPosition;
+    private Vector2 currentTouchPosition;
+
     private void Start()
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
@@ -27,25 +31,30 @@ public class DragObjectNoEnd : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    // Cast a ray from the touch position to detect objects
-                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                    RaycastHit hit;
 
-                    // If the ray hits an object, check if it's this object
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        if (hit.collider.gameObject == gameObject)
-                        {
-                            // Calculate the offset between touch point and object position
-                            isDragging = true;
-                        }
-                    }
+                    isDragging = true;
+                    startTouchPosition = touch.position;
+
                     break;
 
                 case TouchPhase.Moved:
                     // If the object is being dragged, move it according to touch position
                     if (isDragging)
                     {
+                        currentTouchPosition = touch.position;
+                        Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, holdDistance);
+                        newPosition = Camera.main.ScreenToWorldPoint(newPosition);
+                        //newPosition.z = holdDistance;
+                        transform.position = newPosition;
+                        RotateObject();
+                    }
+                    break;
+
+                case TouchPhase.Stationary:
+                    // If the object is being dragged, move it according to touch position
+                    if (isDragging)
+                    {
+                        //startTouchPosition = touch.position;
                         Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, holdDistance);
                         newPosition = Camera.main.ScreenToWorldPoint(newPosition);
                         //newPosition.z = holdDistance;
@@ -59,5 +68,20 @@ public class DragObjectNoEnd : MonoBehaviour
                     break;
             }
         }
+    }
+
+    void RotateObject()
+    {
+        // Calculate the direction from the starting touch position to the current touch position
+        Vector2 direction = currentTouchPosition - startTouchPosition;
+
+        // Calculate the angle between the start and current touch positions
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Apply rotation to the GameObject
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward) * Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, Vector3.up);
+
+        // Update the start position for the next frame
+        startTouchPosition = currentTouchPosition;
     }
 }
