@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1
+  touchSpeed: 0
 --- !u!4 &741017052
 Transform:
   m_ObjectHideFlags: 0
@@ -1183,6 +1184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragControl: {fileID: 1800457178}
+  dragObject: {fileID: 741017051}
 --- !u!65 &7286823645972388371
 BoxCollider:
   m_ObjectHideFlags: 0

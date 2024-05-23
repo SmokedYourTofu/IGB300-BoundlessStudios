@@ -11,6 +11,8 @@ public class DragObjectNoEnd : MonoBehaviour
     private Vector2 startTouchPosition;
     private Vector2 currentTouchPosition;
 
+    public float touchSpeed;
+
     private void Start()
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
@@ -47,6 +49,8 @@ public class DragObjectNoEnd : MonoBehaviour
                         //newPosition.z = holdDistance;
                         transform.position = newPosition;
                         RotateObject();
+                        touchSpeed = touch.deltaTime;
+                        Debug.Log(touchSpeed);
                     }
                     break;
 
