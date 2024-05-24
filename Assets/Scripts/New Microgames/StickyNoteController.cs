@@ -1,20 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class StickyNoteController : MonoBehaviour
 {
     public Camera specificCamera;
     public List<GameObject> stickyNotePool;
     public List<GameObject> activeStickyNotes = new List<GameObject>();
-    private AudioSource sound;
+    public AudioSource sound;
+    public GameObject completeText;
 
     private MiniGameSpawner mySpawner;
 
     public void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
-        sound = this.GetComponent<AudioSource>();
         specificCamera = Camera.main;
 
         // Get a random number of sticky notes to activate (2-4)
@@ -47,8 +48,16 @@ public class StickyNoteController : MonoBehaviour
         Debug.Log(activeStickyNotes.Count);
         if (activeStickyNotes.Count == 0)
         {
-            EndMinigame();
+            sound.Play();
+            StartCoroutine(FinishWait());
         }
+    }
+
+    private IEnumerator FinishWait()
+    {
+        completeText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        EndMinigame();
     }
 
     public void Shuffle(List<GameObject> list)
@@ -76,7 +85,6 @@ public class StickyNoteController : MonoBehaviour
 
     public void EndMinigame()
     {
-        sound.Play();
         // End the minigame logic here
         Debug.Log("Minigame ended");
         mySpawner.MiniGameCompleted(mySpawner.lastInteracted);

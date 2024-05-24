@@ -17,6 +17,12 @@ public class DriveDragControl : MonoBehaviour
         mySource = this.GetComponent<AudioSource>();
     }
 
+    private IEnumerator FinishWait()
+    {
+        yield return new WaitForSeconds(1f);
+        Endgame();
+    }
+
     public void Endgame()
     {
         mySource.Play();
@@ -33,7 +39,7 @@ public class DriveDragControl : MonoBehaviour
         {
             Destroy(gameObject);
             // Remove the destroyed sticky note from the active list using the instance of StickyNoteController
-            Endgame();
+            StartCoroutine(FinishWait());
             SceneManager.UnloadSceneAsync("Drive Smash");
         }
     }

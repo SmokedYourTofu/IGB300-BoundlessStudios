@@ -14,10 +14,12 @@ public class PasswordMicrogame : MonoBehaviour
     public string realPassword;
     private string badPassword;
 
+    public AudioSource[] audioSources;
     public TMP_Text passwordText;
     private GameObject[] buttons = new GameObject[6];
 
     private MiniGameSpawner mySpawner;
+    public GameObject completeText;
 
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
@@ -53,6 +55,14 @@ public class PasswordMicrogame : MonoBehaviour
 
         isGameCompleted = false;
         resetGame(); // End the game when time runs out
+    }
+
+    public IEnumerator FinishWait()
+    {
+        completeText.SetActive(true);
+        audioSources[2].Play();
+        yield return new WaitForSeconds(1f);
+        resetGame();
     }
 
     private void generateTruePassword()

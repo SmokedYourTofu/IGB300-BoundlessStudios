@@ -37,7 +37,8 @@ public class EmailMicrogame : MonoBehaviour
     private int newSpot;
     private int counter;
 
-    private AudioSource[] audioSources;
+    public AudioSource[] audioSources;
+    public GameObject completeText;
 
     private MiniGameSpawner mySpawner;
 
@@ -55,7 +56,6 @@ public class EmailMicrogame : MonoBehaviour
     void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
-        audioSources = GetComponents<AudioSource>();
         choice = UnityEngine.Random.Range(0, 3);
         issues = UnityEngine.Random.Range(0, 3);
         foreach (Button button in buttons)
@@ -75,8 +75,16 @@ public class EmailMicrogame : MonoBehaviour
     {
         if (counter - 1 == issues)
         {
-            endGame();
+            audioSources[2].Play();
+            StartCoroutine(FinishWait());
         }
+    }
+
+    private IEnumerator FinishWait()
+    {
+        completeText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        endGame();
     }
 
     private IEnumerator GameTimer()
@@ -187,7 +195,7 @@ public class EmailMicrogame : MonoBehaviour
         {
             if (lastPressedButton == buttons[i].gameObject && badSpots[i] == false)
             {
-                audioSources[0].Play();
+                audioSources[1].Play();
                 counter++;
                 Debug.Log(counter + ", " + issues);
                 buttons[i].GetComponent<Image>().color = Color.red;
@@ -196,6 +204,7 @@ public class EmailMicrogame : MonoBehaviour
             else if (lastPressedButton == buttons[i].gameObject && badSpots[i] == true)
             {
                 // Resets the game if they make the wrong choice, costing them time
+                audioSources[0].Play();
                 Debug.Log("Wrong Choice");
                 choice = UnityEngine.Random.Range(0, 3);
                 issues = UnityEngine.Random.Range(0, 3);
@@ -212,7 +221,6 @@ public class EmailMicrogame : MonoBehaviour
 
     private void endGame()
     {
-        audioSources[1].Play();
 
         // Calculate and update the score
         CalculateScore();

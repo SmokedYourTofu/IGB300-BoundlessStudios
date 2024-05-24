@@ -917,8 +917,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: It's Corrupted!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f767b9b83380cdb4a9b2f37c6c61a364, type: 2}
+  m_sharedMaterial: {fileID: 188733241836422252, guid: f767b9b83380cdb4a9b2f37c6c61a364,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -19,7 +19,8 @@ public class SocialEngineeringScript : MonoBehaviour
     public Button[] buttons = new Button[2];
     private GameObject lastPressedButton;
 
-    private AudioSource[] audioSources;
+    public AudioSource[] audioSources;
+    public GameObject completeText;
 
     private MiniGameSpawner mySpawner;
 
@@ -27,7 +28,6 @@ public class SocialEngineeringScript : MonoBehaviour
     void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
-        audioSources = GetComponents<AudioSource>();
         fillText();
         foreach (Button button in buttons)
         {
@@ -39,8 +39,16 @@ public class SocialEngineeringScript : MonoBehaviour
     {
         if (questionCounter == 2)
         {
-            endGame();
+            audioSources[2].Play();
+            StartCoroutine(FinishWait());
         }
+    }
+
+    private IEnumerator FinishWait()
+    {
+        completeText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        endGame();
     }
 
     private void fillText()
@@ -79,7 +87,7 @@ public class SocialEngineeringScript : MonoBehaviour
         {
             if (lastPressedButton == buttons[i].gameObject && goodQuestion == lastPressedButton.transform.name)
             {
-                audioSources[0].Play();
+                audioSources[1].Play();
                 questionCounter++;
                 fillText();
             }
@@ -87,6 +95,7 @@ public class SocialEngineeringScript : MonoBehaviour
             {
                 //make players do another task if they get the wrong task
                 Debug.Log("Wrong Choice");
+                audioSources[0].Play();
                 questionCounter--;
                 fillText();
             }

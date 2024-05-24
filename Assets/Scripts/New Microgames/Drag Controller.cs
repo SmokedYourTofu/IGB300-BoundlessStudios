@@ -6,8 +6,9 @@ using TMPro;
 
 public class DragController : MonoBehaviour
 {
-    private AudioSource mySource;
+    public AudioSource mySource;
     private MiniGameSpawner mySpawner;
+    public GameObject completeText;
 
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
@@ -22,7 +23,6 @@ public class DragController : MonoBehaviour
     void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
-        mySource = this.GetComponent<AudioSource>();
 
         // Initialize the timer
         timeRemaining = totalTime;
@@ -41,9 +41,16 @@ public class DragController : MonoBehaviour
         Endgame(); // End the game when time runs out
     }
 
+    public IEnumerator FinishWait()
+    {
+        completeText.SetActive(true);
+        mySource.Play();
+        yield return new WaitForSeconds(1f);
+        Endgame();
+    }
+
     public void Endgame()
     {
-        mySource.Play();
         Debug.Log("Game Over");
 
         // Calculate and update the score

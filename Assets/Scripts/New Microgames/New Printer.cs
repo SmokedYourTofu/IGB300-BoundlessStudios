@@ -15,6 +15,8 @@ public class NewPrinter : MonoBehaviour
 
     public GameObject timer;
     private Slider timerbar;
+    public AudioSource[] myAudioSource;
+    public GameObject completeText;
 
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
@@ -51,7 +53,8 @@ public class NewPrinter : MonoBehaviour
 
     private IEnumerator Unplug()
     {
-        myCable.Play("Cable Unplug");
+        completeText.SetActive(true);
+        myCable.Play("PauseCable");
         yield return new WaitForSeconds(1f);
         Endgame();
     }
@@ -78,6 +81,8 @@ public class NewPrinter : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 myCable.Play("Cable Jiggle", 0, 0.0f);
+                myAudioSource[1].pitch = barProgress / 10;
+                myAudioSource[1].Play();
                 if (barProgress < 6)
                 {
                     barProgress+=  1.5f;
@@ -100,7 +105,9 @@ public class NewPrinter : MonoBehaviour
 
         if (barProgress >= 10)
         {
+            myAudioSource[0].Play();
             StartCoroutine(Unplug());
+            TimerOn = false;
         }
     }
 

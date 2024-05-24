@@ -25,16 +25,17 @@ public class PasswordGameButton : MonoBehaviour
         truePassword = psMicrogame.realPassword;
         if (passwordText.text == truePassword)
         {
-            passwordAudio[0].Play();  
+            psMicrogame.audioSources[1].Play();
             //do score and other stuff
-            psMicrogame.resetGame();
+            psMicrogame.audioSources[2].Play();
+            StartCoroutine(psMicrogame.FinishWait());
         }
         else
         {
             Debug.Log("wrong passwword");
             //do some sort of punishment
             psMicrogame.setupGame();
-            passwordAudio[1].Play();
+            psMicrogame.audioSources[0].Play();
         }
     }
 

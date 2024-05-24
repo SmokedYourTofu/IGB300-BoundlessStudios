@@ -7,14 +7,16 @@ public class DriveSmash3D : MonoBehaviour
 {
     public DragController dragControl;
     public DragObjectNoEnd dragObject;
+    public ParticleSystem particles;
 
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Drive")
         {
+            particles.Play();
             if (dragObject.touchSpeed < 0.0014f)
             {
-                dragControl.Endgame();
+                StartCoroutine(dragControl.FinishWait());
             } 
         }
     }
