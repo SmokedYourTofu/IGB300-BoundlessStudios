@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public float dashCooldownTimer;
     public bool dashing;
+    public AudioClip dashingVFX;
 
     [Header("Recovering")]
     public float recoverCooldown;
@@ -74,8 +75,10 @@ public class PlayerController : MonoBehaviour
     public void Dashing() {
         if (dashCooldownTimer > 0) return;
         else dashCooldownTimer = dashCooldown;
-
+        
         dashing = true;
+
+        SoundManager.instance.PlaySoundFXclip(dashingVFX, transform, 1f);
 
         Vector3 dash = orientation.forward * dashForce;
         rb.AddForce(dash, ForceMode.Impulse);
