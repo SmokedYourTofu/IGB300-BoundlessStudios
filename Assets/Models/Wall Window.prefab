@@ -206,14 +206,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6073777795399657744}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e343a6f3253e6b41b24a20da0ed6749,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5951391045082911620}
     - targetCorrespondingSourceObject: {fileID: -6618775306723485924, guid: 0e343a6f3253e6b41b24a20da0ed6749,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9136748827763688185}
-    - targetCorrespondingSourceObject: {fileID: -6618775306723485924, guid: 0e343a6f3253e6b41b24a20da0ed6749,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7703736968867628775}
   m_SourcePrefab: {fileID: 100100000, guid: 0e343a6f3253e6b41b24a20da0ed6749, type: 3}
 --- !u!1 &1823887200318481407 stripped
 GameObject:
@@ -238,18 +238,24 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6229463915993544602, guid: c2794e6b0cfe8484881c36c4302cec26, type: 3}
---- !u!64 &7703736968867628775
-MeshCollider:
+--- !u!1 &3579152799512840626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e343a6f3253e6b41b24a20da0ed6749,
+    type: 3}
+  m_PrefabInstance: {fileID: 4425592936419554531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5951391045082911620
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823887200318481407}
+  m_GameObject: {fileID: 3579152799512840626}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -261,10 +267,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5570510098140684113, guid: 0e343a6f3253e6b41b24a20da0ed6749, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 4, y: 4, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &4242501000155271944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e343a6f3253e6b41b24a20da0ed6749,
