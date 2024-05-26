@@ -21,7 +21,7 @@ public class EmailMicrogame : MonoBehaviour
     private string[] badEmail = {
         "Dear Player,\r\n\r\nI need your schedule for the week NOW!\r\n\r\nPlease send it soon otherwise your data will be GONE.",
         "Dear Player,\r\n\r\nDownload and run the program attached to this email.\r\n\r\nIt will install more ram on your computer and make it much safer (It's not bad at all, trust me).",
-        "Dear Player,\r\n\r\nYour account is being hacked. I need you to give me your compaany username and password NOW!\r\n\r\nYour prompt response would be greatly appreciated (I promise I won't steal your account)."
+        "Dear Player,\r\n\r\nYour account is being hacked. I need you to give me your company username and password NOW!\r\n\r\nYour prompt response would be greatly appreciated (I promise I won't steal your account)."
     };
     private string[] badSubject = { "Meting Request for Progect X Diskusion", "Sabmision of Propsal for Projekt 2", "Incuiry Regrdin the Serfice" };
 
@@ -51,6 +51,7 @@ public class EmailMicrogame : MonoBehaviour
     public float gameMultiplier = 0.15f; // Game-specific multiplier
     private float timeRemaining; // Time remaining for this game
     private bool isGameCompleted = true; // Indicates if the game was completed
+    private bool isSuccessful = true; // Indicates if the game was successfully completed
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +97,7 @@ public class EmailMicrogame : MonoBehaviour
         }
 
         isGameCompleted = false;
+        isSuccessful = false; // Game failed because time ran out
         endGame(); // End the game when time runs out
     }
 
@@ -221,13 +223,12 @@ public class EmailMicrogame : MonoBehaviour
 
     private void endGame()
     {
-
         // Calculate and update the score
         CalculateScore();
 
         // Reset game for next time
         Debug.Log("Game Ended");
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);

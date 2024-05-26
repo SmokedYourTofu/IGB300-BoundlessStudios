@@ -13,6 +13,8 @@ public class StickyNoteController : MonoBehaviour
 
     private MiniGameSpawner mySpawner;
 
+    private bool isGameCompleted = true; // Indicates if the game was completed successfully
+
     public void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
@@ -45,7 +47,6 @@ public class StickyNoteController : MonoBehaviour
     public void Update()
     {
         // Check if there are no more active sticky notes
-        Debug.Log(activeStickyNotes.Count);
         if (activeStickyNotes.Count == 0)
         {
             sound.Play();
@@ -87,7 +88,8 @@ public class StickyNoteController : MonoBehaviour
     {
         // End the minigame logic here
         Debug.Log("Minigame ended");
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isGameCompleted);
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);

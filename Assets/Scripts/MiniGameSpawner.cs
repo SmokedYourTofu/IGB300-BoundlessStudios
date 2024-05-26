@@ -89,9 +89,26 @@ public class MiniGameSpawner : MonoBehaviour
         activeMiniGames.Add(miniGamePrefab);
         inactiveMiniGames.Remove(miniGamePrefab);
 
-        // Instantiate and position the indicator above the mini-game
-        GameObject indicator = Instantiate(indicatorPrefab, miniGamePrefab.transform);
-        indicator.transform.localPosition = new Vector3(0, 2, 0); // Adjust the position as needed
+        // Instantiate and position the indicator above the mini-game without stretching
+        Renderer renderer = miniGamePrefab.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            Vector3 topOfMesh = renderer.bounds.max;
+            Vector3 indicatorPosition = new Vector3(topOfMesh.x, topOfMesh.y + 2, topOfMesh.z); // Adjust the height as needed
+            GameObject indicator = Instantiate(indicatorPrefab, indicatorPosition, Quaternion.identity);
+            indicator.transform.localScale = indicatorPrefab.transform.localScale; // Maintain the original size
+
+            // Store the reference to the indicator in the mini-game's NewInteract component
+            NewInteract interactScript = miniGamePrefab.GetComponent<NewInteract>();
+            if (interactScript != null)
+            {
+                interactScript.indicator = indicator;
+            }
+        }
+        else
+        {
+            Debug.LogError("Renderer not found on mini-game prefab.");
+        }
     }
 
     private MiniGameTypes.MiniGameType GetMiniGameType(GameObject miniGamePrefab)
@@ -120,18 +137,21 @@ public class MiniGameSpawner : MonoBehaviour
         return false;
     }
 
-    public void MiniGameCompleted(GameObject miniGame)
+    public void MiniGameCompleted(GameObject miniGame, bool isSuccessful)
     {
         // Deactivate the completed mini-game
         miniGame.GetComponent<NewInteract>().enabled = false;
         miniGame.GetComponent<Outline>().enabled = false;
 
         // Remove the indicator
-        Transform indicator = miniGame.transform.Find(indicatorPrefab.name);
-        if (indicator != null)
+        NewInteract interactScript = miniGame.GetComponent<NewInteract>();
+        if (interactScript != null && interactScript.indicator != null)
         {
-            Destroy(indicator.gameObject);
+            Destroy(interactScript.indicator);
         }
+
+        // Update the game multiplier based on success or failure
+        ScoreManager.Instance.UpdateMultiplier(isSuccessful);
 
         activeMiniGames.Remove(miniGame);
         inactiveMiniGames.Add(miniGame);

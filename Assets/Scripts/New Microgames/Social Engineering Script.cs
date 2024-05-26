@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-// using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using UnityEngine.SceneManagement;
 
 public class SocialEngineeringScript : MonoBehaviour
@@ -23,6 +22,8 @@ public class SocialEngineeringScript : MonoBehaviour
     public GameObject completeText;
 
     private MiniGameSpawner mySpawner;
+    private bool isGameCompleted = true; // Indicates if the game was completed
+    private bool isSuccessful = true; // Indicates if the game was successfully completed
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +109,7 @@ public class SocialEngineeringScript : MonoBehaviour
         Debug.Log("Game Over");
         //points and such
 
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);

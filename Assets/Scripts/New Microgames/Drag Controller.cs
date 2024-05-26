@@ -19,6 +19,7 @@ public class DragController : MonoBehaviour
     public float gameMultiplier = 0.15f; // Game-specific multiplier
     private float timeRemaining; // Time remaining for this game
     private bool isGameCompleted = true; // Indicates if the game was completed
+    private bool isSuccessful = true; // Indicates if the game was successfully completed
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class DragController : MonoBehaviour
         }
 
         isGameCompleted = false;
+        isSuccessful = false; // Game failed because time ran out
         Endgame(); // End the game when time runs out
     }
 
@@ -56,7 +58,7 @@ public class DragController : MonoBehaviour
         // Calculate and update the score
         CalculateScore();
 
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);

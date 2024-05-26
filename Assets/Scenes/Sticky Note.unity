@@ -463,11 +463,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  multiplierText: {fileID: 0}
   totalTime: 0
   basePoints: 100
   progressiveMultiplierMin: 0.1
   progressiveMultiplierMax: 2
-  gameMultiplier: 1.1
+  gameMultiplier: 0
   timeRemaining: 0
   isGameCompleted: 1
 --- !u!1 &793957321

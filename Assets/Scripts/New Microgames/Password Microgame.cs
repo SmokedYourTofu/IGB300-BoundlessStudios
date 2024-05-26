@@ -30,6 +30,7 @@ public class PasswordMicrogame : MonoBehaviour
     public float gameMultiplier = 0.15f; // Game-specific multiplier
     private float timeRemaining; // Time remaining for this game
     private bool isGameCompleted = true; // Indicates if the game was completed
+    private bool isSuccessful = true; // Indicates if the game was successfully completed
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class PasswordMicrogame : MonoBehaviour
         }
 
         isGameCompleted = false;
+        isSuccessful = false; // Game failed because time ran out
         resetGame(); // End the game when time runs out
     }
 
@@ -123,7 +125,7 @@ public class PasswordMicrogame : MonoBehaviour
         // Calculate and update the score
         CalculateScore();
 
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);
