@@ -8,10 +8,9 @@ public class NewInteract : MonoBehaviour
     public float interactionRange = 3f; // Set the interaction range here
     private PlayerController playerController;
     private Outline outline; // Reference to the Outline component
-    public GameObject minigame;
     public string minigameName;
     private MiniGameSpawner miniGameSpawner;
-
+    public GameObject indicator;
     public MiniGameTypes.MiniGameType miniGameType;
 
     private void Start()

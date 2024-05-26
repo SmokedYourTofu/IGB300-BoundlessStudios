@@ -27,6 +27,7 @@ public class NewPrinter : MonoBehaviour
     public float gameMultiplier = 0.15f; // Game-specific multiplier
     private float timeRemaining; // Time remaining for this game
     private bool isGameCompleted = true; // Indicates if the game was completed
+    private bool isSuccessful = true; // Indicates if the game was successfully completed
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class NewPrinter : MonoBehaviour
         }
 
         isGameCompleted = false;
+        isSuccessful = false; // Game failed because time ran out
         Endgame(); // End the game when time runs out
     }
 
@@ -85,7 +87,7 @@ public class NewPrinter : MonoBehaviour
                 myAudioSource[1].Play();
                 if (barProgress < 6)
                 {
-                    barProgress+=  1.5f;
+                    barProgress += 1.5f;
                 }
                 else if (barProgress < 8)
                 {
@@ -118,7 +120,7 @@ public class NewPrinter : MonoBehaviour
         // Calculate and update the score
         CalculateScore();
 
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted);
+        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);

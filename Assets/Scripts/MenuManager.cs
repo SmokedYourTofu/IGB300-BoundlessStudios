@@ -51,7 +51,7 @@ public class MenuManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(gameScene);
         Time.timeScale = 1.0f;
         isPaused = false;
     }

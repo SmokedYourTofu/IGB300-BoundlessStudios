@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090103135, g: 0.15764175, b: 0.328664, a: 1}
+  m_IndirectSpecularColor: {r: 0.09011754, g: 0.15766057, b: 0.32866302, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2629,10 +2629,8 @@ GameObject:
   - component: {fileID: 327400004}
   - component: {fileID: 327400003}
   - component: {fileID: 327400002}
-  - component: {fileID: 327400006}
-  - component: {fileID: 327400005}
   m_Layer: 0
-  m_Name: Printer
+  m_Name: Blue Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2724,40 +2722,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327400000}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &327400005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327400000}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &327400006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327400000}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e5c2aa863bf7446959e8396e222af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRange: 4
-  minigame: {fileID: 0}
-  minigameName: Printer
-  miniGameType: 0
 --- !u!1001 &331351887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3532,6 +3496,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1704fcad60a06284c9610413178a078e, type: 3}
+--- !u!1 &418213457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1041144719956670103, guid: 02798609cc73aed4bb76d167a9faef39,
+    type: 3}
+  m_PrefabInstance: {fileID: 763573941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &418213462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418213457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e5c2aa863bf7446959e8396e222af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 3
+  minigameName: Sticky Note
+  indicator: {fileID: 0}
+  miniGameType: 1
+--- !u!114 &418213463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418213457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &418790466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,8 +3925,6 @@ GameObject:
   - component: {fileID: 437219815}
   - component: {fileID: 437219814}
   - component: {fileID: 437219813}
-  - component: {fileID: 437219817}
-  - component: {fileID: 437219816}
   m_Layer: 0
   m_Name: Obstacle (6)
   m_TagString: Untagged
@@ -4016,40 +4018,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437219811}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &437219816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437219811}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &437219817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437219811}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e5c2aa863bf7446959e8396e222af0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRange: 4
-  minigame: {fileID: 0}
-  minigameName: Password
-  miniGameType: 1
 --- !u!1 &451252260
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,18 +4432,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGames:
-  - {fileID: 1352678409}
+  - {fileID: 7774504841447089377}
+  - {fileID: 5652195693390462807}
   - {fileID: 1142130734}
-  - {fileID: 437219811}
-  - {fileID: 1769785053}
-  - {fileID: 327400000}
   - {fileID: 1352678409}
+  - {fileID: 611201389}
+  - {fileID: 418213457}
   activeMiniGames: []
   inactiveMiniGames: []
   maxActiveMiniGames: 3
   spawnOnStart: 1
   lastInteracted: {fileID: 0}
-  indicatorPrefab: {fileID: 2946418490859274631, guid: cf1422c747a019d45895944fd684ae57,
+  indicatorPrefab: {fileID: 3647802986621200649, guid: 883eaf66a15862149b85393923e3d95c,
     type: 3}
 --- !u!114 &490251577
 MonoBehaviour:
@@ -4502,6 +4470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 993092879}
+  multiplierText: {fileID: 1274867438}
   totalTime: 0
   basePoints: 0
   progressiveMultiplierMin: 0
@@ -4525,7 +4494,7 @@ PrefabInstance:
     - target: {fileID: 5787736261649601213, guid: 00124434b79c08f49b68950fb5c5bfe5,
         type: 3}
       propertyPath: m_Name
-      value: Brown Desk (2)
+      value: Password
       objectReference: {fileID: 0}
     - target: {fileID: 6468802278441499396, guid: 00124434b79c08f49b68950fb5c5bfe5,
         type: 3}
@@ -4595,7 +4564,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5787736261649601213, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611543933}
+    - targetCorrespondingSourceObject: {fileID: 5787736261649601213, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611543932}
   m_SourcePrefab: {fileID: 100100000, guid: 00124434b79c08f49b68950fb5c5bfe5, type: 3}
 --- !u!1001 &502067385
 PrefabInstance:
@@ -5515,6 +5492,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609527455}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &611201389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5787736261649601213, guid: 00124434b79c08f49b68950fb5c5bfe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 498863928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &621157758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6423,10 +6406,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk
       objectReference: {fileID: 0}
+    - target: {fileID: 1041144719956670103, guid: 02798609cc73aed4bb76d167a9faef39,
+        type: 3}
+      propertyPath: m_Name
+      value: Sticky Note
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1041144719956670103, guid: 02798609cc73aed4bb76d167a9faef39,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 418213463}
+    - targetCorrespondingSourceObject: {fileID: 1041144719956670103, guid: 02798609cc73aed4bb76d167a9faef39,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 418213462}
   m_SourcePrefab: {fileID: 100100000, guid: 02798609cc73aed4bb76d167a9faef39, type: 3}
 --- !u!4 &763573942 stripped
 Transform:
@@ -8549,7 +8545,7 @@ RectTransform:
   m_GameObject: {fileID: 1060113085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2593, y: 1.2593, z: 1.2593}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1274867437}
@@ -9446,7 +9442,7 @@ GameObject:
   - component: {fileID: 1142130740}
   - component: {fileID: 1142130739}
   m_Layer: 0
-  m_Name: Obstacle (2)
+  m_Name: Email
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9569,8 +9565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 4
-  minigame: {fileID: 0}
   minigameName: Email
+  indicator: {fileID: 0}
   miniGameType: 1
 --- !u!1001 &1158368206
 PrefabInstance:
@@ -10485,7 +10481,7 @@ RectTransform:
   m_GameObject: {fileID: 1274867436}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49909, y: 0.49909, z: 0.49909}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1060113086}
@@ -11281,7 +11277,7 @@ GameObject:
   - component: {fileID: 1352678414}
   - component: {fileID: 1352678415}
   m_Layer: 0
-  m_Name: Printer (1)
+  m_Name: Drive Unplug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11386,8 +11382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 4
-  minigame: {fileID: 0}
   minigameName: Drive Unplug
+  indicator: {fileID: 0}
   miniGameType: 0
 --- !u!114 &1352678415
 MonoBehaviour:
@@ -11590,8 +11586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 3
-  minigame: {fileID: 0}
   minigameName: Sticky Note
+  indicator: {fileID: 0}
   miniGameType: 0
 --- !u!114 &1369820323
 MonoBehaviour:
@@ -13086,6 +13082,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 498863928}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1611543932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611201389}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e5c2aa863bf7446959e8396e222af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 3
+  minigameName: Password
+  indicator: {fileID: 0}
+  miniGameType: 0
+--- !u!114 &1611543933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611201389}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1618520057
 GameObject:
   m_ObjectHideFlags: 0
@@ -13502,8 +13532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 4
-  minigame: {fileID: 0}
   minigameName: Social Engineering
+  indicator: {fileID: 0}
   miniGameType: 0
 --- !u!114 &1769785060
 MonoBehaviour:
@@ -16782,8 +16812,56 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5741795410332458260, guid: 54249c7185f158e4f92f983fc202bedf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5652195693390462809}
+    - targetCorrespondingSourceObject: {fileID: 5741795410332458260, guid: 54249c7185f158e4f92f983fc202bedf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5652195693390462808}
   m_SourcePrefab: {fileID: 100100000, guid: 54249c7185f158e4f92f983fc202bedf, type: 3}
+--- !u!1 &5652195693390462807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5741795410332458260, guid: 54249c7185f158e4f92f983fc202bedf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5652195693390462806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5652195693390462808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652195693390462807}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e5c2aa863bf7446959e8396e222af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 3
+  minigameName: Social Engineering
+  indicator: {fileID: 0}
+  miniGameType: 1
+--- !u!114 &5652195693390462809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652195693390462807}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &7774504841447089376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16850,8 +16928,56 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7930199138828852745, guid: a63cfeb9d373b9145bf35c507b8df5bd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7774504841447089379}
+    - targetCorrespondingSourceObject: {fileID: 7930199138828852745, guid: a63cfeb9d373b9145bf35c507b8df5bd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7774504841447089378}
   m_SourcePrefab: {fileID: 100100000, guid: a63cfeb9d373b9145bf35c507b8df5bd, type: 3}
+--- !u!1 &7774504841447089377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7930199138828852745, guid: a63cfeb9d373b9145bf35c507b8df5bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 7774504841447089376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7774504841447089378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774504841447089377}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e5c2aa863bf7446959e8396e222af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 3
+  minigameName: Printer
+  indicator: {fileID: 0}
+  miniGameType: 0
+--- !u!114 &7774504841447089379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7774504841447089377}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
