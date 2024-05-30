@@ -35,6 +35,11 @@ public class NewInteract : MonoBehaviour
 
     private void Update()
     {
+        if (playerController == null)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
+
         if (playerController == null || outline == null)
         {
             return;
