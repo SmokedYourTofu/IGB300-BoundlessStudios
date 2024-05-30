@@ -366,7 +366,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bbec60a8a447c814593d3c6d5ef8535c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -468,7 +468,6 @@ MonoBehaviour:
   basePoints: 100
   progressiveMultiplierMin: 0.1
   progressiveMultiplierMax: 2
-  gameMultiplier: 0
   timeRemaining: 0
   isGameCompleted: 1
 --- !u!1 &793957321

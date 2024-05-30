@@ -22,6 +22,15 @@ public class SocialEngineeringScript : MonoBehaviour
     public GameObject completeText;
 
     private MiniGameSpawner mySpawner;
+
+    // Score parameters
+    public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
+    public float totalTime = 30f; // Total time for the game (example value)
+    public float basePoints = 100f; // Base number of points (example value)
+    public float progressiveMultiplierMin = 0.1f; // Minimum progressive multiplier
+    public float progressiveMultiplierMax = 2f; // Maximum progressive multiplier
+    public float gameMultiplier = 0.15f; // Game-specific multiplier
+    private float timeRemaining; // Time remaining for this game
     private bool isGameCompleted = true; // Indicates if the game was completed
     private bool isSuccessful = true; // Indicates if the game was successfully completed
 
@@ -34,6 +43,9 @@ public class SocialEngineeringScript : MonoBehaviour
         {
             button.onClick.AddListener(() => ButtonPressed(button.gameObject));
         }
+
+        timeRemaining = totalTime;
+        StartCoroutine(GameTimer());
     }
 
     private void Update()
@@ -48,8 +60,22 @@ public class SocialEngineeringScript : MonoBehaviour
     private IEnumerator FinishWait()
     {
         completeText.SetActive(true);
+        audioSources[1].Play();
         yield return new WaitForSeconds(1f);
         endGame();
+    }
+
+    private IEnumerator GameTimer()
+    {
+        while (timeRemaining > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            timeRemaining--;
+        }
+
+        isGameCompleted = false;
+        isSuccessful = false; // Game failed because time ran out
+        endGame(); // End the game when time runs out
     }
 
     private void fillText()
@@ -103,12 +129,28 @@ public class SocialEngineeringScript : MonoBehaviour
         }
     }
 
+    //private void endGame()
+    //{
+    //    audioSources[1].Play();
+    //    Debug.Log("Game Over");
+    //    //points and such
+
+    //    mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
+
+    //    GameManager.instance.player.SetActive(true);
+    //    GameManager.instance.camera.SetActive(true);
+    //    GameManager.instance.environment.SetActive(true);
+    //    GameManager.instance.controls.SetActive(true);
+    //    SceneManager.UnloadSceneAsync("Social Engineering");
+    //}
+
     private void endGame()
     {
-        audioSources[1].Play();
-        Debug.Log("Game Over");
-        //points and such
+        // Calculate and update the score
+        CalculateScore();
 
+        // Reset game for next time
+        Debug.Log("Game Ended");
         mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
 
         GameManager.instance.player.SetActive(true);
@@ -116,5 +158,27 @@ public class SocialEngineeringScript : MonoBehaviour
         GameManager.instance.environment.SetActive(true);
         GameManager.instance.controls.SetActive(true);
         SceneManager.UnloadSceneAsync("Social Engineering");
+    }
+
+    private void CalculateScore()
+    {
+        float t = (timeRemaining / totalTime) * 2f;
+        float p = Mathf.Clamp(1f + gameMultiplier, progressiveMultiplierMin, progressiveMultiplierMax);
+        float score = t * basePoints * p;
+
+        if (!isGameCompleted || float.IsNaN(score) || float.IsInfinity(score))
+        {
+            score = 0f;
+        }
+
+        // Update the TMP Text component with the score
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score.ToString("F1"); // "F1" formats the score to one decimal place
+            DiscordWebhooks.SendMessage("Player Score: " + score.ToString());
+        }
+
+        // Add the calculated score to the ScoreManager
+        ScoreManager.Instance.AddScore(score);
     }
 }
