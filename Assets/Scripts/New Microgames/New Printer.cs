@@ -12,6 +12,7 @@ public class NewPrinter : MonoBehaviour
     public bool TimerOn = false;
     [SerializeField] private Animator myCable;
     private MiniGameSpawner mySpawner;
+    private TutorialScript tutorial;
 
     public GameObject timer;
     private Slider timerbar;
@@ -35,6 +36,10 @@ public class NewPrinter : MonoBehaviour
         timerbar = timer.GetComponent<Slider>();
         TimerOn = true;
         mySpawner = FindObjectOfType<MiniGameSpawner>();
+        if (mySpawner == null)
+        {
+            tutorial = FindObjectOfType<TutorialScript>();
+        }
 
         timeRemaining = totalTime;
         StartCoroutine(GameTimer());
@@ -144,7 +149,14 @@ public class NewPrinter : MonoBehaviour
         // Calculate and update the score
         CalculateScore();
 
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
+        if (mySpawner != null)
+        {
+            mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
+        }
+        else
+        {
+            tutorial.MiniGameCompleted(tutorial.lastInteracted, isSuccessful);
+        }
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);

@@ -13,6 +13,7 @@ public class StickyNoteController : MonoBehaviour
     public GameObject completeText;
 
     private MiniGameSpawner mySpawner;
+    private TutorialScript tutorial;
 
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
@@ -28,6 +29,10 @@ public class StickyNoteController : MonoBehaviour
     public void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
+        if (mySpawner == null)
+        {
+            tutorial = FindObjectOfType<TutorialScript>();
+        }
         specificCamera = Camera.main;
 
         // Get a random number of sticky notes to activate (2-4)
@@ -117,7 +122,14 @@ public class StickyNoteController : MonoBehaviour
 
         // Reset game for next time
         Debug.Log("Game Ended");
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
+        if (mySpawner != null)
+        {
+            mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
+        }
+        else
+        {
+            tutorial.MiniGameCompleted(tutorial.lastInteracted, isSuccessful);
+        }
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);
