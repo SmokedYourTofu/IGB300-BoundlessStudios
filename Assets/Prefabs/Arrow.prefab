@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 8521614799455506774}
   - component: {fileID: 6792235193350250388}
   - component: {fileID: 2376261449474408254}
+  - component: {fileID: 4078032408395585906}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -2464,3 +2465,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.2
   frequency: 5
+--- !u!114 &4078032408395585906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647802986621200649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab068466372171498e84797be36c7c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 0, g: 1, b: 0, a: 1}
+  HighlightColor: {r: 1, g: 0, b: 0, a: 1}
+  LerpSpeed: 0.03
