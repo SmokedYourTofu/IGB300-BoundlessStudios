@@ -4661,7 +4661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1172019605}
   camera: {fileID: 963194225}
-  environment: {fileID: 1278326609}
+  environment: {fileID: 1583474568}
   controls: {fileID: 2057580906}
 --- !u!114 &490251576
 MonoBehaviour:
