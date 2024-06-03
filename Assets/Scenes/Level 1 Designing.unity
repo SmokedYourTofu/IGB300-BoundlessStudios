@@ -3648,7 +3648,7 @@ PrefabInstance:
     - target: {fileID: 6195004834058311537, guid: 3a5a0c09176b3a84894a64324982dcf5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.522501
+      value: 28.98
       objectReference: {fileID: 0}
     - target: {fileID: 6195004834058311537, guid: 3a5a0c09176b3a84894a64324982dcf5,
         type: 3}
@@ -6974,7 +6974,7 @@ PrefabInstance:
     - target: {fileID: 920365693268574609, guid: bf7eb1ce4a87b924ba32fcc037f57739,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.01
+      value: 8.47
       objectReference: {fileID: 0}
     - target: {fileID: 920365693268574609, guid: bf7eb1ce4a87b924ba32fcc037f57739,
         type: 3}
@@ -14397,7 +14397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mydoor: {fileID: 0}
   timer: 0
-  rotateInterval: 5
+  rotateInterval: 4
   animationNames:
   - doorOpen
   - doorClose
@@ -18234,7 +18234,7 @@ PrefabInstance:
     - target: {fileID: 920365693268574609, guid: bf7eb1ce4a87b924ba32fcc037f57739,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8
+      value: 9.46
       objectReference: {fileID: 0}
     - target: {fileID: 920365693268574609, guid: bf7eb1ce4a87b924ba32fcc037f57739,
         type: 3}
@@ -19081,7 +19081,7 @@ PrefabInstance:
     - target: {fileID: 6195004834058311537, guid: 3a5a0c09176b3a84894a64324982dcf5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.522501
+      value: 28.98
       objectReference: {fileID: 0}
     - target: {fileID: 6195004834058311537, guid: 3a5a0c09176b3a84894a64324982dcf5,
         type: 3}
