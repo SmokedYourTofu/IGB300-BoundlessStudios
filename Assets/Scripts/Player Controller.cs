@@ -70,6 +70,9 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, rotationSpeed * Time.fixedDeltaTime);
         }
+
+        Vector3 down = Vector3.down;
+        rb.AddForce(down * 9.82f, ForceMode.Force);
     }
 
     public void Dashing() {
