@@ -12,6 +12,7 @@ public class NewPrinter : MonoBehaviour
     public bool TimerOn = false;
     [SerializeField] private Animator myCable;
     private MiniGameSpawner mySpawner;
+    private TutorialScript tutorial;
 
     public GameObject timer;
     private Slider timerbar;
@@ -35,6 +36,10 @@ public class NewPrinter : MonoBehaviour
         timerbar = timer.GetComponent<Slider>();
         TimerOn = true;
         mySpawner = FindObjectOfType<MiniGameSpawner>();
+        if (mySpawner == null)
+        {
+            tutorial = FindObjectOfType<TutorialScript>();
+        }
 
         timeRemaining = totalTime;
         StartCoroutine(GameTimer());
@@ -77,33 +82,57 @@ public class NewPrinter : MonoBehaviour
             }
         }
 
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            myCable.Play("Cable Jiggle", 0, 0.0f);
+            myAudioSource[1].pitch = barProgress / 10;
+            myAudioSource[1].Play();
+            if (barProgress < 6)
             {
-                myCable.Play("Cable Jiggle", 0, 0.0f);
-                myAudioSource[1].pitch = barProgress / 10;
-                myAudioSource[1].Play();
-                if (barProgress < 6)
-                {
-                    barProgress += 1.5f;
-                }
-                else if (barProgress < 8)
-                {
-                    barProgress += 1f;
-                }
-                else if (barProgress < 10)
-                {
-                    barProgress += 0.8f;
-                }
+                barProgress += 1.5f;
             }
-
-            if (touch.phase == TouchPhase.Ended)
+            else if (barProgress < 8)
             {
-                myCable.Play("Default", 0, 0.0f);
+                barProgress += 1f;
+            }
+            else if (barProgress < 10)
+            {
+                barProgress += 0.8f;
             }
         }
+
+        else if (Input.GetMouseButtonUp(0))
+        {
+            myCable.Play("Default", 0, 0.0f);
+        }
+
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+        //    if (touch.phase == TouchPhase.Began)
+        //    {
+        //        myCable.Play("Cable Jiggle", 0, 0.0f);
+        //        myAudioSource[1].pitch = barProgress / 10;
+        //        myAudioSource[1].Play();
+        //        if (barProgress < 6)
+        //        {
+        //            barProgress += 1.5f;
+        //        }
+        //        else if (barProgress < 8)
+        //        {
+        //            barProgress += 1f;
+        //        }
+        //        else if (barProgress < 10)
+        //        {
+        //            barProgress += 0.8f;
+        //        }
+        //    }
+
+        //    if (touch.phase == TouchPhase.Ended)
+        //    {
+        //        myCable.Play("Default", 0, 0.0f);
+        //    }
+        //}
 
         if (barProgress >= 10)
         {
@@ -120,7 +149,14 @@ public class NewPrinter : MonoBehaviour
         // Calculate and update the score
         CalculateScore();
 
-        mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
+        if (mySpawner != null)
+        {
+            mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
+        }
+        else
+        {
+            tutorial.MiniGameCompleted(tutorial.lastInteracted, isSuccessful);
+        }
 
         GameManager.instance.player.SetActive(true);
         GameManager.instance.camera.SetActive(true);

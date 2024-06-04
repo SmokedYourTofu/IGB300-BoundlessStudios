@@ -14,7 +14,7 @@ public class DriveSmash3D : MonoBehaviour
         if (collision.gameObject.tag == "Drive")
         {
             particles.Play();
-            if (dragObject.touchSpeed < 0.0014f)
+            if (dragObject.mouseSpeed < 0.018f)
             {
                 StartCoroutine(dragControl.FinishWait());
             } 

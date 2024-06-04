@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour
 
     private TMP_Text timerText;
 
+    public AudioSource music;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,11 @@ public class Timer : MonoBehaviour
                 TimerOn = false;
                 SendFinalScoreToDiscord();
                 
+            }
+
+            if (TimeLeft <= 30)
+            {
+                music.pitch = 1.25f;
             }
         }
     }

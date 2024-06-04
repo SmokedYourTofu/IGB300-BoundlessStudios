@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static MiniGameSpawner;
@@ -49,7 +50,18 @@ public class NewInteract : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //assigning ray to something so editor is happy
+            Ray ray = new Ray(transform.position, transform.forward);
+
+            //checking if camera exists to cut down on errors
+            if (Camera.main != null)
+            {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
+            else
+            {
+                return;
+            }
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
