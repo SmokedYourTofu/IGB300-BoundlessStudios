@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090103135, g: 0.15764175, b: 0.328664, a: 1}
+  m_IndirectSpecularColor: {r: 0.09011099, g: 0.157654, b: 0.32866335, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &931245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1583474569}
+    m_Modifications:
+    - target: {fileID: 5787736261649601213, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_Name
+      value: Brown Desk (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.593
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12345314
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00124434b79c08f49b68950fb5c5bfe5, type: 3}
+--- !u!4 &931246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 931245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &10964667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1278,8 +1352,8 @@ Transform:
   m_GameObject: {fileID: 184172870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.4225018, y: -1.5, z: 0}
-  m_LocalScale: {x: 0.25, y: 1, z: 19.076715}
+  m_LocalPosition: {x: 2.47, y: -1.5, z: 0}
+  m_LocalScale: {x: 0.25, y: 1, z: 19.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2143088066}
@@ -4481,7 +4555,7 @@ PrefabInstance:
     - target: {fileID: 8427950138147375421, guid: 64f8d67db3fe6104dad84aa8f751d14d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.113
+      value: 1.06827
       objectReference: {fileID: 0}
     - target: {fileID: 8427950138147375421, guid: 64f8d67db3fe6104dad84aa8f751d14d,
         type: 3}
@@ -4496,7 +4570,7 @@ PrefabInstance:
     - target: {fileID: 8427950138147375421, guid: 64f8d67db3fe6104dad84aa8f751d14d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000015646219
+      value: -0.084
       objectReference: {fileID: 0}
     - target: {fileID: 8427950138147375421, guid: 64f8d67db3fe6104dad84aa8f751d14d,
         type: 3}
@@ -6902,6 +6976,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 195144885634643668, guid: 0ad436fd3fedc6d4790cc457f1cb9d06,
     type: 3}
   m_PrefabInstance: {fileID: 799943533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &812024678
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1583474569}
+    m_Modifications:
+    - target: {fileID: 5787736261649601213, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_Name
+      value: Brown Desk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12345314
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00124434b79c08f49b68950fb5c5bfe5, type: 3}
+--- !u!4 &812024679 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6564554852099540999, guid: 00124434b79c08f49b68950fb5c5bfe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 812024678}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &824841619
 GameObject:
@@ -14021,6 +14169,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 734711647}
+  - {fileID: 812024679}
+  - {fileID: 931246}
   - {fileID: 398429564}
   - {fileID: 824841620}
   - {fileID: 133167904}
