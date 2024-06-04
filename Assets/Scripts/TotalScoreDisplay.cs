@@ -19,7 +19,7 @@ public class TotalScoreDisplay : MonoBehaviour
     {
         if (totalScoreText != null && ScoreManager.Instance != null)
         {
-            totalScoreText.text = "Total Score: " + ScoreManager.Instance.TotalScore.ToString("F1");
+            totalScoreText.text = "Score: " + ScoreManager.Instance.TotalScore.ToString("F1");
         }
     }
 }
