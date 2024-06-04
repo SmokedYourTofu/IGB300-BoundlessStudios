@@ -15,25 +15,25 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1 Designing.unity
     guid: 6756c92b9df9d8f4dacf8e8de2b70bbd
   - enabled: 1
-    path: Assets/Scenes/Sticky Note.unity
+    path: Assets/Scenes/Minigames/Sticky Note.unity
     guid: d6a29f0aa04c6c94dbd96f01354cce3c
   - enabled: 1
-    path: Assets/Scenes/Social Engineering.unity
+    path: Assets/Scenes/Minigames/Social Engineering.unity
     guid: d869707bb5989ac4eb7770bbad44744d
   - enabled: 1
-    path: Assets/Scenes/Printer.unity
+    path: Assets/Scenes/Minigames/Printer.unity
     guid: 6121fd5d9c946e848bd7c9b59b02f049
   - enabled: 1
-    path: Assets/Scenes/Password.unity
+    path: Assets/Scenes/Minigames/Password.unity
     guid: 4c43f371c62232a46baa849573e00ce0
   - enabled: 1
-    path: Assets/Scenes/Email.unity
+    path: Assets/Scenes/Minigames/Email.unity
     guid: e794fbc4141a8d7478a4de95f9eab2f1
   - enabled: 1
-    path: Assets/Scenes/Drive Unplug.unity
+    path: Assets/Scenes/Minigames/Drive Unplug.unity
     guid: 8299d3b7bfbf5934daf315bf95346be5
   - enabled: 1
-    path: Assets/Scenes/Drive Smash.unity
+    path: Assets/Scenes/Minigames/Drive Smash.unity
     guid: 85ac90aff026a784681b35e1ffe008cb
   - enabled: 1
     path: Assets/Scenes/Tutorial Layout.unity
