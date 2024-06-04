@@ -14,6 +14,7 @@ public class ImpulseCollision : MonoBehaviour
         {
             // Calculate the direction from this object to the other object
             Vector3 direction = (otherRigidbody.position - transform.position).normalized;
+            direction.y = 0f;
 
             // Apply an impulse force to the other object in the calculated direction
             otherRigidbody.AddForce(direction * impulseStrength, ForceMode.Impulse);
