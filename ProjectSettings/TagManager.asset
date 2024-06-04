@@ -8,6 +8,9 @@ TagManager:
   - Drive
   - passwordButton
   - Bin
+  - border1
+  - border2
+  - passwordSpot
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Water
   - UI
   - postProcess
-  - 
+  - ignore button
   - 
   - 
   - 
