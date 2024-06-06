@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -82,57 +81,34 @@ public class NewPrinter : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0)
         {
-            myCable.Play("Cable Jiggle", 0, 0.0f);
-            myAudioSource[1].pitch = barProgress / 10;
-            myAudioSource[1].Play();
-            if (barProgress < 6)
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
             {
-                barProgress += 1.5f;
+                myCable.Play("Cable Jiggle", 0, 0.0f);
+                myAudioSource[1].pitch = barProgress / 10;
+                myAudioSource[1].Play();
+                if (barProgress < 6)
+                {
+                    barProgress += 1.5f;
+                }
+                else if (barProgress < 8)
+                {
+                    barProgress += 1f;
+                }
+                else if (barProgress < 10)
+                {
+                    barProgress += 0.8f;
+                }
             }
-            else if (barProgress < 8)
+
+            if (touch.phase == TouchPhase.Ended)
             {
-                barProgress += 1f;
-            }
-            else if (barProgress < 10)
-            {
-                barProgress += 0.8f;
+                myCable.Play("Default", 0, 0.0f);
             }
         }
-
-        else if (Input.GetMouseButtonUp(0))
-        {
-            myCable.Play("Default", 0, 0.0f);
-        }
-
-        //if (Input.touchCount > 0)
-        //{
-        //    Touch touch = Input.GetTouch(0);
-        //    if (touch.phase == TouchPhase.Began)
-        //    {
-        //        myCable.Play("Cable Jiggle", 0, 0.0f);
-        //        myAudioSource[1].pitch = barProgress / 10;
-        //        myAudioSource[1].Play();
-        //        if (barProgress < 6)
-        //        {
-        //            barProgress += 1.5f;
-        //        }
-        //        else if (barProgress < 8)
-        //        {
-        //            barProgress += 1f;
-        //        }
-        //        else if (barProgress < 10)
-        //        {
-        //            barProgress += 0.8f;
-        //        }
-        //    }
-
-        //    if (touch.phase == TouchPhase.Ended)
-        //    {
-        //        myCable.Play("Default", 0, 0.0f);
-        //    }
-        //}
 
         if (barProgress >= 10)
         {
@@ -202,3 +178,4 @@ public class NewPrinter : MonoBehaviour
         ScoreManager.Instance.AddScore(score);
     }
 }
+

@@ -33,31 +33,40 @@ public class StickyNote : MonoBehaviour
 
     private void Drag()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Touch touch = Input.GetTouch(0);
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+
+            switch (touch.phase)
             {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    touchOffset = hit.point - transform.position;
-                    isDragging = true;
-                }
+                case TouchPhase.Began:
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if (hit.collider.gameObject == gameObject)
+                        {
+                            touchOffset = hit.point - transform.position;
+                            isDragging = true;
+                        }
+                    }
+                    break;
+
+                case TouchPhase.Moved:
+                case TouchPhase.Stationary:
+                    if (isDragging)
+                    {
+                        Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, holdDistance);
+                        newPosition = Camera.main.ScreenToWorldPoint(newPosition) - touchOffset;
+                        transform.position = newPosition;
+                    }
+                    break;
+
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    isDragging = false;
+                    break;
             }
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            if (isDragging)
-            {
-                Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, holdDistance);
-                newPosition = Camera.main.ScreenToWorldPoint(newPosition);
-                transform.position = newPosition;
-            }
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
         }
     }
 
@@ -80,3 +89,4 @@ public class StickyNote : MonoBehaviour
         }
     }
 }
+

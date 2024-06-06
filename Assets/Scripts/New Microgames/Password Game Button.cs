@@ -6,7 +6,6 @@ using UnityEngine.InputSystem.XR;
 
 public class PasswordGameButton : MonoBehaviour
 {
-
     public GameObject passwordController;
     private GameObject buttonText;
     private PasswordMicrogame psMicrogame;
@@ -31,7 +30,7 @@ public class PasswordGameButton : MonoBehaviour
         passwordText = buttonText.GetComponent<TMP_Text>();
         if (passwordText == null)
         {
-            passwordText = buttonText.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();;
+            passwordText = buttonText.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         }
     }
 
@@ -42,7 +41,7 @@ public class PasswordGameButton : MonoBehaviour
 
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rigid = this.GetComponent<Rigidbody>();
-        if  (rigid != null ) 
+        if (rigid != null)
         {
             rigid.velocity = movement;
         }
@@ -84,64 +83,64 @@ public class PasswordGameButton : MonoBehaviour
 
     private void Drag()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
             {
-                if (hit.collider.gameObject == gameObject)
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
                 {
-                    isDragging = true;
+                    if (hit.collider.gameObject == gameObject)
+                    {
+                        isDragging = true;
+                    }
                 }
             }
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            if (isDragging)
+            else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
-                rigid.velocity = Vector2.zero;
-                Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, offset);
-                newPosition = Camera.main.ScreenToWorldPoint(newPosition);
-                //newPosition.z = 1.1f;
-                //Debug.Log(newPosition.x);
-                transform.localPosition = newPosition;
-            }
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            if (isDragging)
-            {
-                movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            }
-            isDragging = false;
-            rigid.velocity = movement;
-            //Debug.Log(inSpace);
-
-            if (inSpace)
-            {
-                truePassword = psMicrogame.realPassword;
-                rigid.velocity = Vector2.zero;
-
-                if (passwordText.text == truePassword)
+                if (isDragging)
                 {
-                    Vector3 position = passwordSpot.transform.position;
-                    position.z = position.z - 0.1f;
-                    this.transform.position = position;
-                    psMicrogame.audioSources[1].Play();
-                    //do score and other stuff
-                    psMicrogame.audioSources[2].Play();
-                    _mat.SetColor("_Color", Color.green);
-                    StartCoroutine(psMicrogame.FinishWait());
+                    rigid.velocity = Vector2.zero;
+                    Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, offset);
+                    newPosition = Camera.main.ScreenToWorldPoint(newPosition);
+                    transform.localPosition = newPosition;
                 }
-                else
+            }
+            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                if (isDragging)
                 {
-                    Vector3 position = passwordSpot.transform.position;
-                    position.z = position.z - 0.1f;
-                    this.transform.position = position;
-                    Debug.Log("wrong passwword");
-                    //do some sort of punishment
-                    StartCoroutine(badPassword());
+                    movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                }
+                isDragging = false;
+                rigid.velocity = movement;
+
+                if (inSpace)
+                {
+                    truePassword = psMicrogame.realPassword;
+                    rigid.velocity = Vector2.zero;
+
+                    if (passwordText.text == truePassword)
+                    {
+                        Vector3 position = passwordSpot.transform.position;
+                        position.z = position.z - 0.1f;
+                        this.transform.position = position;
+                        psMicrogame.audioSources[1].Play();
+                        psMicrogame.audioSources[2].Play();
+                        _mat.SetColor("_Color", Color.green);
+                        StartCoroutine(psMicrogame.FinishWait());
+                    }
+                    else
+                    {
+                        Vector3 position = passwordSpot.transform.position;
+                        position.z = position.z - 0.1f;
+                        this.transform.position = position;
+                        Debug.Log("wrong password");
+                        StartCoroutine(badPassword());
+                    }
                 }
             }
         }
@@ -153,15 +152,13 @@ public class PasswordGameButton : MonoBehaviour
         if (passwordText.text == truePassword)
         {
             psMicrogame.audioSources[1].Play();
-            //do score and other stuff
             psMicrogame.audioSources[2].Play();
             _mat.SetColor("_Color", Color.green);
             StartCoroutine(psMicrogame.FinishWait());
         }
         else
         {
-            Debug.Log("wrong passwword");
-            //do some sort of punishment
+            Debug.Log("wrong password");
             psMicrogame.setupGame();
             psMicrogame.audioSources[0].Play();
         }
