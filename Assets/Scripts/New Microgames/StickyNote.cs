@@ -31,6 +31,7 @@ public class StickyNote : MonoBehaviour
         Drag();
     }
 
+#if UNITY_ANDROID
     private void Drag()
     {
         if (Input.touchCount > 0)
@@ -69,6 +70,37 @@ public class StickyNote : MonoBehaviour
             }
         }
     }
+#endif
+
+#if !UNITY_ANDROID
+    private void Drag()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    touchOffset = hit.point - transform.position;
+                    isDragging = true;
+                }
+            }
+        }
+        else if (Input.GetMouseButton(0) && isDragging)
+        {
+            Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, holdDistance);
+            newPosition = Camera.main.ScreenToWorldPoint(newPosition) - touchOffset;
+            transform.position = newPosition;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+        }
+    }
+#endif
 
     public void OnTriggerEnter(Collider other)
     {

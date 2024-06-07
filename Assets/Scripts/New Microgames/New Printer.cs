@@ -81,6 +81,7 @@ public class NewPrinter : MonoBehaviour
             }
         }
 
+#if UNITY_ANDROID
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -109,6 +110,34 @@ public class NewPrinter : MonoBehaviour
                 myCable.Play("Default", 0, 0.0f);
             }
         }
+#endif
+
+#if !UNITY_ANDROID
+        if (Input.GetMouseButtonDown(0))
+        {
+            myCable.Play("Cable Jiggle", 0, 0.0f);
+            myAudioSource[1].pitch = barProgress / 10;
+            myAudioSource[1].Play();
+            if (barProgress < 6)
+            {
+                barProgress += 1.5f;
+            }
+            else if (barProgress < 8)
+            {
+                barProgress += 1f;
+            }
+            else if (barProgress < 10)
+            {
+                barProgress += 0.8f;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            myCable.Play("Default", 0, 0.0f);
+        }
+#endif
+
 
         if (barProgress >= 10)
         {

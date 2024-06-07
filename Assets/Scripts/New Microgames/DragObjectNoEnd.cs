@@ -23,6 +23,7 @@ public class DragObjectNoEnd : MonoBehaviour
         Drag();
     }
 
+#if UNITY_ANDROID
     private void Drag()
     {
         if (Input.touchCount > 0)
@@ -50,6 +51,33 @@ public class DragObjectNoEnd : MonoBehaviour
             }
         }
     }
+#endif
+
+#if !UNITY_ANDROID
+    private void Drag()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            isDragging = true;
+            startTouchPosition = Input.mousePosition;
+        }
+        else if (Input.GetMouseButton(0) && isDragging)
+        {
+            currentTouchPosition = Input.mousePosition;
+            Vector3 newPosition = new Vector3(currentTouchPosition.x, currentTouchPosition.y, holdDistance);
+            newPosition = Camera.main.ScreenToWorldPoint(newPosition);
+            transform.position = newPosition;
+            RotateObject();
+            mouseSpeed = Time.deltaTime;
+            Debug.Log(mouseSpeed);
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+        }
+    }
+#endif
+
 
     void RotateObject()
     {
