@@ -57,43 +57,38 @@ public class DriveDrag : MonoBehaviour
 #endif
 
 #if !UNITY_ANDROID
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0);
+            // Cast a ray from the mouse position to detect objects
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-            if (touch.phase == TouchPhase.Began)
+            // If the ray hits an object, check if it's this object
+            if (Physics.Raycast(ray, out hit))
             {
-                // Cast a ray from the touch position to detect objects
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                RaycastHit hit;
-
-                // If the ray hits an object, check if it's this object
-                if (Physics.Raycast(ray, out hit))
+                if (hit.collider.gameObject == gameObject)
                 {
-                    if (hit.collider.gameObject == gameObject)
-                    {
-                        // Start dragging
-                        isDragging = true;
-                    }
+                    // Start dragging
+                    isDragging = true;
                 }
             }
-            else if ((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && isDragging)
-            {
-                // If the object is being dragged, move it according to touch position
-                Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, holdDistance);
-                newPosition = Camera.main.ScreenToWorldPoint(newPosition);
-                transform.position = newPosition;
-            }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-            {
-                // End dragging
-                isDragging = false;
-            }
+        }
+        else if (Input.GetMouseButton(0) && isDragging)
+        {
+            // If the object is being dragged, move it according to mouse position
+            Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, holdDistance);
+            newPosition = Camera.main.ScreenToWorldPoint(newPosition);
+            transform.position = newPosition;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            // End dragging
+            isDragging = false;
         }
 #endif
     }
 
-        public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bin"))
         {
