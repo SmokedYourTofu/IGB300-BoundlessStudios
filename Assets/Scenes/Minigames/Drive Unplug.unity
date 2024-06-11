@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 344396883}
   - component: {fileID: 344396882}
   - component: {fileID: 344396881}
+  - component: {fileID: 344396884}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -304,6 +305,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &344396884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344396880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 344396883}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1001 &525174200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -325,7 +386,7 @@ PrefabInstance:
     - target: {fileID: 1870981051458231148, guid: 1704fcad60a06284c9610413178a078e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1870981051458231148, guid: 1704fcad60a06284c9610413178a078e,
         type: 3}
@@ -340,12 +401,12 @@ PrefabInstance:
     - target: {fileID: 1870981051458231148, guid: 1704fcad60a06284c9610413178a078e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.230011
+      value: -16.5
       objectReference: {fileID: 0}
     - target: {fileID: 1870981051458231148, guid: 1704fcad60a06284c9610413178a078e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -5.9
       objectReference: {fileID: 0}
     - target: {fileID: 1870981051458231148, guid: 1704fcad60a06284c9610413178a078e,
         type: 3}
@@ -881,6 +942,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2137344430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2137344432}
+  - component: {fileID: 2137344431}
+  m_Layer: 6
+  m_Name: postVolume Minigames
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2137344431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137344430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: b52183315402da94a8c7f0f9f026a08b, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!4 &2137344432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137344430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.33045, y: 43.934513, z: 15.9319515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &115850986549222390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1490,5 +1600,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 344396883}
   - {fileID: 1898960512}
+  - {fileID: 2137344432}
   - {fileID: 778279236}
   - {fileID: 3382353007386548072}
