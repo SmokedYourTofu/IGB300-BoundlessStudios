@@ -7765,6 +7765,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bin
       objectReference: {fileID: 0}
+    - target: {fileID: 3585554349008121839, guid: 4480810bdbf568a46b1037bf3d6aac78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bin
+      objectReference: {fileID: 0}
     - target: {fileID: 4218080657459131733, guid: 4480810bdbf568a46b1037bf3d6aac78,
         type: 3}
       propertyPath: m_LocalScale.x
