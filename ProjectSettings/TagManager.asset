@@ -11,6 +11,8 @@ TagManager:
   - border1
   - border2
   - passwordSpot
+  - bumperSpotDown
+  - bumperSpotUp
   layers:
   - Default
   - TransparentFX

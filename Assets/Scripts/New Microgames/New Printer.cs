@@ -141,6 +141,8 @@ public class NewPrinter : MonoBehaviour
 
         if (barProgress >= 10)
         {
+            barProgress = 10;
+            timerbar.value = barProgress;
             myAudioSource[0].Play();
             StartCoroutine(Unplug());
             TimerOn = false;

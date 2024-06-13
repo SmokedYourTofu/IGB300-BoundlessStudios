@@ -8,9 +8,12 @@ public class DriveDrag : MonoBehaviour
     private float holdDistance;
     public DriveDragControl dragControl;
 
+    private Vector3 startPos;
+
     private void Start()
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        startPos = transform.position;
     }
 
     private void Update()
@@ -52,6 +55,7 @@ public class DriveDrag : MonoBehaviour
             {
                 // End dragging
                 isDragging = false;
+                transform.position = startPos;
             }
         }
 #endif
@@ -84,6 +88,7 @@ public class DriveDrag : MonoBehaviour
         {
             // End dragging
             isDragging = false;
+            transform.position = startPos;
         }
 #endif
     }
