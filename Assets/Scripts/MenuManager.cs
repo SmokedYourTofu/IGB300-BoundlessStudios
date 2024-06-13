@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public int mainMenu = 0;
     public int levelsScene = 1;
     public int gameScene = 2;
+    public int tutScene = 3;
     public bool isPaused;
     
 
@@ -68,6 +69,13 @@ public class MenuManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         UI.SetActive(true);
+        Time.timeScale = 1.0f;
+        isPaused = false;
+    }
+
+    public void StartTut()
+    {
+        SceneManager.LoadScene(tutScene);
         Time.timeScale = 1.0f;
         isPaused = false;
     }

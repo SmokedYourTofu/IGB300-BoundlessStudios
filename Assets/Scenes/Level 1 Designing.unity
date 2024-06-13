@@ -748,7 +748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11101,6 +11101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPos: {fileID: 1002428262}
   secondPos: {fileID: 1093388398}
+  down: 1
 --- !u!1 &1175761687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8397418929803710994, guid: bf7eb1ce4a87b924ba32fcc037f57739,
@@ -19427,6 +19428,7 @@ MonoBehaviour:
   mainMenu: 0
   levelsScene: 1
   gameScene: 2
+  tutScene: 3
   isPaused: 0
   pauseMenu: {fileID: 1280941224}
   UI: {fileID: 299791602}
