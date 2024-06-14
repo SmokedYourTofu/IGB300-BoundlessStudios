@@ -6,7 +6,7 @@ public class ArrowTime : MonoBehaviour
 {
     public Color DefaultColor = Color.green;
     public Color HighlightColor = Color.red;
-    public float LerpSpeed = 0.03f;
+    public float LerpSpeed = 0.02f;
 
     private Material _mat;
 

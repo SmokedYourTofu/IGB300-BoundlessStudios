@@ -1846,7 +1846,7 @@ MonoBehaviour:
   basePoints: 100
   progressiveMultiplierMin: 0.1
   progressiveMultiplierMax: 2
-  gameMultiplier: 0.15
+  gameMultiplier: 0.1
 --- !u!114 &1800457179
 MonoBehaviour:
   m_ObjectHideFlags: 0

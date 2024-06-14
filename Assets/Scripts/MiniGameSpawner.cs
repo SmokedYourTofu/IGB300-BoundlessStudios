@@ -89,6 +89,13 @@ public class MiniGameSpawner : MonoBehaviour
         activeMiniGames.Add(miniGamePrefab);
         inactiveMiniGames.Remove(miniGamePrefab);
 
+        // Reset the bounce parameters
+        Bounce bounceScript = miniGamePrefab.GetComponent<Bounce>();
+        if (bounceScript != null)
+        {
+            bounceScript.ResetBounce();
+        }
+
         // Instantiate and position the indicator above the mini-game without stretching
         Renderer renderer = miniGamePrefab.GetComponent<Renderer>();
         if (renderer != null)
@@ -109,6 +116,16 @@ public class MiniGameSpawner : MonoBehaviour
         {
             Debug.LogError("Renderer not found on mini-game prefab.");
         }
+
+        // Start the despawn coroutine for the mini-game
+        StartCoroutine(DespawnMiniGame(miniGamePrefab, 20f));
+    }
+
+    private IEnumerator DespawnMiniGame(GameObject miniGame, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        MiniGameCompleted(miniGame, false); // Assuming false indicates that the mini-game was not completed successfully
+        Debug.Log("Minigame Despawned");
     }
 
     private MiniGameTypes.MiniGameType GetMiniGameType(GameObject miniGamePrefab)

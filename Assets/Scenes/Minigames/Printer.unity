@@ -6713,7 +6713,7 @@ MonoBehaviour:
   basePoints: 100
   progressiveMultiplierMin: 0.1
   progressiveMultiplierMax: 2
-  gameMultiplier: 0.15
+  gameMultiplier: 0.1
 --- !u!1001 &1079263505
 PrefabInstance:
   m_ObjectHideFlags: 0
