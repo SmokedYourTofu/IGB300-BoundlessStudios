@@ -1274,6 +1274,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: USB
       objectReference: {fileID: 0}
+    - target: {fileID: 6010567149015755399, guid: cb55efb9236099d4eb54b858cbdda8ee,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010567149015755399, guid: cb55efb9236099d4eb54b858cbdda8ee,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010567149015755399, guid: cb55efb9236099d4eb54b858cbdda8ee,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
