@@ -45,11 +45,23 @@ public class TutorialInteract : MonoBehaviour
             return;
         }
 
+#if !UNITY_ANDROID
         // Check if the player clicked on this object
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //assigning ray to something so editor is happy
+            Ray ray = new Ray(transform.position, transform.forward);
+
+            //checking if camera exists to cut down on errors
+            if (Camera.main != null)
+            {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
+            else
+            {
+                return;
+            }
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
@@ -70,6 +82,45 @@ public class TutorialInteract : MonoBehaviour
                 }
             }
         }
+#endif
+
+#if UNITY_ANDROID
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            RaycastHit hit;
+            // Assigning ray to something so editor is happy
+            Ray ray = new Ray(transform.position, transform.forward);
+
+            // Checking if camera exists to cut down on errors
+            if (Camera.main != null)
+            {
+                ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            }
+            else
+            {
+                return;
+            }
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    // Get the distance between the player and the object
+                    float distance = Vector3.Distance(transform.position, playerController.transform.position);
+
+                    // Check if the player is within the interaction range
+                    if (distance <= interactionRange)
+                    {
+                        Interact();
+                    }
+                    else
+                    {
+                        Debug.Log("Player is too far away to interact with this object.");
+                    }
+                }
+            }
+        }
+#endif
 
         // Toggle outline based on distance
         float distToPlayer = Vector3.Distance(transform.position, playerController.transform.position);
