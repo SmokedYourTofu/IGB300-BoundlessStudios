@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public float recoverCooldownTimer;
     public bool recovering;
 
+    public Animator myAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         currentSpeed = rb.velocity.magnitude;
+
+        if (currentSpeed > 0.1 && myAnimator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            myAnimator.Play("run");
+        }
+        else if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("run") && currentSpeed < 0.1)
+        {
+            myAnimator.Play("idle");
+        }
 
         if (!dashing) {
             if (currentSpeed > moveSpeed)
