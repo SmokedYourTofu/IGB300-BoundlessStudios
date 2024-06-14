@@ -317,8 +317,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7804979841237472419, guid: fb116ed43984d9944a469ad71c0b0d28,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216377598}
   m_SourcePrefab: {fileID: 100100000, guid: fb116ed43984d9944a469ad71c0b0d28, type: 3}
+--- !u!1 &216377597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7804979841237472419, guid: fb116ed43984d9944a469ad71c0b0d28,
+    type: 3}
+  m_PrefabInstance: {fileID: 216377596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &216377598
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216377597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a403d39dc66a26408caba53e1b6ed70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &258045757
 GameObject:
   m_ObjectHideFlags: 0
@@ -6770,7 +6801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barProgress: 0
   TimerOn: 0
-  myCable: {fileID: 8646320921488608674}
+  myCable: {fileID: 216377598}
   timer: {fileID: 89007172}
   myAudioSource:
   - {fileID: 1044692357}
