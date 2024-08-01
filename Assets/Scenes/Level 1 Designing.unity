@@ -19942,6 +19942,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roomba
       objectReference: {fileID: 0}
+    - target: {fileID: 2424263334693747485, guid: 4c52e5fea1b505141a4ccbdc5322054e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3093803636407198119, guid: 4c52e5fea1b505141a4ccbdc5322054e,
         type: 3}
       propertyPath: m_LocalPosition.x
