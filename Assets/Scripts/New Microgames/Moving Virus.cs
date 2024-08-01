@@ -279,7 +279,7 @@ public class MovingVirus : MonoBehaviour
     private IEnumerator badPassword()
     {
         _mat.SetColor("_Color", Color.red);
-        psMicrogame.audioSources[0].Play();
+        VRSMicrogame.audioSources[0].Play();
         yield return new WaitForSeconds(1f);
         _mat.SetColor("_Color", Color.white);
     }

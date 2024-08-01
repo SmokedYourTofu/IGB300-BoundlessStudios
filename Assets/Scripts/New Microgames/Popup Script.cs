@@ -84,6 +84,7 @@ public class PopupScript : MonoBehaviour
     private float offset;
 
     private Material _mat;
+    public Color color;
 
     private void Start()
     {
