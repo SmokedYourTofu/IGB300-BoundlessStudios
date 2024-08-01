@@ -13,6 +13,12 @@ TagManager:
   - passwordSpot
   - bumperSpotDown
   - bumperSpotUp
+  - Boot
+  - Trojan
+  - Resident
+  - Polymorphic
+  - Macro
+  - Overwrite
   layers:
   - Default
   - TransparentFX
