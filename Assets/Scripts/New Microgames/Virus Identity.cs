@@ -56,6 +56,7 @@ public class VirusIdentity : MonoBehaviour
 
     public IEnumerator FinishWait()
     {
+        //complete game, playing audio, showing text and returning to main game
         completeText.SetActive(true);
         audioSources[2].Play();
         yield return new WaitForSeconds(1f);
@@ -80,6 +81,7 @@ public class VirusIdentity : MonoBehaviour
 
     public void setupGame()
     {
+        //choose a virus to be found for this game
         realVirus = "";
 
         realVirus = Viruses[Random.Range(0, Viruses.Length)];

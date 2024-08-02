@@ -19,6 +19,7 @@ public class PopupScript : MonoBehaviour
 
     private void Start()
     {
+        //when the game starts change the popup to be a random colour, shape and position
         Renderer renderer = GetComponent<Renderer>();
         _mat = renderer.material;
 
@@ -42,12 +43,14 @@ public class PopupScript : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
+            //when a person clicks/touches the screen send a raycast to see if they are touching a popup
             if (touch.phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
+                    //allow player to drag if it is a popup
                     if (hit.collider.gameObject == gameObject)
                     {
                         isDragging = true;
@@ -56,6 +59,7 @@ public class PopupScript : MonoBehaviour
             }
             else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
+                //if a player moves their touch, move the popup with it
                 if (isDragging)
                 {
                     rigid.velocity = Vector2.zero;
@@ -64,6 +68,7 @@ public class PopupScript : MonoBehaviour
                     transform.position = newPosition;
                 }
             }
+            //stop dragging if player stops touching
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
                 isDragging = false;
@@ -88,6 +93,7 @@ public class PopupScript : MonoBehaviour
 
     private void Start()
     {
+        //when the game starts change the popup to be a random colour, shape and position
         Renderer renderer = GetComponent<Renderer>();
         _mat = renderer.material;
 
@@ -107,12 +113,14 @@ public class PopupScript : MonoBehaviour
 
     private void Drag()
     {
+        //when a person clicks/touches the screen send a raycast to see if they are touching a popup
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+                //allow player to drag if it is a popup
                 if (hit.collider.gameObject == gameObject)
                 {
                     isDragging = true;
@@ -121,6 +129,7 @@ public class PopupScript : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
+            //if a player moves their touch, move the popup with it
             if (isDragging)
             {
                 rigid.velocity = Vector2.zero;
@@ -129,6 +138,7 @@ public class PopupScript : MonoBehaviour
                 transform.position = newPosition;
             }
         }
+        //stop dragging if player stops touching
         else if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;

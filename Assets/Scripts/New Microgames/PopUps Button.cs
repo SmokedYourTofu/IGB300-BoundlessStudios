@@ -10,6 +10,7 @@ public class PopUpsButton : MonoBehaviour
 
     public void buttonPress()
     {
+        //wwhhen the buttton is pressed, complette the game
         popupController = controller.GetComponent<PopupController>();
 
         funSound.Play();

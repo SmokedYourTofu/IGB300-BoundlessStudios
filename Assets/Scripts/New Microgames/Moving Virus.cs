@@ -22,6 +22,7 @@ public class MovingVirus : MonoBehaviour
 
     private Material _mat;
 
+    //get controller script for game on start
     private void Awake()
     {
         VRSMicrogame = VirusController.GetComponent<VirusIdentity>();
@@ -33,6 +34,7 @@ public class MovingVirus : MonoBehaviour
         _mat = renderer.material;
         originPos = transform.position;
 
+        //when the game starts, change virus velocity to get it moving around
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rigid = this.GetComponent<Rigidbody>();
         if (rigid != null)
@@ -49,6 +51,7 @@ public class MovingVirus : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //if a virus hits a border bounce off
         Debug.Log("Triggered");
         if (other.gameObject.tag == "border1")
         {
@@ -60,6 +63,7 @@ public class MovingVirus : MonoBehaviour
             movement = Vector2.Reflect(movement, new Vector2(1, 0));
             rigid.velocity = movement;
         }
+        //if the virus is in the checking spot, initiate that script
         else if (other.gameObject.tag == "passwordSpot")
         {
             inSpace = true;
@@ -69,6 +73,7 @@ public class MovingVirus : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        //if the virus is outside the checking spot, disable that script
         if (other.gameObject.tag == "passwordSpot")
         {
             inSpace = false;
@@ -81,12 +86,14 @@ public class MovingVirus : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
+            //when a player touches the screen send a ray to check if they are touching a virus
             if (touch.phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
+                    //if player is touching virus, allow them to move it
                     if (hit.collider.gameObject == gameObject)
                     {
                         isDragging = true;
@@ -95,6 +102,7 @@ public class MovingVirus : MonoBehaviour
             }
             else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
+                //if a player is attempting to drag a virus, move it wwith their touch
                 if (isDragging)
                 {
                     rigid.velocity = Vector2.zero;
@@ -105,6 +113,7 @@ public class MovingVirus : MonoBehaviour
             }
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {
+                //if a player lets go of a virus, allow it to move around again
                 if (isDragging)
                 {
                     movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
@@ -117,6 +126,7 @@ public class MovingVirus : MonoBehaviour
                     trueVirus = VRSMicrogame.realVirus;
                     rigid.velocity = Vector2.zero;
 
+                    //if the virus is in the identifier slot and bears the sme tag as the proper virus finish the gaame
                     if (this.gameObject.tag == trueVirus)
                     {
                         Vector3 position = virusSpot.transform.position;
@@ -127,6 +137,7 @@ public class MovingVirus : MonoBehaviour
                         _mat.SetColor("_Color", Color.green);
                         StartCoroutine(VRSMicrogame.FinishWait());
                     }
+                    //if the virus is incorrect reset it's position
                     else
                     {
                         Vector3 position = originPos;
@@ -139,6 +150,7 @@ public class MovingVirus : MonoBehaviour
         }
     }
 
+    //indicaate the virus was incorrect by changing colour and move it back into the cage
     private IEnumerator badVirus()
     {
         _mat.SetColor("_Color", Color.red);
@@ -165,6 +177,7 @@ public class MovingVirus : MonoBehaviour
 
     private Material _mat;
 
+    //get controller script for game on start
     private void Awake()
     {
         VRSMicrogame = VirusController.GetComponent<VirusIdentity>();
@@ -175,6 +188,7 @@ public class MovingVirus : MonoBehaviour
         Renderer renderer = GetComponent<Renderer>();
         _mat = renderer.material;
 
+        //when the game starts, change virus velocity to get it moving around
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rigid = this.GetComponent<Rigidbody>();
         if (rigid != null)
@@ -191,6 +205,7 @@ public class MovingVirus : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //if a virus hits a border bounce off
         Debug.Log("Triggered");
         if (other.gameObject.tag == "border1")
         {
@@ -202,6 +217,7 @@ public class MovingVirus : MonoBehaviour
             movement = Vector2.Reflect(movement, new Vector2(1, 0));
             rigid.velocity = movement;
         }
+        //if the virus is in the checking spot, initiate that script
         else if (other.gameObject.tag == "passwordSpot")
         {
             inSpace = true;
@@ -211,6 +227,7 @@ public class MovingVirus : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        //if the virus is outside the checking spot, disable that script
         if (other.gameObject.tag == "passwordSpot")
         {
             inSpace = false;
@@ -219,18 +236,21 @@ public class MovingVirus : MonoBehaviour
 
     private void Drag()
     {
+        //when a player touches the screen send a ray to check if they are touching a virus
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+                //if player is touching virus, allow them to move it
                 if (hit.collider.gameObject == gameObject)
                 {
                     isDragging = true;
                 }
             }
         }
+        //if a player is attempting to drag a virus, move it wwith their touch
         else if (Input.GetMouseButton(0))
         {
             if (isDragging)
@@ -243,6 +263,7 @@ public class MovingVirus : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            //if a player lets go of a virus, allow it to move around again
             if (isDragging)
             {
                 movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
@@ -255,6 +276,7 @@ public class MovingVirus : MonoBehaviour
                 trueVirus = VRSMicrogame.realVirus;
                 rigid.velocity = Vector2.zero;
 
+                //if the virus is in the identifier slot and bears the sme tag as the proper virus finish the gaame
                 if (this.gameObject.tag == trueVirus)
                     {
                         Vector3 position = passwordSpot.transform.position;
@@ -265,6 +287,7 @@ public class MovingVirus : MonoBehaviour
                         _mat.SetColor("_Color", Color.green);
                         StartCoroutine(VRSMicrogame.FinishWait());
                     }
+                    //if the virus is incorrect reset it's position
                     else
                     {
                         Vector3 position = originPos;
@@ -276,6 +299,7 @@ public class MovingVirus : MonoBehaviour
         }
     }
 
+    //indicaate the virus was incorrect by changing colour and move it back into the cage
     private IEnumerator badPassword()
     {
         _mat.SetColor("_Color", Color.red);

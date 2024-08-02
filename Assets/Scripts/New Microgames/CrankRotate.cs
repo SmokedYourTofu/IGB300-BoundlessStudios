@@ -30,17 +30,43 @@ public class CrankRotate : MonoBehaviour
     }
     void Update()
     {
+#if !UNITY_ANDROID
+        //this bool is changed in the handle script to detect if someone is touching it
         if (activateRotate)
         {
+            //do some funny maths to make the crank rotate towards the last clicked/touched position
             lastRotation = newRotation;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
             Vector3 vector = Input.mousePosition - screenPos;
             float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
             newRotation = Quaternion.AngleAxis(angle - startAngle, this.transform.forward);
-            newRotation.y = 0; //see comment from above 
+            newRotation.y = 0;
             newRotation.eulerAngles = new Vector3(0, 0, newRotation.eulerAngles.z);
             this.transform.rotation = originalRotation * newRotation;
         }
+#endif
+
+#if UNITY_ANDROID
+        //this bool is changed in the handle script to detect if someone is touching it
+        if (activateRotate)
+        {
+            lastRotation = newRotation;
+
+            if (Input.touchCount > 0)
+            {
+                //do some funny maths to make the crank rotate towards the last clicked/touched position
+                Touch touch = Input.GetTouch(0);
+                Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+                Vector3 touchVector = touch.position;
+                Vector3 vector = touchVector - screenPos;
+                float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+                newRotation = Quaternion.AngleAxis(angle - startAngle, this.transform.forward);
+                newRotation.y = 0;
+                newRotation.eulerAngles = new Vector3(0, 0, newRotation.eulerAngles.z);
+                this.transform.rotation = originalRotation * newRotation;
+            }
+        }
+#endif
 
         if (timerOn)
         {
@@ -48,15 +74,18 @@ public class CrankRotate : MonoBehaviour
             {
                 timerElapse += Time.deltaTime;
             }
+            //every 0.2 seconds compare the last two rotations to see if the plaayer is cranking the right direction
             else
             {
                 if (newRotation.eulerAngles.z  < lastRotation.eulerAngles.z && activateRotate)
                 {
+                    //if the player is rotating the right way play the hammer animation and track the progress thhrough the animation
                     hammerAnimator.speed = 0.2f;
                     crankProgess += 0.1f;
                     Debug.Log(crankProgess);
 
                 }
+                //if player isn't using the crank pause the animation
                 else if (!activateRotate)
                 {
                     hammerAnimator.speed = 0f;
@@ -65,6 +94,7 @@ public class CrankRotate : MonoBehaviour
             }
         }
 
+        //once the hammer animation is complete, finish the game
         if (crankProgess > 1.8f)
         {
             hammerAnimator.speed = 0f;

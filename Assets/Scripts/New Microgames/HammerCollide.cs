@@ -8,6 +8,7 @@ public class HammerCollide : MonoBehaviour
     public ParticleSystem particles;
     public DragController dragControl;
 
+    //when the hammer hits the drive, finish the game
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Drive")
