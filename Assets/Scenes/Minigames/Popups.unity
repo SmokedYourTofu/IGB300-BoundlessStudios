@@ -16338,7 +16338,7 @@ GameObject:
   - component: {fileID: 744842666}
   - component: {fileID: 744842667}
   m_Layer: 0
-  m_Name: Password Controller
+  m_Name: Popup Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47621,7 +47621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833238758468731446}
   m_Layer: 0
-  m_Name: Pasword Micrgame
+  m_Name: Popup Microgame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

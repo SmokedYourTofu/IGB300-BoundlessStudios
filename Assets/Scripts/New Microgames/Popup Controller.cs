@@ -114,7 +114,7 @@ public class PopupController : MonoBehaviour
         GameManager.instance.camera.SetActive(true);
         GameManager.instance.environment.SetActive(true);
         GameManager.instance.controls.SetActive(true);
-        SceneManager.UnloadSceneAsync("Sticky Note");
+        SceneManager.UnloadSceneAsync("Popups");
     }
 
     private void CalculateScore()

@@ -1,21 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VirusIdentity : MonoBehaviour
+public class MazeContoller : MonoBehaviour
 {
-
-    private string[] Viruses = { "Boot", "Trojan", "Polymorphic", "Resident", "Macro", "Overwrite"};
-    public string realVirus;
 
     public AudioSource[] audioSources;
 
     private MiniGameSpawner mySpawner;
     public GameObject completeText;
-    public GameObject virusText;
-    private TMP_Text virusDirect;
 
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
@@ -31,8 +26,6 @@ public class VirusIdentity : MonoBehaviour
     private void Awake()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
-        virusDirect = virusText.GetComponent<TMP_Text>();
-        setupGame();
     }
 
     private void Start()
@@ -56,7 +49,6 @@ public class VirusIdentity : MonoBehaviour
 
     public IEnumerator FinishWait()
     {
-        //complete game, playing audio, showing text and returning to main game
         completeText.SetActive(true);
         audioSources[2].Play();
         yield return new WaitForSeconds(1f);
@@ -76,18 +68,7 @@ public class VirusIdentity : MonoBehaviour
         GameManager.instance.camera.SetActive(true);
         GameManager.instance.environment.SetActive(true);
         GameManager.instance.controls.SetActive(true);
-        SceneManager.UnloadSceneAsync("Virus Identify");
-    }
-
-    public void setupGame()
-    {
-        //choose a virus to be found for this game
-        realVirus = "";
-
-        realVirus = Viruses[Random.Range(0, Viruses.Length)];
-        virusDirect.text = "Find The: "  + realVirus;
-
-
+        SceneManager.UnloadSceneAsync("Maze");
     }
 
     private void CalculateScore()
