@@ -13,9 +13,12 @@ public class DragObjectNoEnd : MonoBehaviour
 
     public float mouseSpeed;
 
+    private Rigidbody rb;
+
     private void Start()
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -40,7 +43,21 @@ public class DragObjectNoEnd : MonoBehaviour
                 currentTouchPosition = touch.position;
                 Vector3 newPosition = new Vector3(currentTouchPosition.x, currentTouchPosition.y, holdDistance);
                 newPosition = Camera.main.ScreenToWorldPoint(newPosition);
+                //transform.position = Vector3.MoveTowards(transform.position, newPosition, 1.0f);
                 transform.position = newPosition;
+                
+                    //results of some experimenting with physics
+                //rb.AddForce((newPosition - transform.position) * 40f);
+                //if (Vector3.Distance(newPosition, transform.position) < 1f)
+                //{
+                //    rb.velocity = (newPosition - transform.position) * 40f;
+                //    transform.position = Vector3.MoveTowards(transform.position, newPosition, 1.0f);
+                //}
+                //else
+                //{
+                //    rb.velocity = (newPosition - transform.position) * (Vector3.Distance(newPosition, transform.position)) * 6f;
+                //}
+
                 RotateObject();
                 mouseSpeed = Time.deltaTime;
                 Debug.Log(mouseSpeed);
