@@ -251,12 +251,12 @@ Transform:
   m_GameObject: {fileID: 1049838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.56, y: 8, z: -3.9}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.05}
+  m_LocalPosition: {x: -2.44, y: 401, z: 1.0999999}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 470597973}
-  m_Father: {fileID: 833238758468731446}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1049845
 MonoBehaviour:
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: -2.44, y: 399, z: 1.1}
 --- !u!1 &61397442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,12 +1439,12 @@ Transform:
   m_GameObject: {fileID: 278236539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 8, z: -3.9}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.05}
+  m_LocalPosition: {x: -2.44, y: 401, z: 1.0999999}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 264708297}
-  m_Father: {fileID: 833238758468731446}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &278236546
 MonoBehaviour:
@@ -1459,6 +1460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: -7.23, y: 399, z: 1.1}
 --- !u!1 &281549252
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,12 +2488,12 @@ Transform:
   m_GameObject: {fileID: 856058742}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.56, y: 12, z: -3.9}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.05}
+  m_LocalPosition: {x: -2.44, y: 401, z: 1.0999999}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 165492938}
-  m_Father: {fileID: 833238758468731446}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &856058749
 MonoBehaviour:
@@ -2507,6 +2509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: -2.44, y: 403, z: 1.1}
 --- !u!1 &930579032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,12 +3428,12 @@ Transform:
   m_GameObject: {fileID: 1253119767}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.56, y: 10, z: -3.9}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.05}
+  m_LocalPosition: {x: -2.44, y: 401, z: 1.0999999}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1241126269}
-  m_Father: {fileID: 833238758468731446}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1253119774
 MonoBehaviour:
@@ -3446,6 +3449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: -2.44, y: 401, z: 1.1}
 --- !u!1001 &1291679486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4077,12 +4081,12 @@ Transform:
   m_GameObject: {fileID: 1618549101}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 12, z: -3.9}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.05}
+  m_LocalPosition: {x: -2.44, y: 401, z: 1.0999999}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2089486602}
-  m_Father: {fileID: 833238758468731446}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1618549107
 Rigidbody:
@@ -4125,6 +4129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: -7.23, y: 403, z: 1.1}
 --- !u!1 &1699147167
 GameObject:
   m_ObjectHideFlags: 0
@@ -4967,12 +4972,12 @@ Transform:
   m_GameObject: {fileID: 1874610825}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 10, z: -3.9}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.05}
+  m_LocalPosition: {x: -2.44, y: 401, z: 1.0999999}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 61397443}
-  m_Father: {fileID: 833238758468731446}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1874610832
 MonoBehaviour:
@@ -4988,6 +4993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: -7.23, y: 401, z: 1.1}
 --- !u!1 &1909312430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5239,12 +5245,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 356661316}
-  - {fileID: 1618549105}
-  - {fileID: 1874610831}
-  - {fileID: 278236545}
-  - {fileID: 856058748}
-  - {fileID: 1253119773}
-  - {fileID: 1049844}
   - {fileID: 1765109230}
   - {fileID: 988200779}
   - {fileID: 488912545}
@@ -5281,3 +5281,9 @@ SceneRoots:
   - {fileID: 67075664}
   - {fileID: 540853080}
   - {fileID: 1151922625}
+  - {fileID: 1618549105}
+  - {fileID: 1874610831}
+  - {fileID: 278236545}
+  - {fileID: 856058748}
+  - {fileID: 1253119773}
+  - {fileID: 1049844}

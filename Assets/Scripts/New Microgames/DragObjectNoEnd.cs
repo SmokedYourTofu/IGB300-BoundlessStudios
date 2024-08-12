@@ -38,25 +38,12 @@ public class DragObjectNoEnd : MonoBehaviour
                 isDragging = true;
                 startTouchPosition = touch.position;
             }
-            else if ((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && isDragging)
+            else if ((touch.phase == TouchPhase.Moved) && isDragging)
             {
                 currentTouchPosition = touch.position;
                 Vector3 newPosition = new Vector3(currentTouchPosition.x, currentTouchPosition.y, holdDistance);
                 newPosition = Camera.main.ScreenToWorldPoint(newPosition);
-                //transform.position = Vector3.MoveTowards(transform.position, newPosition, 1.0f);
                 transform.position = newPosition;
-                
-                    //results of some experimenting with physics
-                //rb.AddForce((newPosition - transform.position) * 40f);
-                //if (Vector3.Distance(newPosition, transform.position) < 1f)
-                //{
-                //    rb.velocity = (newPosition - transform.position) * 40f;
-                //    transform.position = Vector3.MoveTowards(transform.position, newPosition, 1.0f);
-                //}
-                //else
-                //{
-                //    rb.velocity = (newPosition - transform.position) * (Vector3.Distance(newPosition, transform.position)) * 6f;
-                //}
 
                 RotateObject();
                 mouseSpeed = Time.deltaTime;
@@ -110,6 +97,7 @@ public class DragObjectNoEnd : MonoBehaviour
         // Update the start position for the next frame
         startTouchPosition = currentTouchPosition;
     }
+
 }
 
 

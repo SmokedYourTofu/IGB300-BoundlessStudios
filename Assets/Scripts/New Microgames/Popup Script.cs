@@ -65,7 +65,7 @@ public class PopupScript : MonoBehaviour
                     rigid.velocity = Vector2.zero;
                     Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, offset);
                     newPosition = Camera.main.ScreenToWorldPoint(newPosition);
-                    transform.position = newPosition;
+                    transform.position = Vector3.MoveTowards(transform.position, newPosition, 1.0f);
                 }
             }
             //stop dragging if player stops touching
