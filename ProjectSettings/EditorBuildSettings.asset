@@ -38,6 +38,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Drive Smash.unity
     guid: 85ac90aff026a784681b35e1ffe008cb
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Popups.unity
+    guid: 99b10378728ada34fadb821e985eb3e1
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Virus Identify.unity
+    guid: 4a0d0238d61113f449a6d294c4c27ee4
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Maze.unity
+    guid: 996071a15d8ecb1429ded3cbf6944a3b
+  - enabled: 1
+    path: Assets/Scenes/Level 2 Greybox.unity
+    guid: ed28ffd9adfe3e5488a50a57a474a2dd
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4b395487059187e49bb0f2ec40ac04c2,
       type: 2}

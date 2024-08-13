@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public int mainMenu = 0;
     public int levelsScene = 1;
     public int gameScene = 2;
+    public int gameScene2 = 14;
     public int tutScene = 3;
     public bool isPaused;
     
@@ -35,6 +36,13 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(gameScene);
+        Time.timeScale = 1.0f;
+        isPaused = false;
+    }
+
+    public void StartLevel2()
+    {
+        SceneManager.LoadScene(gameScene2);
         Time.timeScale = 1.0f;
         isPaused = false;
     }
