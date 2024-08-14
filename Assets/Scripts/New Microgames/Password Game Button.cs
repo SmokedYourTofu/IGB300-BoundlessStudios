@@ -19,6 +19,7 @@ public class PasswordGameButton : MonoBehaviour
     private bool isDragging = false;
     private bool inSpace = false;
     public GameObject passwordSpot;
+    private Vector3 originPos;
 
     private float offset;
 
@@ -39,6 +40,7 @@ public class PasswordGameButton : MonoBehaviour
     {
         Renderer renderer = GetComponent<Renderer>();
         _mat = renderer.material;
+        originPos = transform.position;
 
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rigid = this.GetComponent<Rigidbody>();
@@ -142,6 +144,11 @@ public class PasswordGameButton : MonoBehaviour
                         Debug.Log("wrong password");
                         StartCoroutine(badPassword());
                     }
+                }
+                else if (transform.position.x > 7 || transform.position.x < -7 || transform.position.y > 405 || transform.position.y < 396.5)
+                {
+                    Vector3 position = originPos;
+                    this.transform.position = position;
                 }
             }
         }

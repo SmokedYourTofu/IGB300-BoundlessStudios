@@ -16440,7 +16440,10 @@ MonoBehaviour:
   - {fileID: 1533580185}
   - {fileID: 598148694}
   activePopups: []
-  sound: {fileID: 516574928}
+  sound:
+  - {fileID: 1043791701}
+  - {fileID: 1306056052}
+  - {fileID: 516574928}
   completeText: {fileID: 540853076}
   scoreText: {fileID: 0}
   totalTime: 30

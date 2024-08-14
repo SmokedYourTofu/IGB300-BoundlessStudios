@@ -76,6 +76,7 @@ public class EmailMicrogame : MonoBehaviour
     {
         if (counter - 1 == issues)
         {
+            issues = 0;
             audioSources[2].Play();
             StartCoroutine(FinishWait());
         }

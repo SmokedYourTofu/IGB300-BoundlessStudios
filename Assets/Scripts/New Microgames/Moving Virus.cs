@@ -306,6 +306,12 @@ public class MovingVirus : MonoBehaviour
                         StartCoroutine(badPassword());
                     }
             }
+            else if (transform.position.x > 4.8 ||  transform.position.x < -9.8 || transform.position.y > 406.6 || transform.position.y < 395)
+            {
+                Vector3 position = originPos;
+                this.transform.position = position;
+                StartCoroutine(badVirus());
+            }
         }
     }
 
