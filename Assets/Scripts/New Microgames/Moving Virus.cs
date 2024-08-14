@@ -22,6 +22,8 @@ public class MovingVirus : MonoBehaviour
 
     private Material _mat;
 
+    public Vector3 startposition;
+
     //get controller script for game on start
     private void Awake()
     {
@@ -41,7 +43,9 @@ public class MovingVirus : MonoBehaviour
         {
             rigid.velocity = movement;
         }
+
         offset = Vector3.Distance(transform.position, Camera.main.transform.position);
+        transform.position = startposition;
     }
 
     private void Update()
@@ -145,6 +149,12 @@ public class MovingVirus : MonoBehaviour
                         Debug.Log("wrong password");
                         StartCoroutine(badVirus());
                     }
+                }
+                else if (transform.position.x > 4.8 ||  transform.position.x < -9.8 || transform.position.y > 406.6 || transform.position.y < 395)
+                {
+                    Vector3 position = originPos;
+                    this.transform.position = position;
+                    StartCoroutine(badVirus());
                 }
             }
         }
@@ -295,6 +305,12 @@ public class MovingVirus : MonoBehaviour
                         Debug.Log("wrong password");
                         StartCoroutine(badPassword());
                     }
+            }
+            else if (transform.position.x > 4.8 ||  transform.position.x < -9.8 || transform.position.y > 406.6 || transform.position.y < 395)
+            {
+                Vector3 position = originPos;
+                this.transform.position = position;
+                StartCoroutine(badVirus());
             }
         }
     }

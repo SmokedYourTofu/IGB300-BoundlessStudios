@@ -9,7 +9,7 @@ public class PopupController : MonoBehaviour
     public Camera specificCamera;
     public List<GameObject> PopupPool;
     public List<GameObject> activePopups = new List<GameObject>();
-    public AudioSource sound;
+    public AudioSource[] sound;
     public GameObject completeText;
 
     private MiniGameSpawner mySpawner;
@@ -64,7 +64,7 @@ public class PopupController : MonoBehaviour
         // Check if there are no more active sticky notes
         if (activePopups.Count == 0)
         {
-            sound.Play();
+            sound[0].Play();
             StartCoroutine(FinishWait());
         }
     }
@@ -76,6 +76,7 @@ public class PopupController : MonoBehaviour
             popup.GetComponent<ParticleSystem>().Play();
             popup.GetComponent<MeshRenderer>().enabled = false;
         }
+        sound[2].Play();
         completeText.SetActive(true);
         yield return new WaitForSeconds(1f);
         endGame();
@@ -114,7 +115,7 @@ public class PopupController : MonoBehaviour
         GameManager.instance.camera.SetActive(true);
         GameManager.instance.environment.SetActive(true);
         GameManager.instance.controls.SetActive(true);
-        SceneManager.UnloadSceneAsync("Sticky Note");
+        SceneManager.UnloadSceneAsync("Popups");
     }
 
     private void CalculateScore()

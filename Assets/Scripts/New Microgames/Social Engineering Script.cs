@@ -52,6 +52,7 @@ public class SocialEngineeringScript : MonoBehaviour
     {
         if (questionCounter == 2)
         {
+            questionCounter = 0;
             audioSources[2].Play();
             StartCoroutine(FinishWait());
         }

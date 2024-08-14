@@ -13,9 +13,12 @@ public class DragObjectNoEnd : MonoBehaviour
 
     public float mouseSpeed;
 
+    private Rigidbody rb;
+
     private void Start()
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -35,12 +38,13 @@ public class DragObjectNoEnd : MonoBehaviour
                 isDragging = true;
                 startTouchPosition = touch.position;
             }
-            else if ((touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) && isDragging)
+            else if ((touch.phase == TouchPhase.Moved) && isDragging)
             {
                 currentTouchPosition = touch.position;
                 Vector3 newPosition = new Vector3(currentTouchPosition.x, currentTouchPosition.y, holdDistance);
                 newPosition = Camera.main.ScreenToWorldPoint(newPosition);
                 transform.position = newPosition;
+
                 RotateObject();
                 mouseSpeed = Time.deltaTime;
                 Debug.Log(mouseSpeed);
@@ -93,6 +97,7 @@ public class DragObjectNoEnd : MonoBehaviour
         // Update the start position for the next frame
         startTouchPosition = currentTouchPosition;
     }
+
 }
 
 

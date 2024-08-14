@@ -67,6 +67,7 @@ public class DragController : MonoBehaviour
 
         UnloadSceneIfLoaded("Printer");
         UnloadSceneIfLoaded("Drive Smash");
+        UnloadSceneIfLoaded("Smash V2");
     }
 
     private void CalculateScore()

@@ -59,6 +59,8 @@ public class NewPrinter : MonoBehaviour
 
     private IEnumerator Unplug()
     {
+        myAudioSource[0].Play();
+        Debug.Log(myAudioSource[0].name);
         completeText.SetActive(true);
         myCable.Play("PauseCable");
         yield return new WaitForSeconds(1f);
@@ -86,10 +88,10 @@ public class NewPrinter : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began && TimerOn)
             {
                 myCable.Play("Cable Jiggle", 0, 0.0f);
-                myAudioSource[1].pitch = barProgress / 10;
+                myAudioSource[1].pitch = barProgress / 4;
                 myAudioSource[1].Play();
                 if (barProgress < 6)
                 {
@@ -105,7 +107,7 @@ public class NewPrinter : MonoBehaviour
                 }
             }
 
-            if (touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Ended && TimerOn)
             {
                 myCable.Play("Default", 0, 0.0f);
             }
@@ -143,7 +145,7 @@ public class NewPrinter : MonoBehaviour
         {
             barProgress = 10;
             timerbar.value = barProgress;
-            myAudioSource[0].Play();
+            barProgress = 0;
             StartCoroutine(Unplug());
             TimerOn = false;
         }

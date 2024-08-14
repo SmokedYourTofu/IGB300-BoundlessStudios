@@ -67,6 +67,7 @@ public class StickyNoteController : MonoBehaviour
         // Check if there are no more active sticky notes
         if (activeStickyNotes.Count == 0)
         {
+            activeStickyNotes = null;
             sound.Play();
             StartCoroutine(FinishWait());
         }

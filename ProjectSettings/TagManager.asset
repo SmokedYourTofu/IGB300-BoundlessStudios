@@ -19,6 +19,7 @@ TagManager:
   - Polymorphic
   - Macro
   - Overwrite
+  - Goal
   layers:
   - Default
   - TransparentFX
