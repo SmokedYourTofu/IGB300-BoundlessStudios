@@ -316,7 +316,7 @@ public class MovingVirus : MonoBehaviour
     }
 
     //indicaate the virus was incorrect by changing colour and move it back into the cage
-    private IEnumerator badPassword()
+    private IEnumerator badVirus()
     {
         _mat.SetColor("_Color", Color.red);
         VRSMicrogame.audioSources[0].Play();
