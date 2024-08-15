@@ -303,7 +303,7 @@ public class MovingVirus : MonoBehaviour
                         Vector3 position = originPos;
                         this.transform.position = position;
                         Debug.Log("wrong password");
-                        StartCoroutine(badPassword());
+                        //StartCoroutine(badPassword());
                     }
             }
             else if (transform.position.x > 4.8 ||  transform.position.x < -9.8 || transform.position.y > 406.6 || transform.position.y < 395)
