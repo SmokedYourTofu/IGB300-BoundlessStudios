@@ -8,6 +8,7 @@ public class StickyNote : MonoBehaviour
     private float holdDistance;
 
     private AudioSource mySource;
+    public AudioSource[] paperSounds;
 
     private void Start()
     {
@@ -108,6 +109,7 @@ public class StickyNote : MonoBehaviour
         if (other.gameObject.CompareTag("Bin"))
         {
             Destroy(gameObject);
+            paperSounds[Random.Range(0, paperSounds.Length)].Play();
             // Remove the destroyed sticky note from the active list using the instance of StickyNoteController
             StickyNoteController instance = FindObjectOfType<StickyNoteController>();
             if (instance != null)

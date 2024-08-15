@@ -9,12 +9,15 @@ public class DriveSmash3D : MonoBehaviour
     public DragObjectNoEnd dragObject;
     public ParticleSystem particles;
 
+    public AudioSource[] hammerSounds;
+
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Drive")
         {
+            hammerSounds[UnityEngine.Random.Range(0, hammerSounds.Length)].Play();
             particles.Play();
-            if (dragObject.mouseSpeed < 0.018f)
+            if (dragObject.mouseSpeed > 50f)
             {
                 StartCoroutine(dragControl.FinishWait());
             } 

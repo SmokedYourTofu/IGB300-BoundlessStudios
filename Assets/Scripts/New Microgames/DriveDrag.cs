@@ -10,6 +10,9 @@ public class DriveDrag : MonoBehaviour
 
     private Vector3 startPos;
 
+    private bool notTouched = true;
+    public AudioSource[] driveSounds;
+
     private void Start()
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
@@ -39,6 +42,11 @@ public class DriveDrag : MonoBehaviour
                 {
                     if (hit.collider.gameObject == gameObject)
                     {
+                        if (notTouched)
+                        {
+                            notTouched = false;
+                            driveSounds[0].Play();
+                        }
                         // Start dragging
                         isDragging = true;
                     }
@@ -72,6 +80,11 @@ public class DriveDrag : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
+                    if (notTouched)
+                    {
+                        notTouched = false;
+                        driveSounds[0].Play();
+                    }
                     // Start dragging
                     isDragging = true;
                 }
@@ -97,6 +110,7 @@ public class DriveDrag : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bin"))
         {
+            driveSounds[1].Play();
             Destroy(gameObject);
             dragControl.Endgame();
         }

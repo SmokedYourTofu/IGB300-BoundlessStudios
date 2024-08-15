@@ -10,6 +10,7 @@ public class DragObjectNoEnd : MonoBehaviour
     public float rotationSpeed = 1f; // Speed of rotation
     private Vector2 startTouchPosition;
     private Vector2 currentTouchPosition;
+    private Vector2 newTouchPosition;
 
     public float mouseSpeed;
 
@@ -44,10 +45,13 @@ public class DragObjectNoEnd : MonoBehaviour
                 Vector3 newPosition = new Vector3(currentTouchPosition.x, currentTouchPosition.y, holdDistance);
                 newPosition = Camera.main.ScreenToWorldPoint(newPosition);
                 transform.position = newPosition;
-
+                
+                if (newTouchPosition != null)
+                {
+                    mouseSpeed = Vector2.Distance(currentTouchPosition, newTouchPosition);
+                }
                 RotateObject();
-                mouseSpeed = Time.deltaTime;
-                Debug.Log(mouseSpeed);
+                newTouchPosition = touch.position;
             }
             else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
             {

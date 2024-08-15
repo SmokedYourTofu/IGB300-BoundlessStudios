@@ -9,6 +9,9 @@ public class MovePlayer : MonoBehaviour
     public GameObject text;
     private float startZ;
     public MazeContoller mazeContoller;
+    public AudioSource playerSound;
+
+    private bool playSound = true;
 
     private void Start()
     {
@@ -30,6 +33,7 @@ public class MovePlayer : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
+                playerSound.Play();
                 //move player to ray position
                 Vector3 newPosition = hit.point;
                 newPosition.z = startZ;
@@ -38,6 +42,7 @@ public class MovePlayer : MonoBehaviour
         }
         else
         {
+            playerSound.Pause();
             //when player isn't being dragged, stop them from moving
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             transform.rotation = Quaternion.identity;
@@ -55,6 +60,11 @@ public class MovePlayer : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
+                if (playSound)
+                {
+                    playSound = false;
+                    playerSound.Play();
+                }
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 if (Physics.Raycast(ray, out hit))
@@ -67,6 +77,8 @@ public class MovePlayer : MonoBehaviour
             }
             else
             {
+                playerSound.Stop();
+                playSound = true;
                 //when player isn't being dragged, stop them from moving
                 this.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 transform.rotation = Quaternion.identity;

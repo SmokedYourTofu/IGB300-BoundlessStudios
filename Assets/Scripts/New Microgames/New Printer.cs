@@ -60,6 +60,7 @@ public class NewPrinter : MonoBehaviour
     private IEnumerator Unplug()
     {
         myAudioSource[0].Play();
+        myAudioSource[2].Play();
         Debug.Log(myAudioSource[0].name);
         completeText.SetActive(true);
         myCable.Play("PauseCable");

@@ -50,7 +50,7 @@ public class SocialEngineeringScript : MonoBehaviour
 
     private void Update()
     {
-        if (questionCounter == 2)
+        if (questionCounter == 3)
         {
             questionCounter = 0;
             audioSources[2].Play();
@@ -124,7 +124,10 @@ public class SocialEngineeringScript : MonoBehaviour
                 //make players do another task if they get the wrong task
                 Debug.Log("Wrong Choice");
                 audioSources[0].Play();
-                questionCounter--;
+                if (questionCounter != 0)
+                {
+                    questionCounter--;
+                }
                 fillText();
             }
         }
