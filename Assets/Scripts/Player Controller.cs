@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown;
     public float dashCooldownTimer;
     public bool dashing;
-    public AudioClip dashingVFX;
+    public AudioClip dashingSFX;
+    public GameObject dashVFX;
+    public GameObject dashVFXSpawn;
 
     [Header("Recovering")]
     public float recoverCooldown;
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(gravity, ForceMode.Force);
 
         Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
-        rb.AddForce(direction.normalized * moveSpeed * direction.magnitude * 6f, ForceMode.Force);
+        rb.AddForce(direction.normalized * moveSpeed * direction.magnitude * 8f, ForceMode.Force);
 
         if (direction != Vector3.zero) {
             Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
@@ -92,11 +94,11 @@ public class PlayerController : MonoBehaviour
         
         dashing = true;
 
-        SoundManager.instance.PlaySoundFXclip(dashingVFX, transform, 1f);
+        //SoundManager.instance.PlaySoundFXclip(dashingSFX, transform, 1f);
 
-        Vector3 dash = orientation.forward * dashForce;
-        rb.AddForce(dash, ForceMode.Impulse);
+        rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
 
+        Instantiate(dashVFX, dashVFXSpawn.transform);
         recoverCooldownTimer = recoverCooldown;
         rb.drag = 15f;
         recovering = true;
