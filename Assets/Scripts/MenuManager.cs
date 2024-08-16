@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject UI;
+    public GameObject GameManager;
 
     // Update is called once per frame
     void Update()
@@ -35,6 +36,10 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        if (GameManager)
+        {
+            Destroy(GameManager);
+        }
         SceneManager.LoadScene(gameScene);
         Time.timeScale = 1.0f;
         isPaused = false;
@@ -49,6 +54,10 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu()
     {
+        if (GameManager)
+        {
+            Destroy(GameManager);
+        }
         Time.timeScale = 0.0f;
         SceneManager.LoadScene(mainMenu);
     }
@@ -60,7 +69,11 @@ public class MenuManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(gameScene);
+        if (GameManager)
+        {
+            Destroy(GameManager);
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
         isPaused = false;
     }
@@ -90,6 +103,10 @@ public class MenuManager : MonoBehaviour
 
     public void Levels()
     {
+        if (GameManager)
+        {
+            Destroy(GameManager);
+        }
         Time.timeScale = 0.0f;
         SceneManager.LoadScene("Levels", LoadSceneMode.Additive);
     }

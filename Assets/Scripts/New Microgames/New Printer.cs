@@ -119,7 +119,7 @@ public class NewPrinter : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             myCable.Play("Cable Jiggle", 0, 0.0f);
-            myAudioSource[1].pitch = barProgress / 10;
+            myAudioSource[1].pitch = barProgress / 4;
             myAudioSource[1].Play();
             if (barProgress < 6)
             {
@@ -135,7 +135,7 @@ public class NewPrinter : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && TimerOn)
         {
             myCable.Play("Default", 0, 0.0f);
         }

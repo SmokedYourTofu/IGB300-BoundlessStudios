@@ -45,7 +45,6 @@ public class MovingVirus : MonoBehaviour
         }
 
         offset = Vector3.Distance(transform.position, Camera.main.transform.position);
-        transform.position = startposition;
     }
 
     private void Update()
@@ -197,6 +196,7 @@ public class MovingVirus : MonoBehaviour
     {
         Renderer renderer = GetComponent<Renderer>();
         _mat = renderer.material;
+        originPos = transform.position;
 
         //when the game starts, change virus velocity to get it moving around
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));

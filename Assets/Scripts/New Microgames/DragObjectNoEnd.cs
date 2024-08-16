@@ -76,8 +76,11 @@ public class DragObjectNoEnd : MonoBehaviour
             newPosition = Camera.main.ScreenToWorldPoint(newPosition);
             transform.position = newPosition;
             RotateObject();
-            mouseSpeed = Time.deltaTime;
-            Debug.Log(mouseSpeed);
+            if (newTouchPosition != null)
+            {
+                mouseSpeed = Vector2.Distance(currentTouchPosition, newTouchPosition);
+            }
+            newTouchPosition = Input.mousePosition;
         }
         else if (Input.GetMouseButtonUp(0))
         {

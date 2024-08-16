@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09011099, g: 0.157654, b: 0.32866335, a: 1}
+  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12192,7 +12192,9 @@ MonoBehaviour:
   dashCooldown: 1.5
   dashCooldownTimer: 0
   dashing: 0
-  dashingVFX: {fileID: 8300000, guid: 94653173d2c3ab442a57a3195b880ec4, type: 3}
+  dashingSFX: {fileID: 0}
+  dashVFX: {fileID: 0}
+  dashVFXSpawn: {fileID: 0}
   recoverCooldown: 0.75
   recoverCooldownTimer: 0
   recovering: 0
@@ -23952,10 +23954,12 @@ MonoBehaviour:
   mainMenu: 0
   levelsScene: 1
   gameScene: 14
+  gameScene2: 14
   tutScene: 3
   isPaused: 0
   pauseMenu: {fileID: 1280941224}
   UI: {fileID: 299791602}
+  GameManager: {fileID: 490251572}
 --- !u!4 &2131916150
 Transform:
   m_ObjectHideFlags: 0
