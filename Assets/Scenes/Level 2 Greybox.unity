@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
+  m_IndirectSpecularColor: {r: 0.09011099, g: 0.157654, b: 0.32866335, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3039,22 +3039,22 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 517717709}
+    m_TransformParent: {fileID: 1889512955}
     m_Modifications:
     - target: {fileID: 491646272427659905, guid: 02798609cc73aed4bb76d167a9faef39,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5774999
+      value: 21.622501
       objectReference: {fileID: 0}
     - target: {fileID: 491646272427659905, guid: 02798609cc73aed4bb76d167a9faef39,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.107836425
       objectReference: {fileID: 0}
     - target: {fileID: 491646272427659905, guid: 02798609cc73aed4bb76d167a9faef39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6
+      value: -19.2
       objectReference: {fileID: 0}
     - target: {fileID: 491646272427659905, guid: 02798609cc73aed4bb76d167a9faef39,
         type: 3}
@@ -3960,7 +3960,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a7ca7557f9ce59549b59ced55284daaa,
         type: 3}
       propertyPath: m_Name
-      value: OvalTable
+      value: Oval Table
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5034,7 +5034,6 @@ Transform:
   m_Children:
   - {fileID: 763573942}
   - {fileID: 792148992}
-  - {fileID: 331351888}
   m_Father: {fileID: 1583474569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &522892315
@@ -20292,6 +20291,7 @@ Transform:
   - {fileID: 199241798}
   - {fileID: 311092848}
   - {fileID: 1792674532}
+  - {fileID: 331351888}
   - {fileID: 427608659}
   m_Father: {fileID: 1583474569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
