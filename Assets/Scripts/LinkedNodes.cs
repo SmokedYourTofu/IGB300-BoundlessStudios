@@ -9,16 +9,18 @@ public class LinkedNodes : MonoBehaviour {
 
 	public int[] linkedNodesIndex;
 
+	//had to comment this out because it was breaking everything for no reason. If you want to set up a roomba you have to do it manually for now
+
 	// Use this for initialization
-	void Start () {
-		//Get the correct index for each linked Node
-		linkedNodesIndex = new int[linkedNodeObjects.Length];
+	//void Start () {
+	//	//Get the correct index for each linked Node
+	//	linkedNodesIndex = new int[linkedNodeObjects.Length];
 
-		for (int i = 0; i < linkedNodesIndex.Length; i++) {
+	//	for (int i = 0; i < linkedNodesIndex.Length; i++) {
 
-			linkedNodesIndex[i] = linkedNodeObjects[i].GetComponent<LinkedNodes>().index;
-		}
-	}
+	//		linkedNodesIndex[i] = linkedNodeObjects[i].GetComponent<LinkedNodes>().index;
+	//	}
+	//}
 	
 	// Update is called once per frame
 	void Update () {

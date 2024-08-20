@@ -95,7 +95,7 @@ public class movingBumper : NavigationAgent
             currentPath = GreedySearch(currentPath[currentPathIndex], randomNode, currentPath);
 
             currentPath.Reverse();
-            //currentPath.RemoveAt(currentPath.Count - 1);
+            currentPath.RemoveAt(currentPath.Count - 1);
 
         }
     }

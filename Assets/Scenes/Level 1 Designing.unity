@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090117104, g: 0.15765518, b: 0.328662, a: 1}
+  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4855,7 +4855,7 @@ MonoBehaviour:
   linkedNodeObjects:
   - {fileID: 1002428262}
   - {fileID: 1703716120}
-  linkedNodesIndex: 
+  linkedNodesIndex: 0000000005000000
 --- !u!1 &435965886
 GameObject:
   m_ObjectHideFlags: 0
@@ -9867,7 +9867,7 @@ MonoBehaviour:
   - {fileID: 1002428262}
   - {fileID: 1093388398}
   - {fileID: 1703716120}
-  linkedNodesIndex: 
+  linkedNodesIndex: 000000000100000005000000
 --- !u!4 &929611974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 920365693268574609, guid: bf7eb1ce4a87b924ba32fcc037f57739,
@@ -10645,7 +10645,7 @@ MonoBehaviour:
   linkedNodeObjects:
   - {fileID: 923122053}
   - {fileID: 434387051}
-  linkedNodesIndex: 
+  linkedNodesIndex: 0200000003000000
 --- !u!1 &1005579957
 GameObject:
   m_ObjectHideFlags: 0
@@ -11497,7 +11497,7 @@ MonoBehaviour:
   linkedNodeObjects:
   - {fileID: 923122053}
   - {fileID: 1734670316}
-  linkedNodesIndex: 
+  linkedNodesIndex: 0200000004000000
 --- !u!1 &1093809133
 GameObject:
   m_ObjectHideFlags: 0
@@ -12984,7 +12984,7 @@ MonoBehaviour:
   variableJoystick: {fileID: 1966022008}
   rb: {fileID: 1172019607}
   orientation: {fileID: 1172019609}
-  moveSpeed: 20
+  moveSpeed: 10
   currentSpeed: 0
   rotationSpeed: 700
   drag: 5
@@ -13060,9 +13060,6 @@ MonoBehaviour:
   rb: {fileID: 1172019607}
   orientation: {fileID: 1172019609}
   moveSpeed: 5
-  currentSpeed: 0
-  rotationSpeed: 700
-  drag: 0
   dashForce: 0
   dashVFX: {fileID: 0}
   dashVFXSpawn: {fileID: 0}
@@ -13126,7 +13123,7 @@ MonoBehaviour:
   currentPath: 
   greedyPaintList: 
   currentPathIndex: 0
-  currentNodeIndex: 2
+  currentNodeIndex: 1
   moveSpeed: 5
   minDistance: 1
   newState: 0
@@ -18096,7 +18093,7 @@ MonoBehaviour:
   - {fileID: 1734670316}
   - {fileID: 434387051}
   - {fileID: 923122053}
-  linkedNodesIndex: 
+  linkedNodesIndex: 040000000300000002000000
 --- !u!1 &1703969238 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6664222942921123100, guid: 3a5a0c09176b3a84894a64324982dcf5,
@@ -18350,7 +18347,7 @@ Transform:
   m_GameObject: {fileID: 1734670316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.91, y: -0.12800002, z: 7.32}
+  m_LocalPosition: {x: 5.91, y: -0.12800002, z: 7.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18372,7 +18369,7 @@ MonoBehaviour:
   linkedNodeObjects:
   - {fileID: 1093388398}
   - {fileID: 1703716120}
-  linkedNodesIndex: 
+  linkedNodesIndex: 0100000005000000
 --- !u!1 &1764493364
 GameObject:
   m_ObjectHideFlags: 0

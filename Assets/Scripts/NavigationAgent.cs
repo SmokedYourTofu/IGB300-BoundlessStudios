@@ -137,6 +137,11 @@ public class NavigationAgent : MonoBehaviour {
             }
         }
 
+        if (thisNodesChildren.Count == 1)
+        {
+            path.Add(thisNodesChildren[0].childID);
+        }
+
         return path;
     }
 
