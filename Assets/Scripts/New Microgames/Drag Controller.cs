@@ -9,6 +9,7 @@ public class DragController : MonoBehaviour
     public AudioSource mySource;
     private MiniGameSpawner mySpawner;
     public GameObject completeText;
+    public DragObjectNoEnd hammer;
 
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
@@ -46,8 +47,10 @@ public class DragController : MonoBehaviour
     public IEnumerator FinishWait()
     {
         completeText.SetActive(true);
+        hammer.enabled = false;
         mySource.Play();
         yield return new WaitForSeconds(1f);
+        completeText.SetActive(false);
         Endgame();
     }
 

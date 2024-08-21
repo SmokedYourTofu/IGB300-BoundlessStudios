@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DriveDrag : MonoBehaviour
 {
     private bool isDragging = false;
     private float holdDistance;
-    public DriveDragControl dragControl;
+    public GameObject otherDrive;
+    public DragObjectNoEnd hammerScript;
 
     private Vector3 startPos;
 
     private bool notTouched = true;
     public AudioSource[] driveSounds;
+    public TMP_Text instructions;
 
     private void Start()
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
         startPos = transform.position;
+        hammerScript.enabled = false;
+        otherDrive.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -112,7 +117,9 @@ public class DriveDrag : MonoBehaviour
         {
             driveSounds[1].Play();
             Destroy(gameObject);
-            dragControl.Endgame();
+            otherDrive.gameObject.SetActive(true);
+            hammerScript.enabled = true;
+            instructions.text = "SMASH IT!";
         }
     }
 }

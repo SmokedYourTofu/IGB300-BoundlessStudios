@@ -10123,7 +10123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 3
-  minigameName: Drive Unplug
+  minigameName: Drive Combo
   indicator: {fileID: 0}
   miniGameType: 1
 --- !u!114 &1019736241
