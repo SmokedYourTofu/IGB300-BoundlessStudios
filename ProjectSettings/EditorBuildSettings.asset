@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/Drive Combo.unity
     guid: 7a805370e086f84419c87452d2384722
+  - enabled: 1
+    path: Assets/Scenes/Minigames/CardSwipe1.unity
+    guid: ccf6af268d0e33d4788665b6059bf283
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4b395487059187e49bb0f2ec40ac04c2,
       type: 2}

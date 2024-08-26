@@ -17142,7 +17142,7 @@ PrefabInstance:
     - target: {fileID: 607063381333748509, guid: 0050a249d08718e429b8974d2892ad94,
         type: 3}
       propertyPath: impulseStrength
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 746101619161993832, guid: 0050a249d08718e429b8974d2892ad94,
         type: 3}

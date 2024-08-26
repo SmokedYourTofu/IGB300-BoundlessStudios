@@ -20,7 +20,7 @@ public class DragCard : MonoBehaviour
     bool freeDrag = true;
     public GameObject secondCollider;
     public GameObject gameController;
-    private MazeContoller mazeContoller;
+    private CardController cardContoller;
     public GameObject outline;
 
     public AudioSource Sound;
@@ -29,7 +29,7 @@ public class DragCard : MonoBehaviour
     {
         holdDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
         rb = GetComponent<Rigidbody>();
-        mazeContoller = gameController.GetComponent<MazeContoller>();
+        cardContoller = gameController.GetComponent<CardController>();
     }
 
     private void Update()
@@ -171,7 +171,7 @@ public class DragCard : MonoBehaviour
         }
         else if (other.tag == "Goal")
         {
-            StartCoroutine(mazeContoller.FinishWait());
+            StartCoroutine(cardContoller.FinishWait());
         }
 
     }

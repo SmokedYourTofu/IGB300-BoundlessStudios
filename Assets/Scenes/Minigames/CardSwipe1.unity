@@ -966,7 +966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 725395560}
-  - component: {fileID: 725395559}
+  - component: {fileID: 725395561}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -974,29 +974,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &725395559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725395558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23afecfbf0a39604e9038a5cc4bbc297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 1353655709}
-  - {fileID: 1558866445}
-  - {fileID: 112125151}
-  completeText: {fileID: 1766828506}
-  scoreText: {fileID: 0}
-  totalTime: 30
-  basePoints: 100
-  progressiveMultiplierMin: 0.1
-  progressiveMultiplierMax: 2
-  gameMultiplier: 0.15
 --- !u!4 &725395560
 Transform:
   m_ObjectHideFlags: 0
@@ -1015,6 +992,30 @@ Transform:
   - {fileID: 112125150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &725395561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725395558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857fbe9f1a7e603439ce49897b56ff22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSources:
+  - {fileID: 1353655709}
+  - {fileID: 1558866445}
+  - {fileID: 112125151}
+  completeText: {fileID: 1766828506}
+  useScore: 0
+  scoreText: {fileID: 0}
+  totalTime: 30
+  basePoints: 100
+  progressiveMultiplierMin: 0.1
+  progressiveMultiplierMax: 2
+  gameMultiplier: 0.15
 --- !u!1 &856777674
 GameObject:
   m_ObjectHideFlags: 0
