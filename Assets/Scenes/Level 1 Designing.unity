@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.090117104, g: 0.15765518, b: 0.328662, a: 1}
+  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13124,7 +13124,7 @@ MonoBehaviour:
   greedyPaintList: 
   currentPathIndex: 0
   currentNodeIndex: 1
-  moveSpeed: 5
+  moveSpeed: 3
   minDistance: 1
   newState: 0
   joint: {fileID: 0}
@@ -17142,7 +17142,7 @@ PrefabInstance:
     - target: {fileID: 607063381333748509, guid: 0050a249d08718e429b8974d2892ad94,
         type: 3}
       propertyPath: impulseStrength
-      value: 25
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 746101619161993832, guid: 0050a249d08718e429b8974d2892ad94,
         type: 3}

@@ -7100,6 +7100,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 94434368}
     m_Modifications:
+    - target: {fileID: 2966193342019597305, guid: 1f83595c47f44d749b3f4b6359aaf6e8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4800345341037044543, guid: 1f83595c47f44d749b3f4b6359aaf6e8,
         type: 3}
       propertyPath: m_Name
@@ -12293,6 +12298,7 @@ GameObject:
   - component: {fileID: 1172019608}
   - component: {fileID: 1172019607}
   - component: {fileID: 1172019606}
+  - component: {fileID: 1172019610}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -12307,7 +12313,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172019605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8aec81b53b9b5294ba603d37a58bd92d, type: 3}
   m_Name: 
@@ -12354,7 +12360,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &1172019608
@@ -12389,7 +12395,7 @@ Transform:
   m_GameObject: {fileID: 1172019605}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.477499, y: 1.2, z: 0}
+  m_LocalPosition: {x: 3.477499, y: 1.239, z: 0.626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12397,6 +12403,26 @@ Transform:
   - {fileID: 1160238052}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172019610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172019605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546d2572d2f04ad46b0d03ec6fbff7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 1966022008}
+  rb: {fileID: 1172019607}
+  orientation: {fileID: 1172019609}
+  moveSpeed: 5
+  dashForce: 50
+  dashVFX: {fileID: 0}
+  dashVFXSpawn: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &1173861166 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7455401884864229711, guid: 0050a249d08718e429b8974d2892ad94,
@@ -12428,7 +12454,7 @@ MonoBehaviour:
   greedyPaintList: 
   currentPathIndex: 0
   currentNodeIndex: 0
-  moveSpeed: 5
+  moveSpeed: 3
   minDistance: 1
   newState: 0
   joint: {fileID: 0}
@@ -16635,8 +16661,13 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f8d636edec3420d40b698e5c2b475b6a, type: 2}
     - target: {fileID: 607063381333748509, guid: 0050a249d08718e429b8974d2892ad94,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1172019605}
+    - target: {fileID: 607063381333748509, guid: 0050a249d08718e429b8974d2892ad94,
+        type: 3}
       propertyPath: impulseStrength
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 746101619161993832, guid: 0050a249d08718e429b8974d2892ad94,
         type: 3}

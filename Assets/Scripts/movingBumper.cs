@@ -8,7 +8,7 @@ public class movingBumper : NavigationAgent
 {
 
     //Movement Variables
-    public float moveSpeed = 10.0f;
+    public float moveSpeed;
     public float minDistance = 1f;
 
     //FSM Variables

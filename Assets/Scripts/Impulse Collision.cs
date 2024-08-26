@@ -5,6 +5,13 @@ using UnityEngine;
 public class ImpulseCollision : MonoBehaviour
 {
     public float impulseStrength = 10f; // Strength of the impulse force
+    public GameObject player;
+    private NewPlayerController controller;
+
+    private void Start()
+    {
+        controller = player.GetComponent<NewPlayerController>();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -18,6 +25,15 @@ public class ImpulseCollision : MonoBehaviour
 
             // Apply an impulse force to the other object in the calculated direction
             otherRigidbody.AddForce(direction * impulseStrength, ForceMode.Impulse);
+
+            StartCoroutine(playerPause());
         }
+    }
+
+    private IEnumerator playerPause()
+    {
+        controller.enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        controller.enabled = true;
     }
 }
