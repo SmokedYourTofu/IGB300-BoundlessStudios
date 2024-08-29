@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09011754, g: 0.15766057, b: 0.32866302, a: 1}
+  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12708,9 +12708,17 @@ MonoBehaviour:
   rb: {fileID: 1172019607}
   orientation: {fileID: 1172019609}
   moveSpeed: 5
-  dashForce: 0
+  drag: 0
+  dashForce: 10
+  dashCooldown: 1.5
+  dashCooldownTimer: 0
+  dashing: 0
+  dashingSFX: {fileID: 0}
   dashVFX: {fileID: 0}
-  dashVFXSpawn: {fileID: 0}
+  dashVFXSpawn: {fileID: 1039213734}
+  recoverCooldown: 0.5
+  recoverCooldownTimer: 0
+  recovering: 0
   animator: {fileID: 0}
 --- !u!136 &1172019611
 CapsuleCollider:
@@ -13956,8 +13964,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1172019606}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1172019610}
+        m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
         m_MethodName: Dashing
         m_Mode: 1
         m_Arguments:

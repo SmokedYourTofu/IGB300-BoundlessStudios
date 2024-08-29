@@ -12612,9 +12612,17 @@ MonoBehaviour:
   rb: {fileID: 1172019607}
   orientation: {fileID: 1172019609}
   moveSpeed: 5
-  dashForce: 50
+  drag: 0
+  dashForce: 10
+  dashCooldown: 1.5
+  dashCooldownTimer: 0
+  dashing: 0
+  dashingSFX: {fileID: 0}
   dashVFX: {fileID: 0}
   dashVFXSpawn: {fileID: 0}
+  recoverCooldown: 0.75
+  recoverCooldownTimer: 0
+  recovering: 0
   animator: {fileID: 0}
 --- !u!1 &1173861166 stripped
 GameObject:

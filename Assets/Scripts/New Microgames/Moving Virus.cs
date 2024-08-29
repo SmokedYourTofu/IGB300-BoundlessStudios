@@ -111,6 +111,7 @@ public class MovingVirus : MonoBehaviour
                     rigid.velocity = Vector2.zero;
                     Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, offset);
                     newPosition = Camera.main.ScreenToWorldPoint(newPosition);
+                    newPosition.z = originPos.z;
                     transform.localPosition = newPosition;
                 }
             }
@@ -268,6 +269,7 @@ public class MovingVirus : MonoBehaviour
                 rigid.velocity = Vector2.zero;
                 Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, offset);
                 newPosition = Camera.main.ScreenToWorldPoint(newPosition);
+                newPosition.z = originPos.z;
                 transform.localPosition = newPosition;
             }
         }
