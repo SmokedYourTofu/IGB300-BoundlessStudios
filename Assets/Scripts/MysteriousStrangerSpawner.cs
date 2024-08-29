@@ -103,19 +103,24 @@ public class MysteriousStrangerSpawner : MonoBehaviour
         // Wait for the specified time
         yield return new WaitForSeconds(waitTimeAtPrinter);
 
-        // Instantiate another smoke bomb before despawning
-        Instantiate(smokeBombPrefab, spawnedEnemy.transform.position, Quaternion.identity);
+        // Check if the enemy is still present before doing anything
+        if (spawnedEnemy != null)
+        {
+            // Instantiate another smoke bomb before despawning
+            Instantiate(smokeBombPrefab, spawnedEnemy.transform.position, Quaternion.identity);
+
+            // Destroy the enemy
+            Destroy(spawnedEnemy);
+        }
 
         // Toggle off the printer components
-        TogglePrinterComponents(false);
+        // TogglePrinterComponents(false);
 
         // Destroy the indicator
         if (spawnedIndicator != null)
         {
             Destroy(spawnedIndicator);
         }
-
-        // Destroy the enemy
-        Destroy(spawnedEnemy);
     }
+
 }
