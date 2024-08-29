@@ -69,7 +69,7 @@ public class DragController : MonoBehaviour
         GameManager.instance.controls.SetActive(true);
 
         UnloadSceneIfLoaded("Printer");
-        UnloadSceneIfLoaded("Drive Smash");
+        UnloadSceneIfLoaded("Drive Combo");
         UnloadSceneIfLoaded("Smash V2");
     }
 
