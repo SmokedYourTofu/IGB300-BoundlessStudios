@@ -17,20 +17,6 @@ public class NewPlayerController : MonoBehaviour
     private bool isMoving;
     public float drag;
 
-    [Header("Dashing")]
-    public float dashForce;
-    public float dashCooldown;
-    public float dashCooldownTimer;
-    public bool dashing;
-    public AudioClip dashingSFX;
-    public GameObject dashVFX;
-    public GameObject dashVFXSpawn;
-
-    [Header("Recovering")]
-    public float recoverCooldown;
-    public float recoverCooldownTimer;
-    public bool recovering;
-
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -44,26 +30,6 @@ public class NewPlayerController : MonoBehaviour
         // Plays animation for running and standing still
         animator.SetBool(IS_MOVING, IsMoving());
         HandleMovement();
-
-        // Timer for dash cooldown
-        if (dashCooldownTimer > 0)
-        {
-            dashCooldownTimer -= Time.deltaTime;
-        }
-
-        // Timer for dash cooldown
-        if (recoverCooldownTimer > 0 && recovering)
-        {
-            recoverCooldownTimer -= Time.deltaTime;
-        }
-        else if (recoverCooldownTimer <= 0 && recovering)
-        {
-            rb.drag = drag;
-            recovering = false;
-            dashing = false;
-        }
-
-
     }
 
     private void HandleMovement() {
@@ -115,21 +81,8 @@ public class NewPlayerController : MonoBehaviour
     public bool IsMoving() {
         return isMoving;
     }
-    public void Dashing()
-    {
-        if (dashCooldownTimer > 0) return;
-        else dashCooldownTimer = dashCooldown;
 
-        dashing = true;
+    private void Dashing() {
 
-        //SoundManager.instance.PlaySoundFXclip(dashingSFX, transform, 1f);
-
-        rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
-
-        Instantiate(dashVFX, dashVFXSpawn.transform);
-        recoverCooldownTimer = recoverCooldown;
-        rb.drag = 15f;
-        recovering = true;
     }
-
 }
