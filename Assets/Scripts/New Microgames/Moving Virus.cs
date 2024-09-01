@@ -181,7 +181,7 @@ public class MovingVirus : MonoBehaviour
 
     private bool isDragging = false;
     private bool inSpace = false;
-    public GameObject passwordSpot;
+    public GameObject virusSpot;
 
     private float offset;
 
@@ -291,7 +291,7 @@ public class MovingVirus : MonoBehaviour
                 //if the virus is in the identifier slot and bears the sme tag as the proper virus finish the gaame
                 if (this.gameObject.tag == trueVirus)
                     {
-                        Vector3 position = passwordSpot.transform.position;
+                        Vector3 position = virusSpot.transform.position;
                         position.z = position.z - 0.1f;
                         this.transform.position = position;
                         VRSMicrogame.audioSources[1].Play();

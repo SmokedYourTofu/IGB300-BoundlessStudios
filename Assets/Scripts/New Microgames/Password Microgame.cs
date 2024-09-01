@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class PasswordMicrogame : MonoBehaviour
 {
     private string number = "1234576890";
-    private string specialChar = "!?@$.,':";
+    private string specialChar = "!?@$#";
     private string[] words = { "Cows", "Duck", "Seen", "Busy", "Work", "Name", "Word", "Safe", "Happy", "Sad", "Silly", "Help", "Cool", "Man", "Woman", "Cheese" };
     public string[] passwords = new string[6];
     public string realPassword;
