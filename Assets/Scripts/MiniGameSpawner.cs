@@ -103,6 +103,7 @@ public class MiniGameSpawner : MonoBehaviour
             Vector3 topOfMesh = renderer.bounds.max;
             Vector3 indicatorPosition = new Vector3(topOfMesh.x, topOfMesh.y + 2, topOfMesh.z); // Adjust the height as needed
             GameObject indicator = Instantiate(indicatorPrefab, indicatorPosition, Quaternion.identity);
+            indicator.GetComponent<MicroTimer>().time = 20f; // give the time till despawn to spawned indicator
             indicator.transform.localScale = indicatorPrefab.transform.localScale; // Maintain the original size
 
             // Store the reference to the indicator in the mini-game's NewInteract component

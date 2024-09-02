@@ -5758,7 +5758,7 @@ MonoBehaviour:
   maxActiveMiniGames: 3
   spawnOnStart: 1
   lastInteracted: {fileID: 0}
-  indicatorPrefab: {fileID: 3647802986621200649, guid: 883eaf66a15862149b85393923e3d95c,
+  indicatorPrefab: {fileID: 6489555178641796863, guid: 30efb4c79d830f141b20383d297b57e9,
     type: 3}
 --- !u!114 &490251577
 MonoBehaviour:
