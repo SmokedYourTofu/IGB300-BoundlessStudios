@@ -25,6 +25,8 @@ public class PasswordGameButton : MonoBehaviour
 
     private Material _mat;
 
+    private bool gameDone = false;
+
     private void Awake()
     {
         buttonText = this.transform.GetChild(0).gameObject;
@@ -126,8 +128,9 @@ public class PasswordGameButton : MonoBehaviour
                     truePassword = psMicrogame.realPassword;
                     rigid.velocity = Vector2.zero;
 
-                    if (passwordText.text == truePassword)
+                    if (passwordText.text == truePassword && gameDone == false)
                     {
+                        gameDone = true;
                         Vector3 position = passwordSpot.transform.position;
                         position.z = position.z - 0.1f;
                         this.transform.position = position;
@@ -199,6 +202,8 @@ public class PasswordGameButton : MonoBehaviour
     private float offset;
 
     private Material _mat;
+
+    private bool gameDone = false;
 
     private void Awake()
     {
@@ -297,8 +302,9 @@ public class PasswordGameButton : MonoBehaviour
                 truePassword = psMicrogame.realPassword;
                 rigid.velocity = Vector2.zero;
 
-                if (passwordText.text == truePassword)
+                if (passwordText.text == truePassword && gameDone == false)
                 {
+                    gameDone = true;
                     Vector3 position = passwordSpot.transform.position;
                     position.z = position.z - 0.1f;
                     this.transform.position = position;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,8 @@ public class DragCard : MonoBehaviour
     public GameObject outline;
 
     public AudioSource Sound;
+
+    private bool gameDone = false;
 
     private void Start()
     {
@@ -169,8 +172,9 @@ public class DragCard : MonoBehaviour
             freeDrag = false;
             other.gameObject.SetActive(false);
         }
-        else if (other.tag == "Goal")
+        else if (other.tag == "Goal" && gameDone == false)
         {
+            gameDone = true;
             StartCoroutine(cardContoller.FinishWait());
         }
 

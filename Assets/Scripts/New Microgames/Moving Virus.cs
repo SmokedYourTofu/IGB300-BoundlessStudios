@@ -24,6 +24,8 @@ public class MovingVirus : MonoBehaviour
 
     public Vector3 startposition;
 
+    private bool gameDone = false;
+
     //get controller script for game on start
     private void Awake()
     {
@@ -131,8 +133,9 @@ public class MovingVirus : MonoBehaviour
                     rigid.velocity = Vector2.zero;
 
                     //if the virus is in the identifier slot and bears the sme tag as the proper virus finish the gaame
-                    if (this.gameObject.tag == trueVirus)
+                    if (this.gameObject.tag == trueVirus && !gameDone)
                     {
+                        gameDone = true;
                         Vector3 position = virusSpot.transform.position;
                         position.z = position.z - 0.1f;
                         this.transform.position = position;
@@ -186,6 +189,8 @@ public class MovingVirus : MonoBehaviour
     private float offset;
 
     private Material _mat;
+
+    private bool gameDone = false;
 
     //get controller script for game on start
     private void Awake()
@@ -289,8 +294,9 @@ public class MovingVirus : MonoBehaviour
                 rigid.velocity = Vector2.zero;
 
                 //if the virus is in the identifier slot and bears the sme tag as the proper virus finish the gaame
-                if (this.gameObject.tag == trueVirus)
+                if (this.gameObject.tag == trueVirus && !gameDone)
                     {
+                        gameDone = true;
                         Vector3 position = virusSpot.transform.position;
                         position.z = position.z - 0.1f;
                         this.transform.position = position;

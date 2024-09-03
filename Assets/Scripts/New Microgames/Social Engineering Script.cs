@@ -23,6 +23,8 @@ public class SocialEngineeringScript : MonoBehaviour
 
     private MiniGameSpawner mySpawner;
 
+    private bool gameDone = false;
+
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
     public float totalTime = 30f; // Total time for the game (example value)
@@ -50,8 +52,9 @@ public class SocialEngineeringScript : MonoBehaviour
 
     private void Update()
     {
-        if (questionCounter == 3)
+        if (questionCounter == 3 && !gameDone)
         {
+            gameDone = true;
             questionCounter = 0;
             audioSources[2].Play();
             StartCoroutine(FinishWait());
@@ -113,13 +116,13 @@ public class SocialEngineeringScript : MonoBehaviour
 
         for (int i = 0; i < 2; i++)
         {
-            if (lastPressedButton == buttons[i].gameObject && goodQuestion == lastPressedButton.transform.name)
+            if (lastPressedButton == buttons[i].gameObject && goodQuestion == lastPressedButton.transform.name && !gameDone)
             {
                 audioSources[1].Play();
                 questionCounter++;
                 fillText();
             }
-            else if (lastPressedButton == buttons[i].gameObject && goodQuestion != lastPressedButton.transform.name)
+            else if (lastPressedButton == buttons[i].gameObject && goodQuestion != lastPressedButton.transform.name && !gameDone)
             {
                 //make players do another task if they get the wrong task
                 Debug.Log("Wrong Choice");
@@ -132,21 +135,6 @@ public class SocialEngineeringScript : MonoBehaviour
             }
         }
     }
-
-    //private void endGame()
-    //{
-    //    audioSources[1].Play();
-    //    Debug.Log("Game Over");
-    //    //points and such
-
-    //    mySpawner.MiniGameCompleted(mySpawner.lastInteracted, isSuccessful);
-
-    //    GameManager.instance.player.SetActive(true);
-    //    GameManager.instance.camera.SetActive(true);
-    //    GameManager.instance.environment.SetActive(true);
-    //    GameManager.instance.controls.SetActive(true);
-    //    SceneManager.UnloadSceneAsync("Social Engineering");
-    //}
 
     private void endGame()
     {
