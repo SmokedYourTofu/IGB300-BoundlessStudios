@@ -17,6 +17,12 @@ public class NewPlayerController : MonoBehaviour
     private bool isMoving;
     public float drag;
 
+    [Header("Dashing")]
+    public bool isDashing;
+    public float dashDis;
+    public float dashTime;
+    public float dashCooldown;
+
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +36,12 @@ public class NewPlayerController : MonoBehaviour
         // Plays animation for running and standing still
         animator.SetBool(IS_MOVING, IsMoving());
         HandleMovement();
+        StartCoroutine(Dash());
+
+        // Dash mechanic on PC
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > dashTime) {
+            IsDashing();
+        }
     }
 
     private void HandleMovement() {
@@ -69,8 +81,11 @@ public class NewPlayerController : MonoBehaviour
                 }
             }
         }
-        if (canMove) {
+        if (canMove && isDashing == false) {
             transform.position += moveDir * moveDistance;
+        }
+        if (canMove && isDashing ) {
+            transform.forward += moveDir * moveDistance;
         }
 
         isMoving = moveDir != Vector3.zero;
@@ -82,7 +97,18 @@ public class NewPlayerController : MonoBehaviour
         return isMoving;
     }
 
-    private void Dashing() {
+    public void IsDashing() {
+        if (Time.time > dashTime)
+            isDashing = true;
+            dashTime = Time.time + dashCooldown;
+    }
 
+    private IEnumerator Dash() {
+        if (isDashing) {
+            moveSpeed += dashDis;
+            yield return new WaitForSeconds(0.2f);
+            moveSpeed -= dashDis;
+            isDashing = false;
+        }
     }
 }
