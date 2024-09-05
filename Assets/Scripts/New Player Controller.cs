@@ -10,6 +10,7 @@ public class NewPlayerController : MonoBehaviour
     public VariableJoystick joystick;
     public Rigidbody rb;
     public Transform orientation;
+    public SoundManager soundManager;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -22,6 +23,8 @@ public class NewPlayerController : MonoBehaviour
     public float dashDis;
     public float dashTime;
     public float dashCooldown;
+    public GameObject dashVFX;
+    public AudioClip dashAudio;
 
     public Animator animator;
     // Start is called before the first frame update
@@ -81,11 +84,10 @@ public class NewPlayerController : MonoBehaviour
                 }
             }
         }
-        if (canMove && isDashing == false) {
-            transform.position += moveDir * moveDistance;
-        }
-        if (canMove && isDashing ) {
+        if (canMove && isDashing) {
             transform.forward += moveDir * moveDistance;
+        } else {
+            transform.position += moveDir * moveDistance;
         }
 
         isMoving = moveDir != Vector3.zero;
@@ -98,9 +100,12 @@ public class NewPlayerController : MonoBehaviour
     }
 
     public void IsDashing() {
-        if (Time.time > dashTime)
+        if (Time.time > dashTime) {
             isDashing = true;
             dashTime = Time.time + dashCooldown;
+            
+            soundManager.PlaySoundFXclip(dashAudio, transform, 1);
+        }
     }
 
     private IEnumerator Dash() {
@@ -109,6 +114,7 @@ public class NewPlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             moveSpeed -= dashDis;
             isDashing = false;
+            Instantiate(dashVFX, transform.position, transform.rotation);
         }
     }
 }

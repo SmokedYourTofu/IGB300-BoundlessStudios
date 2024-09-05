@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
+  m_IndirectSpecularColor: {r: 0.090117104, g: 0.15765518, b: 0.328662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10439,6 +10439,7 @@ MonoBehaviour:
   height: 10
   zDisp: 10
   cameraSpeed: 1
+  cameraCutoff: -2
 --- !u!1 &965230540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2424263334693747485, guid: 4c52e5fea1b505141a4ccbdc5322054e,
@@ -13121,7 +13122,6 @@ GameObject:
   - component: {fileID: 1172019607}
   - component: {fileID: 1172019611}
   - component: {fileID: 1172019610}
-  - component: {fileID: 1172019606}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -13129,36 +13129,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1172019606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172019605}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aec81b53b9b5294ba603d37a58bd92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  variableJoystick: {fileID: 1966022008}
-  rb: {fileID: 1172019607}
-  orientation: {fileID: 1172019609}
-  moveSpeed: 7
-  currentSpeed: 0
-  rotationSpeed: 700
-  drag: 5
-  dashForce: 100
-  dashCooldown: 1.5
-  dashCooldownTimer: 0
-  dashing: 0
-  dashingSFX: {fileID: 0}
-  dashVFX: {fileID: 104829970813648393, guid: bde613ddd03230849bfe1a55f3ebef7e, type: 3}
-  dashVFXSpawn: {fileID: 1039213734}
-  recoverCooldown: 0.5
-  recoverCooldownTimer: 0
-  recovering: 0
-  myAnimator: {fileID: 1500329104}
 --- !u!54 &1172019607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13219,12 +13189,15 @@ MonoBehaviour:
   joystick: {fileID: 1966022008}
   rb: {fileID: 1172019607}
   orientation: {fileID: 1172019609}
+  soundManager: {fileID: 1941715194}
   moveSpeed: 5
   drag: 0
   isDashing: 0
-  dashDis: 0
+  dashDis: 2.2
   dashTime: 0
-  dashCooldown: 0
+  dashCooldown: 2
+  dashVFX: {fileID: 104829970813648393, guid: bde613ddd03230849bfe1a55f3ebef7e, type: 3}
+  dashAudio: {fileID: 8300000, guid: 94653173d2c3ab442a57a3195b880ec4, type: 3}
   animator: {fileID: 0}
 --- !u!136 &1172019611
 CapsuleCollider:
@@ -14472,7 +14445,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1172019610}
         m_TargetAssemblyTypeName: NewPlayerController, Assembly-CSharp
-        m_MethodName: Dashing
+        m_MethodName: IsDashing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
