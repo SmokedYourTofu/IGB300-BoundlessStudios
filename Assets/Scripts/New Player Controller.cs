@@ -114,7 +114,8 @@ public class NewPlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             moveSpeed -= dashDis;
             isDashing = false;
-            Instantiate(dashVFX, transform.position, transform.rotation);
+            GameObject dashVisual = Instantiate(dashVFX, transform.position, transform.rotation);
+            Destroy(dashVisual, 0.2f);
         }
     }
 }
