@@ -7,7 +7,7 @@ using static MiniGameSpawner;
 public class NewInteract : MonoBehaviour
 {
     public float interactionRange = 3f; // Set the interaction range here
-    private PlayerController playerController;
+    private NewPlayerController playerController;
     private Outline outline; // Reference to the Outline component
     public string minigameName;
     private MiniGameSpawner miniGameSpawner;
@@ -17,7 +17,7 @@ public class NewInteract : MonoBehaviour
     private void Start()
     {
         miniGameSpawner = FindObjectOfType<MiniGameSpawner>();
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindObjectOfType<NewPlayerController>();
         if (playerController == null)
         {
             Debug.LogError("PlayerController not found in the scene.");
@@ -38,7 +38,7 @@ public class NewInteract : MonoBehaviour
     {
         if (playerController == null)
         {
-            playerController = FindObjectOfType<PlayerController>();
+            playerController = FindObjectOfType<NewPlayerController>();
         }
 
         if (playerController == null || outline == null)

@@ -14,5 +14,10 @@ public class MicroTimer : MonoBehaviour
     {
         num = Time.deltaTime / time;
         timerbar.fillAmount -= num;
+
+        if (timerbar.fillAmount >= 1 )
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

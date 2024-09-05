@@ -93,7 +93,8 @@ public class MovePlayer : MonoBehaviour
         if (collision.gameObject.tag == "Goal")
         {
             StartCoroutine(mazeContoller.FinishWait());
-            Destroy(this.gameObject);
+            this.GetComponent<MeshRenderer>().enabled = false;
+            this.GetComponent<Collider>().enabled = false;
         }
     }
 }
