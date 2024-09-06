@@ -5,7 +5,7 @@ public class MysteriousStrangerSpawner : MonoBehaviour
 {
     public GameObject mysteriousStrangerPrefab;  // Assign your enemy prefab in the Inspector
     public GameObject smokeBombPrefab;           // Assign your smoke bomb effect prefab
-    public Transform spawnPoint;                 // Assign the spawn location
+    public Transform[] spawnPoint;                 // Assign the spawn location
     public Transform printerLocation;            // Assign the printer's location
     public GameObject printerObject;             // Reference to the printer object in the scene
     public GameObject indicatorPrefab;           // Reference to the indicator prefab
@@ -24,10 +24,10 @@ public class MysteriousStrangerSpawner : MonoBehaviour
     void SpawnMysteriousStranger()
     {
         // Instantiate smoke bomb effect
-        Instantiate(smokeBombPrefab, spawnPoint.position, Quaternion.identity);
+        Instantiate(smokeBombPrefab, spawnPoint[Random.Range(0,spawnPoint.Length - 1)].position, Quaternion.identity);
 
         // Instantiate the enemy
-        spawnedEnemy = Instantiate(mysteriousStrangerPrefab, spawnPoint.position, Quaternion.identity);
+        spawnedEnemy = Instantiate(mysteriousStrangerPrefab, spawnPoint[Random.Range(0, spawnPoint.Length - 1)].position, Quaternion.identity);
 
         // Get the enemy's movement script and set the target location
         EnemyMovement enemyMovement = spawnedEnemy.GetComponent<EnemyMovement>();

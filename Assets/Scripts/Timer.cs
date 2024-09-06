@@ -44,6 +44,8 @@ public class Timer : MonoBehaviour
             if (TimeLeft <= 30)
             {
                 music.pitch = 1.25f;
+                var ratio = Mathf.Abs(Mathf.Sin(Time.time * 2f));
+                timerText.color = Color.Lerp(Color.white, Color.red, ratio);
             }
         }
     }
