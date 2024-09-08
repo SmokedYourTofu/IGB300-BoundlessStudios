@@ -121,7 +121,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec545e501edebfb40899a1d5aea6f3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  graphNodes: {fileID: 0}
+  openList: 
+  closedList: 
+  currentPath: 
+  greedyPaintList: 
+  currentPathIndex: 0
+  currentNodeIndex: 0
+  speed: 4
+  minDistance: 0.5
+  newState: 0
+  joint: {fileID: 0}
 --- !u!195 &5242793307961616904
 NavMeshAgent:
   m_ObjectHideFlags: 0

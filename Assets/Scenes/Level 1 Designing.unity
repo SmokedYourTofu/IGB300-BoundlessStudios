@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
+  m_IndirectSpecularColor: {r: 0.09011754, g: 0.15766057, b: 0.32866302, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7365,7 +7365,7 @@ GameObject:
   - component: {fileID: 615564851}
   - component: {fileID: 615564850}
   m_Layer: 0
-  m_Name: temp
+  m_Name: Mysterious Stranger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7393,6 +7393,7 @@ MonoBehaviour:
   printerLocation: {fileID: 222846851}
   printerObject: {fileID: 1431124861}
   indicatorPrefab: {fileID: 0}
+  scoreOnDestroy: 250
   waitTimeAtPrinter: 2
 --- !u!4 &615564851
 Transform:
