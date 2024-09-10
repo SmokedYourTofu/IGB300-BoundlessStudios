@@ -20,8 +20,6 @@ public class MovingVirus : MonoBehaviour
 
     private float offset;
 
-    private Material _mat;
-
     public Vector3 startposition;
 
     private bool gameDone = false;
@@ -34,8 +32,6 @@ public class MovingVirus : MonoBehaviour
 
     private void Start()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        _mat = renderer.material;
         originPos = transform.position;
 
         //when the game starts, change virus velocity to get it moving around
@@ -141,7 +137,6 @@ public class MovingVirus : MonoBehaviour
                         this.transform.position = position;
                         VRSMicrogame.audioSources[1].Play();
                         VRSMicrogame.audioSources[2].Play();
-                        _mat.SetColor("_Color", Color.green);
                         StartCoroutine(VRSMicrogame.FinishWait());
                     }
                     //if the virus is incorrect reset it's position
@@ -166,10 +161,12 @@ public class MovingVirus : MonoBehaviour
     //indicaate the virus was incorrect by changing colour and move it back into the cage
     private IEnumerator badVirus()
     {
-        _mat.SetColor("_Color", Color.red);
         VRSMicrogame.audioSources[0].Play();
         yield return new WaitForSeconds(1f);
-        _mat.SetColor("_Color", Color.white);
+        if (rigid != null)
+        {
+            rigid.velocity = movement;
+        }
     }
 #endif
 
@@ -188,8 +185,6 @@ public class MovingVirus : MonoBehaviour
 
     private float offset;
 
-    private Material _mat;
-
     private bool gameDone = false;
 
     //get controller script for game on start
@@ -200,8 +195,6 @@ public class MovingVirus : MonoBehaviour
 
     private void Start()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        _mat = renderer.material;
         originPos = transform.position;
 
         //when the game starts, change virus velocity to get it moving around
@@ -302,7 +295,6 @@ public class MovingVirus : MonoBehaviour
                         this.transform.position = position;
                         VRSMicrogame.audioSources[1].Play();
                         VRSMicrogame.audioSources[2].Play();
-                        _mat.SetColor("_Color", Color.green);
                         StartCoroutine(VRSMicrogame.FinishWait());
                     }
                     //if the virus is incorrect reset it's position
@@ -326,10 +318,12 @@ public class MovingVirus : MonoBehaviour
     //indicaate the virus was incorrect by changing colour and move it back into the cage
     private IEnumerator badVirus()
     {
-        _mat.SetColor("_Color", Color.red);
         VRSMicrogame.audioSources[0].Play();
         yield return new WaitForSeconds(1f);
-        _mat.SetColor("_Color", Color.white);
+        if (rigid != null)
+        {
+            rigid.velocity = movement;
+        }
     }
 
 #endif

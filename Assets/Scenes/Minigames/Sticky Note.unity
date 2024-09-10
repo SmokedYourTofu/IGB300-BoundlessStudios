@@ -6520,6 +6520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df00417b57915954990d532bd5b7e3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisText: {fileID: 2492757896663372511}
+  realPassword: 
   paperSounds:
   - {fileID: 338295843}
   - {fileID: 208953979}
@@ -6580,6 +6582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df00417b57915954990d532bd5b7e3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisText: {fileID: 4448092132029929957}
+  realPassword: 
   paperSounds:
   - {fileID: 338295843}
   - {fileID: 208953979}
@@ -6689,6 +6693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df00417b57915954990d532bd5b7e3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisText: {fileID: 5277049558954226448}
+  realPassword: 
   paperSounds:
   - {fileID: 338295843}
   - {fileID: 208953979}
@@ -7427,6 +7433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df00417b57915954990d532bd5b7e3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisText: {fileID: 6844796341327617959}
+  realPassword: 
   paperSounds:
   - {fileID: 338295843}
   - {fileID: 208953979}
@@ -7542,6 +7550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df00417b57915954990d532bd5b7e3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisText: {fileID: 1920822752927567287}
+  realPassword: 
   paperSounds:
   - {fileID: 338295843}
   - {fileID: 208953979}
@@ -7790,6 +7800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df00417b57915954990d532bd5b7e3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisText: {fileID: 5410258060243400645}
+  realPassword: 
   paperSounds:
   - {fileID: 338295843}
   - {fileID: 208953979}
@@ -8497,6 +8509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df00417b57915954990d532bd5b7e3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisText: {fileID: 2252990220151412487}
+  realPassword: 
   paperSounds:
   - {fileID: 338295843}
   - {fileID: 208953979}

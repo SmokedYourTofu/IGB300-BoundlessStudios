@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,18 +18,19 @@ public class PopupScript : MonoBehaviour
     private Material _mat;
     public Color color;
 
+    public Sprite[] images;
+
+    public GameObject image;
+
     private void Start()
     {
-        //when the game starts change the popup to be a random colour, shape and position
-        Renderer renderer = GetComponent<Renderer>();
-        _mat = renderer.material;
 
         rigid = this.GetComponent<Rigidbody>();
         offset = Vector3.Distance(transform.position, Camera.main.transform.position);
 
         this.transform.localScale = new Vector3(Random.Range(5, 8), Random.Range(5, 8), 0.05f);
         this.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(398, 406), 1.1f);
-        color = new Color(Random.Range(0F, 1F), Random.Range(0, 1F), Random.Range(0, 1F));
+        image.GetComponent<SpriteRenderer>().sprite = images[Random.Range(0, images.Length)];
         _mat.color = color;
     }
 

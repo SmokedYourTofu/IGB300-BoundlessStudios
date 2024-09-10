@@ -13,15 +13,15 @@ TagManager:
   - passwordSpot
   - bumperSpotDown
   - bumperSpotUp
-  - Boot
   - Trojan
-  - Resident
-  - Polymorphic
-  - Macro
-  - Overwrite
   - Goal
   - waypoint graph
   - node
+  - Worm
+  - Wiper
+  - Spyware
+  - Phishing
+  - Backdoor
   layers:
   - Default
   - TransparentFX

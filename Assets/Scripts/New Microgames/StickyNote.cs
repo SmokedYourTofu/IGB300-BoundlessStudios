@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class StickyNote : MonoBehaviour
 {
@@ -6,6 +7,12 @@ public class StickyNote : MonoBehaviour
     private Vector3 touchOffset;
     private Vector3 startPos;
     private float holdDistance;
+
+    public TMP_Text thisText;
+    private string number = "1234576890";
+    private string specialChar = "!?@$#";
+    private string[] words = { "Cows", "Duck", "Seen", "Busy", "Work", "Name", "Word", "Safe", "Happy", "Sad", "Silly", "Help", "Cool", "Man", "Woman", "Cheese" };
+    public string realPassword;
 
     private AudioSource mySource;
     public AudioSource[] paperSounds;
@@ -25,6 +32,13 @@ public class StickyNote : MonoBehaviour
         {
             Debug.LogError("StickyNoteController instance not found or specificCamera not set.");
         }
+
+        realPassword = words[UnityEngine.Random.Range(0, words.Length)];
+        realPassword += words[UnityEngine.Random.Range(0, words.Length)];
+        realPassword += number[UnityEngine.Random.Range(0, number.Length)];
+        realPassword += specialChar[UnityEngine.Random.Range(0, specialChar.Length)];
+
+        thisText.text = "Password: " + realPassword;
     }
 
     private void Update()
