@@ -11,7 +11,7 @@ public class EnemyMovement : NavigationAgent
 
     //FSM Variables
     public int newState = 0;
-    private int currentState = 0;
+    // private int currentState = 0;
 
     [SerializeField] private SpringJoint joint;
 

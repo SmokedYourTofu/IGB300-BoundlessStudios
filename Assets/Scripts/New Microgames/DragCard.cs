@@ -167,8 +167,8 @@ public class DragCard : MonoBehaviour
         {
             Sound.Play();
             this.transform.position = other.transform.position;
-            secondCollider.active = true;
-            outline.active = false;
+            secondCollider.SetActive(true);
+            outline.SetActive(false);
             freeDrag = false;
             other.gameObject.SetActive(false);
         }

@@ -22,7 +22,7 @@ public class CardController : MonoBehaviour
     public float gameMultiplier = 0.15f; // Game-specific multiplier
     private float timeRemaining; // Time remaining for this game
     private bool isGameCompleted = true; // Indicates if the game was completed
-    private bool isSuccessful = true; // Indicates if the game was successfully completed
+    // private bool isSuccessful = true; // Indicates if the game was successfully completed
 
     private void Awake()
     {
