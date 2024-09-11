@@ -11,7 +11,7 @@ public class MovePlayer : MonoBehaviour
     public MazeContoller mazeContoller;
     public AudioSource playerSound;
 
-    // private bool playSound = true;
+    private bool playSound = true;
 
     private void Start()
     {

@@ -16,6 +16,9 @@ public class LevelCountdown : MonoBehaviour
     public GameObject Timer;
     public GameObject controls;
 
+    public AudioSource beepEffect;
+    public AudioSource beepEnd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +48,16 @@ public class LevelCountdown : MonoBehaviour
     {
         //change text every second for countdown
         countDownText.text = "3";
+        beepEffect.Play();
         yield return new WaitForSeconds(1);
         countDownText.text = "2";
+        beepEffect.Play();
         yield return new WaitForSeconds(1);
         countDownText.text = "1";
+        beepEffect.Play();
         yield return new WaitForSeconds(1);
         countDownText.text = "GO!";
+        beepEnd.Play();
 
         //re-enabled everything when game starts
         Timer.SetActive(true);
