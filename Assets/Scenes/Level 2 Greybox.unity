@@ -12934,7 +12934,7 @@ MonoBehaviour:
   moveSpeed: 5
   drag: 0
   isDashing: 0
-  dashDis: 2.2
+  dashDis: 2
   dashTime: 0
   dashCooldown: 2
   dashVFX: {fileID: 104829970813648393, guid: bde613ddd03230849bfe1a55f3ebef7e, type: 3}
