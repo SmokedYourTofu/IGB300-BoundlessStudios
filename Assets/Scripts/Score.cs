@@ -12,7 +12,9 @@ public class Score : MonoBehaviour
     public float progressiveMultiplierMin; // Minimum progressive multiplier
     public float progressiveMultiplierMax; // Maximum progressive multiplier
     public float timeRemaining; // Time remaining for this game
+    public float microGameCounter = 1f;
     public bool isGameCompleted = true; // Indicates if the game was completed
+    public float gamesCompelted = 0;
 
     private void Start()
     {
@@ -39,6 +41,7 @@ public class Score : MonoBehaviour
 
         // Add the calculated score to the ScoreManager
         ScoreManager.Instance.AddScore(score);
+        ScoreManager.Instance.AddMicrogameCounter(microGameCounter);
     }
 
     private void UpdateMultiplierDisplay()
@@ -52,5 +55,11 @@ public class Score : MonoBehaviour
     private void Update()
     {
         UpdateMultiplierDisplay();
+    }
+
+    private void UpdateMicrogames()
+    {
+        gamesCompelted++;
+        ScoreManager.Instance.AddMicrogameCounter(gamesCompelted);
     }
 }

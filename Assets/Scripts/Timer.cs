@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class Timer : MonoBehaviour
                 TimeLeft = 0;
                 TimerOn = false;
                 SendFinalScoreToDiscord();
-                
+                UnloadAllAdditiveScenes();
             }
 
             if (TimeLeft <= 30)
@@ -67,5 +68,36 @@ public class Timer : MonoBehaviour
         DiscordWebhooks.SendMessage(message);
         //DiscordWebhooks.SendScreenshot();
         Debug.Log(message);
+    }
+
+    // This method will unload all scenes except the active one
+    public void UnloadAllAdditiveScenes()
+    {
+        // Get the active scene (the base scene)
+        Scene activeScene = SceneManager.GetActiveScene();
+
+        // Iterate through all loaded scenes
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+
+            // Skip the active scene (main base scene)
+            if (scene != activeScene)
+            {
+                // Unload the scene asynchronously
+                StartCoroutine(UnloadScene(scene.name));
+            }
+        }
+    }
+
+    // Helper method to unload a scene asynchronously
+    private IEnumerator UnloadScene(string sceneName)
+    {
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(sceneName);
+        while (!asyncUnload.isDone)
+        {
+            yield return null; // Wait until the scene is completely unloaded
+        }
+        Debug.Log("Scene " + sceneName + " unloaded.");
     }
 }

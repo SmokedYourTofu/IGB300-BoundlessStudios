@@ -12,11 +12,11 @@ public class MenuManager : MonoBehaviour
     public int gameScene2 = 14;
     public int tutScene = 3;
     public bool isPaused;
-    
 
     public GameObject pauseMenu;
     public GameObject UI;
     public GameObject GameManager;
+    public GameObject leveltwo;
 
     // Update is called once per frame
     void Update()

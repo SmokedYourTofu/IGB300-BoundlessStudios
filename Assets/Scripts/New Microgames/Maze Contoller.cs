@@ -19,6 +19,7 @@ public class MazeContoller : MonoBehaviour
     public float progressiveMultiplierMin = 0.1f; // Minimum progressive multiplier
     public float progressiveMultiplierMax = 2f; // Maximum progressive multiplier
     public float gameMultiplier = 0.15f; // Game-specific multiplier
+    public float microGameCounter = 1f;
     private float timeRemaining; // Time remaining for this game
     private bool isGameCompleted = true; // Indicates if the game was completed
     private bool isSuccessful = true; // Indicates if the game was successfully completed
@@ -91,5 +92,6 @@ public class MazeContoller : MonoBehaviour
 
         // Add the calculated score to the ScoreManager
         ScoreManager.Instance.AddScore(score);
+        ScoreManager.Instance.AddMicrogameCounter(microGameCounter);
     }
 }

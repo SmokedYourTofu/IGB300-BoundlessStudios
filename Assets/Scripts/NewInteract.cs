@@ -20,7 +20,6 @@ public class NewInteract : MonoBehaviour
         playerController = FindObjectOfType<NewPlayerController>();
         if (playerController == null)
         {
-            Debug.LogError("PlayerController not found in the scene.");
         }
 
         outline = GetComponent<Outline>();
