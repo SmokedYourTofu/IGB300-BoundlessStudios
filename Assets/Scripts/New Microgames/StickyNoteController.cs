@@ -26,6 +26,8 @@ public class StickyNoteController : MonoBehaviour
     private bool isGameCompleted = true; // Indicates if the game was completed
     private bool isSuccessful = true; // Indicates if the game was successfully completed
 
+    bool finishGame = false;
+
     public void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
@@ -65,9 +67,9 @@ public class StickyNoteController : MonoBehaviour
     public void Update()
     {
         // Check if there are no more active sticky notes
-        if (activeStickyNotes.Count == 0)
+        if (activeStickyNotes.Count == 0 && !finishGame)
         {
-            activeStickyNotes = null;
+            finishGame = true;
             sound.Play();
             StartCoroutine(FinishWait());
         }
