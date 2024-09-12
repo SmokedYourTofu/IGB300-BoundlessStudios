@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
+  m_IndirectSpecularColor: {r: 0.090117104, g: 0.15765518, b: 0.328662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8251,7 +8251,6 @@ GameObject:
   - component: {fileID: 1172019608}
   - component: {fileID: 1172019607}
   - component: {fileID: 1172019611}
-  - component: {fileID: 1172019606}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8259,36 +8258,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1172019606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172019605}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aec81b53b9b5294ba603d37a58bd92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  variableJoystick: {fileID: 1966022008}
-  rb: {fileID: 1172019607}
-  orientation: {fileID: 1172019609}
-  moveSpeed: 6
-  currentSpeed: 0
-  rotationSpeed: 700
-  drag: 5
-  dashForce: 40
-  dashCooldown: 2
-  dashCooldownTimer: 0
-  dashing: 0
-  dashingSFX: {fileID: 0}
-  dashVFX: {fileID: 0}
-  dashVFXSpawn: {fileID: 0}
-  recoverCooldown: 1
-  recoverCooldownTimer: 0
-  recovering: 0
-  myAnimator: {fileID: 321152885}
 --- !u!54 &1172019607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8371,15 +8340,15 @@ MonoBehaviour:
   joystick: {fileID: 1966022008}
   rb: {fileID: 1172019607}
   orientation: {fileID: 1172019609}
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 749991519}
   moveSpeed: 5
   drag: 0
   isDashing: 0
-  dashDis: 0
+  dashDis: 2
   dashTime: 0
-  dashCooldown: 0
-  dashVFX: {fileID: 0}
-  dashAudio: {fileID: 0}
+  dashCooldown: 2
+  dashVFX: {fileID: 104829970813648393, guid: bde613ddd03230849bfe1a55f3ebef7e, type: 3}
+  dashAudio: {fileID: 8300000, guid: 94653173d2c3ab442a57a3195b880ec4, type: 3}
   animator: {fileID: 0}
 --- !u!4 &1172824139 stripped
 Transform:
@@ -8923,8 +8892,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283716692
-  m_fontColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9250,7 +9219,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1172019606}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Dashing
         m_Mode: 1
@@ -10816,7 +10785,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1172019606}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Dashing
         m_Mode: 1
