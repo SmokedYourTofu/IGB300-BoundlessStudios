@@ -1,6 +1,8 @@
+using Autodesk.Fbx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
@@ -10,6 +12,8 @@ public class movingBumper : NavigationAgent
     //Movement Variables
     public float moveSpeed;
     public float minDistance = 1f;
+    public float rotationSpeed = 10f;
+    private Vector3 moveDirection;
 
     //FSM Variables
     public int newState = 0;
@@ -60,7 +64,14 @@ public class movingBumper : NavigationAgent
         {
 
             //Move towards next node in path
-            transform.position = Vector3.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
+            moveDirection = Vector3.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
+            transform.position = moveDirection;
+
+            // Rotate roomba to direction of movement
+            Vector3 rotatePos = graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(rotatePos);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            transform.eulerAngles = new Vector3 (0f , transform.eulerAngles.y, 0f);
 
             if (joint != null)
             {
@@ -77,6 +88,7 @@ public class movingBumper : NavigationAgent
 
             currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;   //Store current node index
         }
+
     }
 
     //FSM Behaviour - Roam - Randomly select nodes to travel to using Greedy Search Algorithm
