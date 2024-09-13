@@ -1302,6 +1302,7 @@ MonoBehaviour:
   progressiveMultiplierMin: 0.1
   progressiveMultiplierMax: 2
   gameMultiplier: 0.15
+  microGameCounter: 1
 --- !u!1 &1022162038
 GameObject:
   m_ObjectHideFlags: 0
