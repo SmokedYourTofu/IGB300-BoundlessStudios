@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09011754, g: 0.15766057, b: 0.32866302, a: 1}
+  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6422,6 +6422,7 @@ MonoBehaviour:
   multAnimator: {fileID: 396050170}
   scoreUpdate: {fileID: 597304878}
   multUpdate: {fileID: 396050168}
+  level2: 0
 --- !u!114 &490251578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22461,7 +22462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1965805946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24686,6 +24687,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1280941224}
   UI: {fileID: 299791602}
   GameManager: {fileID: 490251572}
+  leveltwo: {fileID: 0}
 --- !u!4 &2131916150
 Transform:
   m_ObjectHideFlags: 0
