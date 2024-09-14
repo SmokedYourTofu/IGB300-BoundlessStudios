@@ -30,9 +30,9 @@ Transform:
   m_GameObject: {fileID: 4679591570774213144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.892, y: 1.3955493, z: -0.67}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4642709278665686827}
   m_Father: {fileID: 0}
@@ -109,7 +109,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3809570825234124928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1001 &5180421605674342592
@@ -165,13 +165,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1096a387fe802e74994a2d07efcb3515,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1096a387fe802e74994a2d07efcb3515,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1096a387fe802e74994a2d07efcb3515,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1096a387fe802e74994a2d07efcb3515,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.159
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1096a387fe802e74994a2d07efcb3515,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.492
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1096a387fe802e74994a2d07efcb3515,
         type: 3}
@@ -212,6 +227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1096a387fe802e74994a2d07efcb3515,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8531248215242998404, guid: 1096a387fe802e74994a2d07efcb3515,
         type: 3}
