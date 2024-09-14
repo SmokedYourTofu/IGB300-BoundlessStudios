@@ -22,6 +22,7 @@ TagManager:
   - Spyware
   - Phishing
   - Backdoor
+  - Roomba
   layers:
   - Default
   - TransparentFX

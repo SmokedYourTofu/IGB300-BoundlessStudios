@@ -15,6 +15,8 @@ public class EnemyMovement : NavigationAgent
 
     [SerializeField] private SpringJoint joint;
 
+    private Animator animator;
+
     private int[,] DFA = {
         { 0, 1, 2 },
         { 0, 1, 2 },
@@ -29,6 +31,11 @@ public class EnemyMovement : NavigationAgent
         currentPath.Add(currentNodeIndex);
 
         joint = GetComponent<SpringJoint>();
+
+        if (this.gameObject.tag == "Untagged")
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
     }
 
     void Update()
@@ -45,6 +52,12 @@ public class EnemyMovement : NavigationAgent
                 MysteriousStrangerSpawner spawner = FindObjectOfType<MysteriousStrangerSpawner>();
                 if (spawner != null)
                 {
+                    animator.Play("Idle");
+                    // Calculate the direction to the target
+                    Vector3 direction = (targetLocation.position - transform.position).normalized;
+
+                    // Rotate the enemy to face the target direction
+                    transform.rotation = Quaternion.LookRotation(direction);
                     spawner.OnEnemyReachedPrinter();
                 }
             }
@@ -97,6 +110,10 @@ public class EnemyMovement : NavigationAgent
 
             //Move towards next node in path
             transform.position = Vector3.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
+
+            Vector3 direction = (graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position - transform.position).normalized;
+
+            transform.rotation = Quaternion.LookRotation(direction);
 
             if (joint != null)
             {
