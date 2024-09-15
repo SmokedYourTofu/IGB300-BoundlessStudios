@@ -154,28 +154,25 @@ public class MysteriousStrangerSpawner : MonoBehaviour
         TogglePrinterComponents(true);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void DespawnMysteriousStranger()
     {
-        // Check if the player collided with the mysterious stranger
-        if (collision.gameObject.CompareTag("Player") && spawnedEnemy != null)
+        // Check if the enemy is still present before doing anything
+        if (spawnedEnemy != null)
         {
-            // Player collided with mysterious stranger, destroy the stranger
-            Destroy(spawnedEnemy);
-
-            // Add 250 score to the player using the ScoreManager
-            ScoreManager.Instance.AddScore(scoreOnDestroy);
-
-            // Instantiate a smoke bomb at the enemy's position upon destruction
+            // Instantiate another smoke bomb before despawning
             Instantiate(smokeBombPrefab, spawnedEnemy.transform.position, Quaternion.identity);
 
-            // Destroy the indicator
-            if (spawnedIndicator != null)
-            {
-                Destroy(spawnedIndicator);
-            }
-
-            // Activate the printer components and the microgame indicator after the enemy is destroyed
-            TogglePrinterComponents(true);
+            // Destroy the enemy
+            Destroy(spawnedEnemy);
         }
+
+        // Destroy the indicator
+        if (spawnedIndicator != null)
+        {
+            Destroy(spawnedIndicator);
+        }
+
+        // Activate the printer components and the microgame indicator after the enemy despawns
+        TogglePrinterComponents(false);
     }
 }

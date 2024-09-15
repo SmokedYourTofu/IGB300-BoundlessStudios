@@ -23,6 +23,7 @@ TagManager:
   - Phishing
   - Backdoor
   - Roomba
+  - Enemy
   layers:
   - Default
   - TransparentFX

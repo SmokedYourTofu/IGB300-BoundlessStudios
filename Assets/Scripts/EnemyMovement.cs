@@ -132,4 +132,20 @@ public class EnemyMovement : NavigationAgent
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        // Check if the player collided with the mysterious stranger
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Find the spawner and call the DespawnMysteriousStranger method
+            MysteriousStrangerSpawner spawner = FindObjectOfType<MysteriousStrangerSpawner>();
+            if (spawner != null)
+            {
+                spawner.DespawnMysteriousStranger();
+
+                // Optionally, you can add score or handle other player-related interactions here
+                ScoreManager.Instance.AddScore(spawner.scoreOnDestroy);
+            }
+        }
+    }
 }

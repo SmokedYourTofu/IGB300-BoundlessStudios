@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public float TimeLeft;
     public bool TimerOn = false;
     public GameObject endgame;
+    public GameObject levelbutton;
 
     private TMP_Text timerText;
 
@@ -40,6 +41,8 @@ public class Timer : MonoBehaviour
                 TimerOn = false;
                 SendFinalScoreToDiscord();
                 UnloadAllAdditiveScenes();
+                nextlevel();
+
             }
 
             if (TimeLeft <= 30)
@@ -99,5 +102,21 @@ public class Timer : MonoBehaviour
             yield return null; // Wait until the scene is completely unloaded
         }
         Debug.Log("Scene " + sceneName + " unloaded.");
+    }
+
+    public void nextlevel()
+    {
+        if(levelbutton != null)
+        {
+            float score = ScoreManager.Instance.TotalScore;
+            if (score > 1000) 
+            {
+                levelbutton.SetActive(true);
+            }
+            else
+            {
+                levelbutton.SetActive(false);
+            }
+        }
     }
 }

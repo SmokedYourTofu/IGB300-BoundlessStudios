@@ -47,6 +47,10 @@ public class MenuManager : MonoBehaviour
 
     public void StartLevel2()
     {
+        if (GameManager)
+        {
+            Destroy(GameManager);
+        }
         SceneManager.LoadScene(gameScene2);
         Time.timeScale = 1.0f;
         isPaused = false;
