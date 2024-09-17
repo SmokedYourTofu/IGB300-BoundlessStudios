@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DeveloperToolbox;
 
 public class DragController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class DragController : MonoBehaviour
     private MiniGameSpawner mySpawner;
     public GameObject completeText;
     public DragObjectNoEnd hammer;
+    public GameObject camera;
+    private ScreenShake cameraShake;
+    public GameObject drive;
 
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
@@ -26,6 +30,7 @@ public class DragController : MonoBehaviour
     void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
+        cameraShake = camera.GetComponent<ScreenShake>();
 
         // Initialize the timer
         timeRemaining = totalTime;
@@ -48,8 +53,10 @@ public class DragController : MonoBehaviour
     public IEnumerator FinishWait()
     {
         completeText.SetActive(true);
+        drive.gameObject.tag = "Untagged";
         hammer.enabled = false;
         mySource.Play();
+        cameraShake.AddShake(5f);
         yield return new WaitForSeconds(1f);
         completeText.SetActive(false);
         Endgame();

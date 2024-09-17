@@ -607,6 +607,7 @@ GameObject:
   - component: {fileID: 287687907}
   - component: {fileID: 287687906}
   - component: {fileID: 287687909}
+  - component: {fileID: 287687910}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -748,6 +749,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &287687910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287687905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0772536b0d227aa45a560fd54cc1e67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 0
 --- !u!1001 &348138673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2160,17 +2174,17 @@ PrefabInstance:
     - target: {fileID: 818464141636312038, guid: 263a6e87699dc3f46aca759249de2189,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 5.4513807
       objectReference: {fileID: 0}
     - target: {fileID: 818464141636312038, guid: 263a6e87699dc3f46aca759249de2189,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 5.4513807
       objectReference: {fileID: 0}
     - target: {fileID: 818464141636312038, guid: 263a6e87699dc3f46aca759249de2189,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 5.4513807
       objectReference: {fileID: 0}
     - target: {fileID: 818464141636312038, guid: 263a6e87699dc3f46aca759249de2189,
         type: 3}
@@ -2517,32 +2531,32 @@ PrefabInstance:
     - target: {fileID: 405942525452907864, guid: cb55efb9236099d4eb54b858cbdda8ee,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 405942525452907864, guid: cb55efb9236099d4eb54b858cbdda8ee,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 405942525452907864, guid: cb55efb9236099d4eb54b858cbdda8ee,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5.5
+      value: 11.25
       objectReference: {fileID: 0}
     - target: {fileID: 405942525452907864, guid: cb55efb9236099d4eb54b858cbdda8ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.568
+      value: -24.692
       objectReference: {fileID: 0}
     - target: {fileID: 405942525452907864, guid: cb55efb9236099d4eb54b858cbdda8ee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.600021
+      value: 16.893
       objectReference: {fileID: 0}
     - target: {fileID: 405942525452907864, guid: cb55efb9236099d4eb54b858cbdda8ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.176
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 405942525452907864, guid: cb55efb9236099d4eb54b858cbdda8ee,
         type: 3}
@@ -2726,12 +2740,15 @@ MonoBehaviour:
   mySource: {fileID: 1800457181}
   completeText: {fileID: 1050569394}
   hammer: {fileID: 522609948}
+  camera: {fileID: 287687905}
+  drive: {fileID: 8917927}
   scoreText: {fileID: 0}
   totalTime: 30
   basePoints: 100
   progressiveMultiplierMin: 0.1
   progressiveMultiplierMax: 2
   gameMultiplier: 0.1
+  microGameCounter: 1
 --- !u!114 &1800457179
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,7 +30,6 @@ public class PopupScript : MonoBehaviour
         this.transform.localScale = new Vector3(Random.Range(5, 8), Random.Range(5, 8), 0.05f);
         this.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(398, 406), 1.1f);
         image.GetComponent<SpriteRenderer>().sprite = images[Random.Range(0, images.Length)];
-        _mat.color = color;
     }
 
     private void Update()
