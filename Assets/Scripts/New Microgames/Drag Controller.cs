@@ -56,7 +56,7 @@ public class DragController : MonoBehaviour
         drive.gameObject.tag = "Untagged";
         hammer.enabled = false;
         mySource.Play();
-        cameraShake.AddShake(5f);
+        cameraShake.AddShake(20f);
         yield return new WaitForSeconds(1f);
         completeText.SetActive(false);
         Endgame();
