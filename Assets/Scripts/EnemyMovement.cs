@@ -17,6 +17,9 @@ public class EnemyMovement : NavigationAgent
 
     private Animator animator;
 
+    public AudioClip getSound;
+    private SoundManager soundManager;
+
     private int[,] DFA = {
         { 0, 1, 2 },
         { 0, 1, 2 },
@@ -31,6 +34,8 @@ public class EnemyMovement : NavigationAgent
         currentPath.Add(currentNodeIndex);
 
         joint = GetComponent<SpringJoint>();
+
+        soundManager = FindObjectOfType<SoundManager>();
 
         if (this.gameObject.tag == "Untagged")
         {
@@ -141,6 +146,7 @@ public class EnemyMovement : NavigationAgent
             MysteriousStrangerSpawner spawner = FindObjectOfType<MysteriousStrangerSpawner>();
             if (spawner != null)
             {
+                soundManager.PlaySoundFXclip(getSound, soundManager.transform, 0.2f);
                 spawner.DespawnMysteriousStranger();
 
                 // Optionally, you can add score or handle other player-related interactions here

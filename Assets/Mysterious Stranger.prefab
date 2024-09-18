@@ -133,6 +133,7 @@ MonoBehaviour:
   minDistance: 0.5
   newState: 0
   joint: {fileID: 0}
+  getSound: {fileID: 8300000, guid: f8c3a7c107833034290230f47d9e1971, type: 3}
 --- !u!195 &5242793307961616904
 NavMeshAgent:
   m_ObjectHideFlags: 0

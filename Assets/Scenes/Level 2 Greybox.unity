@@ -9437,6 +9437,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9595,6 +9596,19 @@ MonoBehaviour:
   zDisp: 10
   cameraSpeed: 1
   cameraCutoff: -1
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0772536b0d227aa45a560fd54cc1e67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 0
 --- !u!1001 &969201935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25199,6 +25213,26 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1172019605}
+    - target: {fileID: 806303499149671747, guid: 1dfe782ba8ae4af489b292e7f503310a,
+        type: 3}
+      propertyPath: sceneCamera
+      value: 
+      objectReference: {fileID: 963194225}
+    - target: {fileID: 806303499149671747, guid: 1dfe782ba8ae4af489b292e7f503310a,
+        type: 3}
+      propertyPath: HitEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 806303499149671747, guid: 1dfe782ba8ae4af489b292e7f503310a,
+        type: 3}
+      propertyPath: HitEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f21f88e6f9b60445928bb4199688cc8, type: 3}
+    - target: {fileID: 806303499149671747, guid: 1dfe782ba8ae4af489b292e7f503310a,
+        type: 3}
+      propertyPath: HitEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e3bcda8b15e25ac4cb35762f9a44bc01, type: 3}
     - target: {fileID: 870155812874308130, guid: 1dfe782ba8ae4af489b292e7f503310a,
         type: 3}
       propertyPath: m_Name
