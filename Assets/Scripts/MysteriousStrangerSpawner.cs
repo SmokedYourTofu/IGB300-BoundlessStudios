@@ -16,10 +16,14 @@ public class MysteriousStrangerSpawner : MonoBehaviour
     private GameObject spawnedEnemy;
     private GameObject spawnedIndicator;
 
+    private SoundManager soundManager;
+    public AudioClip spawnEffect;
+
     void Start()
     {
         // Start spawning the enemy with a delay
         InvokeRepeating("SpawnMysteriousStranger", 5f, 30f); // Spawn after 5 seconds, then every 30 seconds
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     void SpawnMysteriousStranger()
@@ -142,6 +146,7 @@ public class MysteriousStrangerSpawner : MonoBehaviour
 
             // Destroy the enemy
             Destroy(spawnedEnemy);
+            soundManager.PlaySoundFXclip(spawnEffect, this.transform, 0.1f);
         }
 
         // Destroy the indicator

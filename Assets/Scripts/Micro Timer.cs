@@ -8,6 +8,13 @@ public class MicroTimer : MonoBehaviour
     public Image timerbar;
     public float time;
     private float num;
+    private SoundManager soundManager;
+    public AudioClip endEffect;
+
+    private void Start()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -17,6 +24,7 @@ public class MicroTimer : MonoBehaviour
 
         if (timerbar.fillAmount >= 1 )
         {
+            soundManager.PlaySoundFXclip(endEffect, this.transform, 1.0f);
             Destroy(this.gameObject);
         }
     }

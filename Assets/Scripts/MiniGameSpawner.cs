@@ -12,10 +12,14 @@ public class MiniGameSpawner : MonoBehaviour
     public GameObject lastInteracted;
     public GameObject indicatorPrefab; // Reference to the indicator prefab
 
+    private SoundManager soundManager;
+    public AudioClip endEffect;
+
     private void Start()
     {
         // Initialize the inactive mini-games list with all mini-games
         inactiveMiniGames = new List<GameObject>(miniGames);
+        soundManager = FindObjectOfType<SoundManager>();
 
         if (spawnOnStart)
         {
@@ -165,6 +169,7 @@ public class MiniGameSpawner : MonoBehaviour
         NewInteract interactScript = miniGame.GetComponent<NewInteract>();
         if (interactScript != null && interactScript.indicator != null)
         {
+            soundManager.PlaySoundFXclip(endEffect, this.transform, 0.2f);
             Destroy(interactScript.indicator);
         }
 

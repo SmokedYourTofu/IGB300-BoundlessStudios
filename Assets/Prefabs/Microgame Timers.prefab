@@ -556,6 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerbar: {fileID: 2352045025348570391}
   time: 0
+  endEffect: {fileID: 8300000, guid: 3c33f85bdf2357d4983cf40d68f6ae84, type: 3}
 --- !u!114 &5957825353830042241
 MonoBehaviour:
   m_ObjectHideFlags: 0
