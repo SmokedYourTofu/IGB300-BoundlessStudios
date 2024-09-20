@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DeveloperToolbox;
 
 public class SocialEngineeringScript : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class SocialEngineeringScript : MonoBehaviour
 
     private bool gameDone = false;
 
+    public GameObject sceneCam;
+    private ScreenShake shaker;
+
     // Score parameters
     public TMP_Text scoreText; // Reference to the TMP Text component for displaying score
     public float totalTime = 30f; // Total time for the game (example value)
@@ -41,6 +45,7 @@ public class SocialEngineeringScript : MonoBehaviour
     void Start()
     {
         mySpawner = FindObjectOfType<MiniGameSpawner>();
+        shaker = sceneCam.GetComponent<ScreenShake>();
         fillText();
         foreach (Button button in buttons)
         {
@@ -120,19 +125,22 @@ public class SocialEngineeringScript : MonoBehaviour
             if (lastPressedButton == buttons[i].gameObject && goodQuestion == lastPressedButton.transform.name && !gameDone)
             {
                 audioSources[1].Play();
+                StartCoroutine(changeColour(Color.green));
                 questionCounter++;
-                fillText();
+                //fillText();
             }
             else if (lastPressedButton == buttons[i].gameObject && goodQuestion != lastPressedButton.transform.name && !gameDone)
             {
                 //make players do another task if they get the wrong task
                 Debug.Log("Wrong Choice");
                 audioSources[0].Play();
+                shaker.AddShake(10f);
+                StartCoroutine(changeColour(Color.red));
                 if (questionCounter != 0)
                 {
                     questionCounter--;
                 }
-                fillText();
+                //fillText();
             }
         }
     }
@@ -174,5 +182,13 @@ public class SocialEngineeringScript : MonoBehaviour
         // Add the calculated score to the ScoreManager
         ScoreManager.Instance.AddScore(score);
         ScoreManager.Instance.AddMicrogameCounter(microGameCounter);
+    }
+
+    private IEnumerator changeColour(Color colour)
+    {
+        textBox.color = colour;
+        yield return new WaitForSeconds(0.5f);
+        textBox.color = Color.black;
+        fillText();
     }
 }

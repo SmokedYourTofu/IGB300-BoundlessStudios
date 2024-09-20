@@ -1,3 +1,4 @@
+using DeveloperToolbox;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,6 +25,9 @@ public class MovingVirus : MonoBehaviour
 
     private bool gameDone = false;
 
+    public GameObject sceneCam;
+    private ScreenShake shaker;
+
     //get controller script for game on start
     private void Awake()
     {
@@ -33,6 +37,7 @@ public class MovingVirus : MonoBehaviour
     private void Start()
     {
         originPos = transform.position;
+        shaker = sceneCam.GetComponent<ScreenShake>();
 
         //when the game starts, change virus velocity to get it moving around
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
@@ -144,6 +149,7 @@ public class MovingVirus : MonoBehaviour
                     {
                         Vector3 position = originPos;
                         this.transform.position = position;
+                        shaker.AddShake(10f);
                         Debug.Log("wrong password");
                         StartCoroutine(badVirus());
                     }

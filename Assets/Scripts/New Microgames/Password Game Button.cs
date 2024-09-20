@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem.XR;
+using DeveloperToolbox;
 
 public class PasswordGameButton : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class PasswordGameButton : MonoBehaviour
 
     private bool gameDone = false;
 
+    public GameObject sceneCam;
+    private ScreenShake shaker;
+
     private void Awake()
     {
         buttonText = this.transform.GetChild(0).gameObject;
@@ -40,6 +44,7 @@ public class PasswordGameButton : MonoBehaviour
 
     private void Start()
     {
+        shaker = sceneCam.GetComponent<ScreenShake>();
         Renderer renderer = GetComponent<Renderer>();
         _mat = renderer.material;
         originPos = transform.position;
@@ -144,6 +149,7 @@ public class PasswordGameButton : MonoBehaviour
                         Vector3 position = passwordSpot.transform.position;
                         position.z = position.z - 0.1f;
                         this.transform.position = position;
+                        shaker.AddShake(10f);
                         Debug.Log("wrong password");
                         StartCoroutine(badPassword());
                     }

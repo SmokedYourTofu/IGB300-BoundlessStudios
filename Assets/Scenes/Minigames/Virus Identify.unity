@@ -221,6 +221,7 @@ MonoBehaviour:
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
   startposition: {x: 0, y: 0, z: 0}
+  sceneCam: {fileID: 195564322}
 --- !u!1001 &56987987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,6 +767,7 @@ GameObject:
   - component: {fileID: 195564324}
   - component: {fileID: 195564323}
   - component: {fileID: 195564326}
+  - component: {fileID: 195564327}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -907,6 +909,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &195564327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195564322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0772536b0d227aa45a560fd54cc1e67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 0
 --- !u!1 &239289146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1155,7 @@ MonoBehaviour:
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
   startposition: {x: 0, y: 0, z: 0}
+  sceneCam: {fileID: 195564322}
 --- !u!1 &356661312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,6 +2006,7 @@ MonoBehaviour:
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
   startposition: {x: 0, y: 0, z: 0}
+  sceneCam: {fileID: 195564322}
 --- !u!1 &930579032
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,6 +2747,7 @@ MonoBehaviour:
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
   startposition: {x: 0, y: 0, z: 0}
+  sceneCam: {fileID: 195564322}
 --- !u!1001 &1291679486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3088,6 +3106,7 @@ MonoBehaviour:
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
   startposition: {x: 0, y: 0, z: 0}
+  sceneCam: {fileID: 195564322}
 --- !u!1 &1699147167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,6 +3962,7 @@ MonoBehaviour:
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
   startposition: {x: 0, y: 0, z: 0}
+  sceneCam: {fileID: 195564322}
 --- !u!1001 &2049305525
 PrefabInstance:
   m_ObjectHideFlags: 0
