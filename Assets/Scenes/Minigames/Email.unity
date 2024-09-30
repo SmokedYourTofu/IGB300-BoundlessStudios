@@ -1396,6 +1396,8 @@ MonoBehaviour:
   progressiveMultiplierMin: 0.1
   progressiveMultiplierMax: 2
   gameMultiplier: 0.1
+  microGameCounter: 1
+  sceneCam: {fileID: 1651846325}
 --- !u!4 &1499115508
 Transform:
   m_ObjectHideFlags: 0
@@ -1550,6 +1552,7 @@ GameObject:
   - component: {fileID: 1651846327}
   - component: {fileID: 1651846326}
   - component: {fileID: 1651846329}
+  - component: {fileID: 1651846330}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1691,6 +1694,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1651846330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651846325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0772536b0d227aa45a560fd54cc1e67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnitude: 0
 --- !u!222 &257926028249350949
 CanvasRenderer:
   m_ObjectHideFlags: 0

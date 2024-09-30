@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using DeveloperToolbox;
 
 public class EmailMicrogame : MonoBehaviour
 {
@@ -55,9 +56,13 @@ public class EmailMicrogame : MonoBehaviour
     private bool isGameCompleted = true; // Indicates if the game was completed
     private bool isSuccessful = true; // Indicates if the game was successfully completed
 
+    public GameObject sceneCam;
+    private ScreenShake shaker;
+
     // Start is called before the first frame update
     void Start()
     {
+        shaker = sceneCam.GetComponent<ScreenShake>();
         mySpawner = FindObjectOfType<MiniGameSpawner>();
         choice = UnityEngine.Random.Range(0, 3);
         issues = UnityEngine.Random.Range(0, 3);
@@ -210,6 +215,7 @@ public class EmailMicrogame : MonoBehaviour
             {
                 // Resets the game if they make the wrong choice, costing them time
                 audioSources[0].Play();
+                shaker.AddShake(10f);
                 Debug.Log("Wrong Choice");
                 choice = UnityEngine.Random.Range(0, 3);
                 issues = UnityEngine.Random.Range(0, 3);

@@ -1,6 +1,7 @@
 using DeveloperToolbox;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
@@ -28,6 +29,8 @@ public class MovingVirus : MonoBehaviour
     public GameObject sceneCam;
     private ScreenShake shaker;
 
+    private Animator animator;
+
     //get controller script for game on start
     private void Awake()
     {
@@ -36,6 +39,7 @@ public class MovingVirus : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         originPos = transform.position;
         shaker = sceneCam.GetComponent<ScreenShake>();
 
@@ -111,6 +115,10 @@ public class MovingVirus : MonoBehaviour
                 //if a player is attempting to drag a virus, move it wwith their touch
                 if (isDragging)
                 {
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                    {
+                        animator.Play("Wiggle");
+                    }
                     rigid.velocity = Vector2.zero;
                     Vector3 newPosition = new Vector3(touch.position.x, touch.position.y, offset);
                     newPosition = Camera.main.ScreenToWorldPoint(newPosition);
@@ -127,6 +135,8 @@ public class MovingVirus : MonoBehaviour
                 }
                 isDragging = false;
                 rigid.velocity = movement;
+
+                animator.Play("Idle");
 
                 if (inSpace)
                 {
@@ -158,6 +168,7 @@ public class MovingVirus : MonoBehaviour
                 {
                     Vector3 position = originPos;
                     this.transform.position = position;
+                    shaker.AddShake(10f);
                     StartCoroutine(badVirus());
                 }
             }
