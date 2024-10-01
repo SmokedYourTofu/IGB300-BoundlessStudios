@@ -22,7 +22,7 @@ public class MicroTimer : MonoBehaviour
         num = Time.deltaTime / time;
         timerbar.fillAmount -= num;
 
-        if (timerbar.fillAmount >= 1 )
+        if (num >= 1 )
         {
             soundManager.PlaySoundFXclip(endEffect, this.transform, 1.0f);
             Destroy(this.gameObject);

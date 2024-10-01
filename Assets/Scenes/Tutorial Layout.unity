@@ -9410,6 +9410,7 @@ MonoBehaviour:
   TimeLeft: 300
   TimerOn: 0
   endgame: {fileID: 2038879253}
+  levelbutton: {fileID: 0}
   music: {fileID: 242223592}
 --- !u!114 &1268064664
 MonoBehaviour:
@@ -9642,8 +9643,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: X2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f3063a2377884a47955df9c88e28e91, type: 2}
-  m_sharedMaterial: {fileID: -7524142511659634679, guid: 9f3063a2377884a47955df9c88e28e91,
+  m_fontAsset: {fileID: 11400000, guid: c2f7bc8dedeeef346b16b3b15cf549d4, type: 2}
+  m_sharedMaterial: {fileID: 3550937302083030016, guid: c2f7bc8dedeeef346b16b3b15cf549d4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9674,7 +9675,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -12773,7 +12774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -600, y: 420}
+  m_AnchoredPosition: {x: -515, y: 420}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1749329809
