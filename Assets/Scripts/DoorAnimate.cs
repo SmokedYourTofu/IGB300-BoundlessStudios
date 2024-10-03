@@ -12,12 +12,16 @@ public class DoorAnimate : MonoBehaviour
     public List<string> animationNames = new List<string>();
 
     private bool open;
+    private SoundManager soundManager;
+    public AudioClip openEffect;
+    public AudioClip closeEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         mydoor = this.GetComponent<Animator>();
         open = true;
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Update is called once per frame
@@ -27,15 +31,29 @@ public class DoorAnimate : MonoBehaviour
 
         if (timer >= rotateInterval && open)
         {
+            StartCoroutine(Waitbeforeplay2());
             mydoor.Play(animationNames[1], 0, 0.0f);
             timer = 0f;
             open = false;
         }
         else if (timer >= rotateInterval && !open) 
         {
+            StartCoroutine(Waitbeforeplay());
             mydoor.Play(animationNames[0], 0, 0.0f);
             timer = 0f;
             open = true;
         }
+    }
+
+    private IEnumerator Waitbeforeplay()
+    {
+        yield return new WaitForSeconds(1f);
+        soundManager.PlaySoundFXclip(openEffect, this.transform, 0.1f);
+    }
+
+    private IEnumerator Waitbeforeplay2()
+    {
+        yield return new WaitForSeconds(1f);
+        soundManager.PlaySoundFXclip(closeEffect, this.transform, 0.1f);
     }
 }

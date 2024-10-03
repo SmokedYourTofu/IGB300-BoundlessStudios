@@ -20103,6 +20103,8 @@ MonoBehaviour:
   animationNames:
   - doorOpen2
   - doorClose2
+  openEffect: {fileID: 8300000, guid: 744d057a07d63034699d0c0c879addf5, type: 3}
+  closeEffect: {fileID: 8300000, guid: 02504c7c3f70a1544864309762f16ea5, type: 3}
 --- !u!4 &1170103169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1870981051458231148, guid: 1704fcad60a06284c9610413178a078e,
@@ -29794,6 +29796,8 @@ MonoBehaviour:
   animationNames:
   - doorOpen
   - doorClose
+  openEffect: {fileID: 8300000, guid: 744d057a07d63034699d0c0c879addf5, type: 3}
+  closeEffect: {fileID: 8300000, guid: 02504c7c3f70a1544864309762f16ea5, type: 3}
 --- !u!1 &1624367411
 GameObject:
   m_ObjectHideFlags: 0

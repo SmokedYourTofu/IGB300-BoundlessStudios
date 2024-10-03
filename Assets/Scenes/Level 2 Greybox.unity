@@ -17457,6 +17457,8 @@ MonoBehaviour:
   animationNames:
   - doorOpenLevel2
   - doorCloseLevel2
+  openEffect: {fileID: 8300000, guid: 744d057a07d63034699d0c0c879addf5, type: 3}
+  closeEffect: {fileID: 8300000, guid: 02504c7c3f70a1544864309762f16ea5, type: 3}
 --- !u!1001 &1163185552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23052,6 +23054,8 @@ MonoBehaviour:
   animationNames:
   - doorOpen90
   - doorClose90
+  openEffect: {fileID: 8300000, guid: 744d057a07d63034699d0c0c879addf5, type: 3}
+  closeEffect: {fileID: 8300000, guid: 02504c7c3f70a1544864309762f16ea5, type: 3}
 --- !u!1001 &1621874753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28800,7 +28804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2032440019
 Transform:
   m_ObjectHideFlags: 0
