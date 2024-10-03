@@ -9,7 +9,7 @@ public class ImpulseCollision : MonoBehaviour
     public float impulseStrength = 10f; // Strength of the impulse force
     public GameObject player;
     private NewPlayerController controller;
-    private ParticleSystem thisparticle;
+    public ParticleSystem thisparticle;
     public GameObject sceneCamera;
     private ScreenShake shaker;
     private SoundManager soundManager;
@@ -18,7 +18,6 @@ public class ImpulseCollision : MonoBehaviour
     private void Start()
     {
         controller = player.GetComponent<NewPlayerController>();
-        thisparticle = GetComponent<ParticleSystem>();
         shaker = sceneCamera.GetComponent<ScreenShake>();
         soundManager = FindObjectOfType<SoundManager>();
 
