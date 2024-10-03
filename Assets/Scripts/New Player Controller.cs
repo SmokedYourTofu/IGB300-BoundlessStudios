@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,6 @@ public class NewPlayerController : MonoBehaviour
     public float moveSpeed;
     private const string IS_MOVING = "IsMoving";
     private bool isMoving;
-    public float drag;
 
     [Header("Dashing")]
     public bool isDashing;
@@ -86,7 +86,7 @@ public class NewPlayerController : MonoBehaviour
         }
         if (canMove && isDashing) {
             transform.forward += moveDir * moveDistance;
-        } else {
+        } else if (canMove) {
             transform.position += moveDir * moveDistance;
         }
 
@@ -103,7 +103,6 @@ public class NewPlayerController : MonoBehaviour
         if (Time.time > dashTime) {
             isDashing = true;
             dashTime = Time.time + dashCooldown;
-            
             soundManager.PlaySoundFXclip(dashAudio, transform, 1);
         }
     }
@@ -111,11 +110,11 @@ public class NewPlayerController : MonoBehaviour
     private IEnumerator Dash() {
         if (isDashing) {
             moveSpeed += dashDis;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             moveSpeed -= dashDis;
             isDashing = false;
             GameObject dashVisual = Instantiate(dashVFX, transform.position, transform.rotation);
-            Destroy(dashVisual, 0.2f);
+            Destroy(dashVisual, 0.1f);
         }
     }
 }

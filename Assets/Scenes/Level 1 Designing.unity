@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
+  m_IndirectSpecularColor: {r: 0.090117104, g: 0.15765518, b: 0.328662, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20297,9 +20297,8 @@ MonoBehaviour:
   orientation: {fileID: 1172019609}
   soundManager: {fileID: 1941715194}
   moveSpeed: 5
-  drag: 0
   isDashing: 0
-  dashDis: 2.2
+  dashDis: 6
   dashTime: 0
   dashCooldown: 2
   dashVFX: {fileID: 104829970813648393, guid: bde613ddd03230849bfe1a55f3ebef7e, type: 3}

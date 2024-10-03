@@ -24,6 +24,7 @@ TagManager:
   - Backdoor
   - Roomba
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
