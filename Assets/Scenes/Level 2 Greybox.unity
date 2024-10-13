@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.09011099, g: 0.157654, b: 0.32866335, a: 1}
+  m_IndirectSpecularColor: {r: 0.0900836, g: 0.15763637, b: 0.3286679, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8710,7 +8710,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a7ca7557f9ce59549b59ced55284daaa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 959470906}
   m_SourcePrefab: {fileID: 100100000, guid: a7ca7557f9ce59549b59ced55284daaa, type: 3}
 --- !u!4 &427608659 stripped
 Transform:
@@ -14632,6 +14636,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 954368372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &959470905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a7ca7557f9ce59549b59ced55284daaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 427608658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &959470906
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959470905}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 4}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -30527,6 +30558,11 @@ PrefabInstance:
       objectReference: {fileID: 963194225}
     - target: {fileID: 806303499149671747, guid: 1dfe782ba8ae4af489b292e7f503310a,
         type: 3}
+      propertyPath: thisparticle
+      value: 
+      objectReference: {fileID: 5512506531367495505}
+    - target: {fileID: 806303499149671747, guid: 1dfe782ba8ae4af489b292e7f503310a,
+        type: 3}
       propertyPath: HitEffects.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -30608,6 +30644,12 @@ PrefabInstance:
 --- !u!4 &5512506531367495502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3713373375317786650, guid: 1dfe782ba8ae4af489b292e7f503310a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5512506531367495501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5512506531367495505 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5377584538935349985, guid: 1dfe782ba8ae4af489b292e7f503310a,
     type: 3}
   m_PrefabInstance: {fileID: 5512506531367495501}
   m_PrefabAsset: {fileID: 0}

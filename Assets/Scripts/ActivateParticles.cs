@@ -25,7 +25,7 @@ public class ActivateParticles : MonoBehaviour
         else
         {
             particles.Pause();
-            particles.Stop();
+            particles.Clear();
         }
     }
 }
