@@ -222,7 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
-  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1049846
 Light:
@@ -1241,7 +1240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
-  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &278236547
 Light:
@@ -2177,7 +2175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
-  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &856058750
 Light:
@@ -3003,7 +3000,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
-  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1253119775
 Light:
@@ -3447,7 +3443,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
-  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1618549109
 Light:
@@ -4388,7 +4383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
-  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1874610833
 Light:

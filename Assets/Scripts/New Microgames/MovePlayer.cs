@@ -33,7 +33,11 @@ public class MovePlayer : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                playerSound.Play();
+                if (playSound)
+                {
+                    playSound = false;
+                    playerSound.Play();
+                }
                 //move player to ray position
                 Vector3 newPosition = hit.point;
                 newPosition.z = startZ;
@@ -42,7 +46,8 @@ public class MovePlayer : MonoBehaviour
         }
         else
         {
-            playerSound.Pause();
+            playerSound.Stop();
+            playSound = true;
             //when player isn't being dragged, stop them from moving
             this.GetComponent<Rigidbody>().velocity = Vector3.zero;
             transform.rotation = Quaternion.identity;

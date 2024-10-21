@@ -81,8 +81,7 @@ public class PopupScript : MonoBehaviour
 #if !UNITY_ANDROID
 
     public AudioSource[] passwordAudio = new AudioSource[2];
-    private Vector2 movement;
-    private Rigidbody rigid;
+    Rigidbody rigid;
 
     private bool isDragging = false;
 
@@ -91,19 +90,19 @@ public class PopupScript : MonoBehaviour
     private Material _mat;
     public Color color;
 
+    public Sprite[] images;
+
+    public GameObject image;
+
     private void Start()
     {
-        //when the game starts change the popup to be a random colour, shape and position
-        Renderer renderer = GetComponent<Renderer>();
-        _mat = renderer.material;
 
         rigid = this.GetComponent<Rigidbody>();
         offset = Vector3.Distance(transform.position, Camera.main.transform.position);
 
         this.transform.localScale = new Vector3(Random.Range(5, 8), Random.Range(5, 8), 0.05f);
         this.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(398, 406), 1.1f);
-        color = new Color(Random.Range(0F, 1F), Random.Range(0, 1F), Random.Range(0, 1F));
-        _mat.color = color;
+        image.GetComponent<SpriteRenderer>().sprite = images[Random.Range(0, images.Length)];
     }
 
     private void Update()

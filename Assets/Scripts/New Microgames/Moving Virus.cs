@@ -204,6 +204,11 @@ public class MovingVirus : MonoBehaviour
 
     private bool gameDone = false;
 
+    public GameObject sceneCam;
+    private ScreenShake shaker;
+
+    private Animator animator;
+
     //get controller script for game on start
     private void Awake()
     {
@@ -213,6 +218,8 @@ public class MovingVirus : MonoBehaviour
     private void Start()
     {
         originPos = transform.position;
+        animator = GetComponent<Animator>();
+        shaker = sceneCam.GetComponent<ScreenShake>();
 
         //when the game starts, change virus velocity to get it moving around
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
@@ -281,6 +288,10 @@ public class MovingVirus : MonoBehaviour
         {
             if (isDragging)
             {
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                {
+                    animator.Play("Wiggle");
+                }
                 rigid.velocity = Vector2.zero;
                 Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, offset);
                 newPosition = Camera.main.ScreenToWorldPoint(newPosition);
@@ -319,8 +330,9 @@ public class MovingVirus : MonoBehaviour
                     {
                         Vector3 position = originPos;
                         this.transform.position = position;
+                        shaker.AddShake(10f);
                         Debug.Log("wrong password");
-                        //StartCoroutine(badPassword());
+                        StartCoroutine(badVirus());
                     }
             }
             else if (transform.position.x > 4.8 ||  transform.position.x < -9.8 || transform.position.y > 406.6 || transform.position.y < 395)
