@@ -31767,6 +31767,32 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1172019610}
+    - target: {fileID: 4003296709155351262, guid: e7a9ee942560d0544b039c32e621f902,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d51b86d8006ea14d9a1b945cc72ea35,
+        type: 3}
+    - target: {fileID: 4003296709155351262, guid: e7a9ee942560d0544b039c32e621f902,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003296709155351262, guid: e7a9ee942560d0544b039c32e621f902,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003296709155351262, guid: e7a9ee942560d0544b039c32e621f902,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003296709155351262, guid: e7a9ee942560d0544b039c32e621f902,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 4007598166646895599, guid: e7a9ee942560d0544b039c32e621f902,
         type: 3}
       propertyPath: m_fontSize
