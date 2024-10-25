@@ -3864,7 +3864,27 @@ PrefabInstance:
     - target: {fileID: 1741438773696796889, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200
+      value: -174
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118476929792238640, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1180482073}
+    - target: {fileID: 2118476929792238640, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916779348472031136, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1180482073}
+    - target: {fileID: 2916779348472031136, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
       objectReference: {fileID: 0}
     - target: {fileID: 4312043963073513132, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
         type: 3}
@@ -3882,6 +3902,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341885832366932127, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -290
       objectReference: {fileID: 0}
     - target: {fileID: 4601037729016237822, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
         type: 3}
@@ -4013,6 +4038,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6317909077725949148, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1180482073}
+    - target: {fileID: 6317909077725949148, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 6393671452506381064, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4031,7 +4066,7 @@ PrefabInstance:
     - target: {fileID: 6448983736937560661, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -110
+      value: -49
       objectReference: {fileID: 0}
     - target: {fileID: 7869941604853034938, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
         type: 3}
@@ -4043,11 +4078,28 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8130260349985765646, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1180482073}
+    - target: {fileID: 8130260349985765646, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Levels
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6316611400169477587, guid: 8b0eeaf54b961c546899fd3f210a9e4f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b0eeaf54b961c546899fd3f210a9e4f, type: 3}
+--- !u!1 &538830035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5936276954426792643, guid: 8b0eeaf54b961c546899fd3f210a9e4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 538830034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &543988850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7374,7 +7426,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 733, y: 84}
-  m_SizeDelta: {x: 35.0555, y: 22.8634}
+  m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031263779
 MonoBehaviour:
@@ -8754,7 +8806,7 @@ MonoBehaviour:
   gameScene2: 14
   tutScene: 3
   isPaused: 0
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 538830035}
   UI: {fileID: 299791602}
   GameManager: {fileID: 0}
   leveltwo: {fileID: 0}

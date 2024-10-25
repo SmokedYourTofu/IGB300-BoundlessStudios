@@ -39,6 +39,8 @@ public class EmailMicrogame : MonoBehaviour
     private int newSpot;
     private int counter;
 
+    public TMP_Text issuesLeft;
+
     public AudioSource[] audioSources;
     public GameObject completeText;
 
@@ -66,6 +68,7 @@ public class EmailMicrogame : MonoBehaviour
         mySpawner = FindObjectOfType<MiniGameSpawner>();
         choice = UnityEngine.Random.Range(0, 3);
         issues = UnityEngine.Random.Range(0, 3);
+        issuesLeft.text = "Issues Left: " + ((issues - counter) + 1);
         foreach (Button button in buttons)
         {
             button.onClick.AddListener(() => ButtonPressed(button.gameObject));
@@ -207,6 +210,7 @@ public class EmailMicrogame : MonoBehaviour
             {
                 audioSources[1].Play();
                 counter++;
+                issuesLeft.text = "Issues Left: " + ((issues - counter) + 1);
                 Debug.Log(counter + ", " + issues);
                 buttons[i].GetComponent<Image>().color = Color.red;
                 buttons[i].interactable = false;
@@ -219,6 +223,7 @@ public class EmailMicrogame : MonoBehaviour
                 Debug.Log("Wrong Choice");
                 choice = UnityEngine.Random.Range(0, 3);
                 issues = UnityEngine.Random.Range(0, 3);
+                issuesLeft.text = "Issues Left: " + ((issues - counter) + 1);
                 ChooseEmail(choice);
                 makeIssues(choice, issues);
                 foreach (Button buttonObject in buttons)
