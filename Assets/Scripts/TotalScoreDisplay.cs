@@ -55,19 +55,19 @@ public class TotalScoreDisplay : MonoBehaviour
             float score = ScoreManager.Instance.TotalScore;
             switch (true)
             {
-                case bool _ when score > 2000:
+                case bool _ when score > 1400:
                     gradeText.text = "A";
                     ScoreManager.Instance.level2 = true;
                     break;
-                case bool _ when score > 1500:
+                case bool _ when score > 1000:
                     gradeText.text = "B";
                     ScoreManager.Instance.level2 = true;
                     break;
-                case bool _ when score > 1000:
+                case bool _ when score > 500:
                     gradeText.text = "C";
                     ScoreManager.Instance.level2 = true;
                     break;
-                case bool _ when score > 500:
+                case bool _ when score > 200:
                     gradeText.text = "D";
                     break;
                 case bool _ when score > 0:
