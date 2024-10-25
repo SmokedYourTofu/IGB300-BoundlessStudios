@@ -186,7 +186,7 @@ public class TutorialScript : MonoBehaviour
                 arrows[0].SetActive(false);
                 SpawnMiniGame(0);
                 gameActive = true;
-                tutorialText.text = "Oh No! A cyber security breach has appeared! Quickly, move over to it and tap on it to begin fixing it!";
+                tutorialText.text = "Oh No! A cyber security breach has appeared! \n \n Quickly, move over to the HIGHLIGHTED STATION and tap to begin fixing it!";
             }
         }
 
@@ -202,7 +202,7 @@ public class TutorialScript : MonoBehaviour
         if (minigameCounter == 2 && gameActive == false)
         {
             arrows[2].SetActive(true);
-            tutorialText.text = "Looks like you finished it just in time. Every department requires you to work for a specific amount of time before your job is done";
+            tutorialText.text = "Looks like you finished it just in time. Every department requires you to work for a specific amount of time before your job is done.";
             timer.GetComponent<Timer>().TimeLeft = 10f;
             tutorialcomplete = true;
         }
@@ -211,12 +211,12 @@ public class TutorialScript : MonoBehaviour
     private IEnumerator ScoreExample()
     {
         arrows[1].SetActive(true);
-        tutorialText.text = "Look! Your score went up! The faster you fix an issue, the faster it will grow!";
+        tutorialText.text = "Look! Your score went up! \n \n The faster you fix an issue, the faster it will grow!";
         yield return new WaitForSeconds(4f);
 
         SpawnMiniGame(0);
         arrows[1].SetActive(false);
         gameActive = true;
-        tutorialText.text = "Oh No! A different breach has appeared! They will appear quickly so you'd better be fast to fix it!";
+        tutorialText.text = "Oh No! A different breach has appeared! \n \n They will appear quickly so you'd better be fast to fix it!";
     }
 }

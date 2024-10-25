@@ -119,7 +119,7 @@ public class DriveDrag : MonoBehaviour
             Destroy(gameObject);
             otherDrive.gameObject.SetActive(true);
             hammerScript.enabled = true;
-            instructions.text = "SMASH IT!";
+            instructions.text = "SWING FAST!";
         }
     }
 }
