@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class VirusIdentity : MonoBehaviour
 {
 
-    private string[] Viruses = { "Worm", "Wiper", "Trojan", "Spyware", "Phishing", "Backdoor"};
+    private string[] Viruses = { "WORM", "WIPER", "TROJAN", "SPYWARE", "PHISHING", "BACKDOOR"};
     public string realVirus;
 
     public AudioSource[] audioSources;
@@ -86,7 +86,7 @@ public class VirusIdentity : MonoBehaviour
         realVirus = "";
 
         realVirus = Viruses[Random.Range(0, Viruses.Length)];
-        virusDirect.text = "Find The: "  + realVirus;
+        virusDirect.text = "Find The: \n"  + realVirus;
 
 
     }

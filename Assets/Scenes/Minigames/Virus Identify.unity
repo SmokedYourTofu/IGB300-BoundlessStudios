@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1049846
 Light:
@@ -1240,6 +1241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &278236547
 Light:
@@ -1479,7 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2175,6 +2177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &856058750
 Light:
@@ -3000,6 +3003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1253119775
 Light:
@@ -3443,6 +3447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1618549109
 Light:
@@ -3561,7 +3566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 748, y: -257}
+  m_AnchoredPosition: {x: 784, y: -285.1}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699147169
@@ -3611,8 +3616,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3969,14 +3974,14 @@ RectTransform:
   m_LocalRotation: {x: -0.97981906, y: 0.19988666, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 356661316}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -156.939}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 931, y: -152}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 882.3, y: -144.5}
+  m_SizeDelta: {x: 213.46, y: 213.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1760212927
 MonoBehaviour:
@@ -4234,8 +4239,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44
-  m_fontSizeBase: 44
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4383,6 +4388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VirusController: {fileID: 744842661}
   virusSpot: {fileID: 166863632}
+  startposition: {x: 0, y: 0, z: 0}
   sceneCam: {fileID: 195564322}
 --- !u!108 &1874610833
 Light:
